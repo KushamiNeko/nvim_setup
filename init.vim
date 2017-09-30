@@ -13,6 +13,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Shougo/deoplete.nvim'
 
+Plugin 'Shougo/vimproc.vim'
+
 "Plugin 'Rip-Rip/clang_complete'
 
 Plugin 'vim-scripts/OmniCppComplete'
@@ -26,8 +28,6 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'majutsushi/tagbar'
 
 Plugin 'leafgarland/typescript-vim'
-
-Plugin 'Shougo/vimproc.vim'
 
 Plugin 'Quramy/tsuquyomi'
 
@@ -70,9 +70,12 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_delay=5
 let g:deoplete#omni_patterns = {'c': '[a-z0-9.]\{2,}', 'cpp': '[a-z0-9.]\{2,}', 'go': '[a-z0-9.]\{2,}', 'python': '[a-z0-9.]\{2,}', 'typescript': '[a-z0-9.]\{2,}'}
 
+
+"function for disable deoplete
 function! DisableDeoplete()
   let b:deoplete_disable_auto_complete=1
 endfunction
+
 
 "autocmd FileType c call DisableDeoplete()
 "autocmd FileType cpp call DisableDeoplete()
@@ -88,6 +91,7 @@ autocmd FileType python call DisableDeoplete()
 "let g:clang_close_preview=1
 
 
+"function for ctags generation
 function CTag()
  let path = expand(getcwd())
  execute 'silent! ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
@@ -99,7 +103,6 @@ endfunction
 function CppTag()
  let path = expand(getcwd())
  execute 'silent !ctags -R --sort=yes --fields=+iaS --extra=+q --c++-kinds=+cdefgmpstuvx --language-force=c++ -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
- "execute 'silent !ctags -R --sort=yes --fields=+iaS --extra=+q --c++-kinds=+cdefgmpstuvx --language-force=c++ -f ~/.vim/ctags/working/general.tag ' . '~/programming_projects/c/general/src'
 
   execute 'silent! source tag'
 endfunction
@@ -149,7 +152,6 @@ let g:syntastic_mode_map = {
       \ "passive_filetypes": []}
       "'passive_filetypes': ['c', 'cpp', 'go']
 
-
 let g:syntastic_c_checkers = ['clang_check']
 let g:syntastic_cpp_checkers = ['clang_check']
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
@@ -179,6 +181,7 @@ let g:formatters_python = ['my_python']
 "set indentation width to 2 spaces in python mode
 au FileType python setl sw=2 sts=2 et
 
+
 autocmd FileType php setl ofu=phpcomplete#CompletePHP
 autocmd FileType ruby setl ofu=rubycomplete#Complete
 autocmd FileType eruby setl ofu=rubycomplete#Complete
@@ -206,7 +209,6 @@ autocmd VimEnter <buffer> execute 'NERDTreeToggle'
 
 autocmd FileType c autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType cpp autocmd BufWritePre <buffer> execute 'Autoformat'
-
 autocmd FileType python autocmd BufWritePre <buffer> execute 'Autoformat'
 
 autocmd FileType xml autocmd BufWritePre <buffer> execute 'Autoformat'
@@ -228,7 +230,7 @@ autocmd FileType cpp autocmd BufWritePost <buffer> call CppTag
 set nu
 
 
-set completeopt=menuone,longest
+"set completeopt=menuone,longest
 "set completeopt=noselect
 
 
