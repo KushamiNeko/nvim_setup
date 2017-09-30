@@ -11,9 +11,9 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
-"Plugin 'Shougo/deoplete.nvim'
+Plugin 'Shougo/deoplete.nvim'
 
-"Plugin 'Shougo/vimproc.vim'
+Plugin 'Shougo/vimproc.vim'
 
 Plugin 'roxma/nvim-completion-manager'
 
@@ -81,19 +81,46 @@ filetype plugin indent on
 "set completeopt+=noselect
 
 
+let g:cm_smart_enable=1
+
+
 "start deoplete
-"let g:deoplete#enable_at_startup = 1
-"let g:deoplete#auto_complete_delay=5
-"let g:deoplete#omni_patterns = {'c': '[a-z0-9.]\{2,}', 'cpp': '[a-z0-9.]\{2,}', 'go': '[a-z0-9.]\{2,}', 'python': '[a-z0-9.]\{2,}', 'typescript': '[a-z0-9.]\{2,}'}
+let g:deoplete#enable_at_startup = 0
+let g:deoplete#auto_complete_delay=50
+let g:deoplete#omni_patterns = {'go': '[a-z0-9.]\{2,}', 'python': '[a-z0-9.]\{2,}', 'typescript': '[a-z0-9.]\{2,}'}
+
+
+let g:cm_complete_popup_delay=10
+
+
+au User CmSetup call cm#register_source({
+      \ 'name' : 'cm-ts',
+      \ 'priority': 0,
+      \ 'scoping': 1,
+      \ 'scopes': ['typescript'],
+      \ 'abbreviation': 'ts',
+      \ 'word_pattern': '[a-z0-9.]+',
+      \ 'cm_refresh_patterns':['[a-z0-9.]+'],
+      \ 'cm_refresh': {'omnifunc': 'tsuquyomi#complete'},
+      \ })
 
 
 "function for disable deoplete
-"function! DisableDeoplete()
-  "let b:deoplete_disable_auto_complete=1
-"endfunction
+function! DisableDeoplete()
+  let b:deoplete_disable_auto_complete=1
+endfunction
+
+function! EnableNCM()
+  let g:cm_smart_enable=1
+endfunction
 
 
+"autocmd FileType c call DisableDeoplete()
+"autocmd FileType cpp call DisableDeoplete()
 "autocmd FileType python call DisableDeoplete()
+
+"autocmd FileType c call EnableNCM()
+"autocmd FileType cpp call EnableNCM()
 
 
 "setting of clang complete
