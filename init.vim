@@ -11,13 +11,21 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'Shougo/deoplete.nvim'
+"Plugin 'Shougo/deoplete.nvim'
 
-Plugin 'Shougo/vimproc.vim'
+"Plugin 'Shougo/vimproc.vim'
+
+Plugin 'roxma/nvim-completion-manager'
+
+Plugin 'roxma/ncm-clang'
 
 "Plugin 'Rip-Rip/clang_complete'
 
 Plugin 'vim-scripts/OmniCppComplete'
+
+Plugin 'SirVer/ultisnips'
+
+Plugin 'honza/vim-snippets'
 
 Plugin 'fatih/vim-go'
 
@@ -32,6 +40,8 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'Quramy/tsuquyomi'
 
 Plugin 'Quramy/vim-js-pretty-template'
+
+Plugin 'othree/csscomplete.vim'
 
 Plugin 'jason0x43/vim-js-indent'
 
@@ -51,7 +61,6 @@ Plugin 'tpope/vim-surround'
 
 Plugin 'dart-lang/dart-vim-plugin'
 
-
 "colorscheme plugins
 
 Plugin 'colepeters/spacemacs-theme.vim'
@@ -65,21 +74,26 @@ call vundle#end()
 filetype plugin indent on
 
 
+"setting of completion menu
+"set completeopt-=menu
+"set completeopt+=menuone
+"set completeopt-=longest
+"set completeopt+=noselect
+
+
 "start deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_delay=5
-let g:deoplete#omni_patterns = {'c': '[a-z0-9.]\{2,}', 'cpp': '[a-z0-9.]\{2,}', 'go': '[a-z0-9.]\{2,}', 'python': '[a-z0-9.]\{2,}', 'typescript': '[a-z0-9.]\{2,}'}
+"let g:deoplete#enable_at_startup = 1
+"let g:deoplete#auto_complete_delay=5
+"let g:deoplete#omni_patterns = {'c': '[a-z0-9.]\{2,}', 'cpp': '[a-z0-9.]\{2,}', 'go': '[a-z0-9.]\{2,}', 'python': '[a-z0-9.]\{2,}', 'typescript': '[a-z0-9.]\{2,}'}
 
 
 "function for disable deoplete
-function! DisableDeoplete()
-  let b:deoplete_disable_auto_complete=1
-endfunction
+"function! DisableDeoplete()
+  "let b:deoplete_disable_auto_complete=1
+"endfunction
 
 
-"autocmd FileType c call DisableDeoplete()
-"autocmd FileType cpp call DisableDeoplete()
-autocmd FileType python call DisableDeoplete()
+"autocmd FileType python call DisableDeoplete()
 
 
 "setting of clang complete
@@ -91,18 +105,32 @@ autocmd FileType python call DisableDeoplete()
 "let g:clang_close_preview=1
 
 
+"omniCppComplete
+let OmniCpp_NamespaceSearch = 1
+let OmniCpp_GlobalScopeSearch = 1
+let OmniCpp_ShowAccess = 1
+let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
+let OmniCpp_MayCompleteDot = 1 " autocomplete after .
+let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
+let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
+let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+
+" automatically open and close the popup menu / preview window
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+
+
 "function for ctags generation
 function CTag()
- let path = expand(getcwd())
- execute 'silent! ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
- "execute 'silent! ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.vim/ctags/working/general.tag ' . '~/programming_projects/c/general/src'
+  let path = expand(getcwd())
+  execute 'silent! ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
+  "execute 'silent! ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.vim/ctags/working/general.tag ' . '~/programming_projects/c/general/src'
 
   execute 'silent! source tag'
 endfunction
 
 function CppTag()
- let path = expand(getcwd())
- execute 'silent !ctags -R --sort=yes --fields=+iaS --extra=+q --c++-kinds=+cdefgmpstuvx --language-force=c++ -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
+  let path = expand(getcwd())
+  execute 'silent !ctags -R --sort=yes --fields=+iaS --extra=+q --c++-kinds=+cdefgmpstuvx --language-force=c++ -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
 
   execute 'silent! source tag'
 endfunction
@@ -150,7 +178,7 @@ let g:syntastic_mode_map = {
       \ "mode": "passive",
       \ "active_filetypes": ["html", "css", "javascript", "typescript", "python"],
       \ "passive_filetypes": []}
-      "'passive_filetypes': ['c', 'cpp', 'go']
+"'passive_filetypes': ['c', 'cpp', 'go']
 
 let g:syntastic_c_checkers = ['clang_check']
 let g:syntastic_cpp_checkers = ['clang_check']
@@ -195,7 +223,7 @@ autocmd FileType xhtml setl completefunc=htmlcomplete#CompleteTags
 autocmd FileType css setl ofu=csscomplete#CompleteCSS
 autocmd FileType css setl completefunc=csscomplete#CompleteCSS
 
-autocmd FileType c setl ofu=ccomplete#Complete
+"autocmd FileType c setl ofu=ccomplete#Complete
 "autocmd FileType c setl ofu=ClangComplete
 "autocmd FileType c setl completefunc=ClangComplete
 
@@ -222,16 +250,12 @@ autocmd FileType dart autocmd BufWritePre <buffer> execute 'DartFmt'
 autocmd FileType c call CTag()
 autocmd FileType cpp call CppTag()
 
-autocmd FileType c autocmd BufWritePost <buffer> call CTag
-autocmd FileType cpp autocmd BufWritePost <buffer> call CppTag
+autocmd FileType c autocmd BufWritePost <buffer> call CTag()
+autocmd FileType cpp autocmd BufWritePost <buffer> call CppTag()
 
 
 "display line number
 set nu
-
-
-"set completeopt=menuone,longest
-"set completeopt=noselect
 
 
 " set line ending always with LF (UNIX Style)
@@ -261,10 +285,12 @@ set background=dark
 
 
 "setting of color theme
-colorscheme quantum
-let g:airline_theme='quantum'
-let g:quantum_black = 1
-let g:quantum_italics = 1
+"colorscheme quantum
+"let g:airline_theme='quantum'
+"let g:quantum_black = 1
+"let g:quantum_italics = 1
+
+colorscheme spacemacs-theme
 
 
 "setting of gnome terminal
@@ -277,5 +303,4 @@ hi NonText ctermbg=none
 
 
 au ColorScheme * hi Normal ctermbg=none guibg=none
-
 
