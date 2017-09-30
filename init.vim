@@ -81,18 +81,11 @@ filetype plugin indent on
 "set completeopt+=noselect
 
 
+"setting for ncm
 let g:cm_smart_enable=1
-
-
-"start deoplete
-let g:deoplete#enable_at_startup = 0
-let g:deoplete#auto_complete_delay=50
-let g:deoplete#omni_patterns = {'go': '[a-z0-9.]\{2,}', 'python': '[a-z0-9.]\{2,}', 'typescript': '[a-z0-9.]\{2,}'}
-
-
 let g:cm_complete_popup_delay=10
 
-
+"setting for typescript with NCM
 au User CmSetup call cm#register_source({
       \ 'name' : 'cm-ts',
       \ 'priority': 0,
@@ -105,22 +98,11 @@ au User CmSetup call cm#register_source({
       \ })
 
 
-"function for disable deoplete
-function! DisableDeoplete()
-  let b:deoplete_disable_auto_complete=1
-endfunction
-
-function! EnableNCM()
-  let g:cm_smart_enable=1
-endfunction
-
-
-"autocmd FileType c call DisableDeoplete()
-"autocmd FileType cpp call DisableDeoplete()
-"autocmd FileType python call DisableDeoplete()
-
-"autocmd FileType c call EnableNCM()
-"autocmd FileType cpp call EnableNCM()
+"start deoplete
+let g:deoplete#enable_at_startup = 0
+let g:deoplete#disable_auto_complete=1
+let g:deoplete#auto_complete_delay=10
+let g:deoplete#omni_patterns = {'go': '[a-z0-9.]\{2,}', 'python': '[a-z0-9.]\{2,}', 'typescript': '[a-z0-9.]\{2,}'}
 
 
 "setting of clang complete
@@ -312,12 +294,11 @@ set background=dark
 
 
 "setting of color theme
+colorscheme spacemacs-theme
 "colorscheme quantum
 "let g:airline_theme='quantum'
 "let g:quantum_black = 1
 "let g:quantum_italics = 1
-
-colorscheme spacemacs-theme
 
 
 "setting of gnome terminal
