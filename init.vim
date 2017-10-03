@@ -11,7 +11,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'Shougo/deoplete.nvim'
+"Plugin 'Shougo/deoplete.nvim'
 
 Plugin 'Shougo/vimproc.vim'
 
@@ -23,9 +23,9 @@ Plugin 'roxma/ncm-clang'
 
 Plugin 'vim-scripts/OmniCppComplete'
 
-Plugin 'SirVer/ultisnips'
+"Plugin 'SirVer/ultisnips'
 
-Plugin 'honza/vim-snippets'
+"Plugin 'honza/vim-snippets'
 
 Plugin 'fatih/vim-go'
 
@@ -59,7 +59,7 @@ Plugin 'vim-syntastic/syntastic'
 
 Plugin 'tpope/vim-surround'
 
-Plugin 'dart-lang/dart-vim-plugin'
+"Plugin 'dart-lang/dart-vim-plugin'
 
 "colorscheme plugins
 
@@ -99,10 +99,10 @@ au User CmSetup call cm#register_source({
 
 
 "start deoplete
-let g:deoplete#enable_at_startup = 0
-let g:deoplete#disable_auto_complete=1
-let g:deoplete#auto_complete_delay=10
-let g:deoplete#omni_patterns = {'go': '[a-z0-9.]\{2,}', 'python': '[a-z0-9.]\{2,}', 'typescript': '[a-z0-9.]\{2,}'}
+"let g:deoplete#enable_at_startup = 0
+"let g:deoplete#disable_auto_complete=1
+"let g:deoplete#auto_complete_delay=10
+"let g:deoplete#omni_patterns = {'go': '[a-z0-9.]\{2,}', 'python': '[a-z0-9.]\{2,}', 'typescript': '[a-z0-9.]\{2,}'}
 
 
 "setting of clang complete
@@ -125,7 +125,7 @@ let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
 let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 
 " automatically open and close the popup menu / preview window
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+"au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 
 "function for ctags generation
@@ -189,9 +189,9 @@ let g:syntastic_mode_map = {
       \ "passive_filetypes": []}
 "'passive_filetypes': ['c', 'cpp', 'go']
 
-let g:syntastic_c_checkers = ['clang_check']
-let g:syntastic_cpp_checkers = ['clang_check']
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+"let g:syntastic_c_checkers = ['clang_check']
+"let g:syntastic_cpp_checkers = ['clang_check']
+"let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args='--ignore=E111,E121,E114,E501,E125'
 let g:syntastic_typescript_checkers = ['tsuquyomi']
@@ -200,7 +200,7 @@ let g:syntastic_html_checkers = ['jshint']
 let g:syntastic_css_checkers = ['jshint', 'tidy']
 let g:syntastic_javascript_checkers = ['jshint', 'tidy']
 let g:syntastic_typescript_checkers = ['tsuquyomi']
-let g:syntastic_dart_checkers = ['dartanalyzer']
+"let g:syntastic_dart_checkers = ['dartanalyzer']
 
 "let g:syntastic_quiet_messages = {'level':  'warning', 'type': 'syntax'}
 
