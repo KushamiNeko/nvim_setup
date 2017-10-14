@@ -13,41 +13,47 @@ Plugin 'VundleVim/Vundle.vim'
 
 "Plugin 'Shougo/deoplete.nvim'
 
-Plugin 'Shougo/vimproc.vim'
+"Plugin 'Shougo/vimproc.vim'
 
 Plugin 'roxma/nvim-completion-manager'
 
+Plugin 'autozimu/LanguageClient-neovim'
+
 Plugin 'roxma/ncm-clang'
 
+Plugin 'roxma/nvim-cm-tern'
+
+Plugin 'Shougo/neco-vim'
+
+Plugin 'SirVer/ultisnips'
+
+Plugin 'honza/vim-snippets'
+
+"Plugin 'vim-scripts/OmniCppComplete'
+
 "Plugin 'Rip-Rip/clang_complete'
-
-Plugin 'vim-scripts/OmniCppComplete'
-
-"Plugin 'SirVer/ultisnips'
-
-"Plugin 'honza/vim-snippets'
 
 Plugin 'fatih/vim-go'
 
 Plugin 'davidhalter/jedi-vim'
 
+Plugin 'ternjs/tern_for_vim'
+
+Plugin 'othree/csscomplete.vim'
+
+"Plugin 'leafgarland/typescript-vim'
+
+"Plugin 'Quramy/tsuquyomi'
+
 Plugin 'Raimondi/delimitMate'
 
 Plugin 'majutsushi/tagbar'
 
-Plugin 'leafgarland/typescript-vim'
-
-Plugin 'Quramy/tsuquyomi'
-
 Plugin 'Quramy/vim-js-pretty-template'
-
-Plugin 'othree/csscomplete.vim'
 
 Plugin 'jason0x43/vim-js-indent'
 
 Plugin 'Chiel92/vim-autoformat'
-
-Plugin 'ternjs/tern_for_vim'
 
 Plugin 'alvan/vim-closetag'
 
@@ -59,7 +65,6 @@ Plugin 'vim-syntastic/syntastic'
 
 Plugin 'tpope/vim-surround'
 
-"Plugin 'dart-lang/dart-vim-plugin'
 
 "colorscheme plugins
 
@@ -86,16 +91,16 @@ let g:cm_smart_enable=1
 let g:cm_complete_popup_delay=10
 
 "setting for typescript with NCM
-au User CmSetup call cm#register_source({
-      \ 'name' : 'cm-ts',
-      \ 'priority': 0,
-      \ 'scoping': 1,
-      \ 'scopes': ['typescript'],
-      \ 'abbreviation': 'ts',
-      \ 'word_pattern': '[a-z0-9.]+',
-      \ 'cm_refresh_patterns':['[a-z0-9.]+'],
-      \ 'cm_refresh': {'omnifunc': 'tsuquyomi#complete'},
-      \ })
+"au User CmSetup call cm#register_source({
+      "\ 'name' : 'cm-ts',
+      "\ 'priority': 0,
+      "\ 'scoping': 1,
+      "\ 'scopes': ['typescript'],
+      "\ 'abbreviation': 'ts',
+      "\ 'word_pattern': '[a-z0-9.]+',
+      "\ 'cm_refresh_patterns':['[a-z0-9.]+'],
+      "\ 'cm_refresh': {'omnifunc': 'tsuquyomi#complete'},
+      "\ })
 
 
 "start deoplete
@@ -115,38 +120,38 @@ au User CmSetup call cm#register_source({
 
 
 "omniCppComplete
-let OmniCpp_NamespaceSearch = 1
-let OmniCpp_GlobalScopeSearch = 1
-let OmniCpp_ShowAccess = 1
-let OmniCpp_ShowPrototypeInAbbr = 1 
-" show function parameters
-let OmniCpp_MayCompleteDot = 1 
-" autocomplete after .
-let OmniCpp_MayCompleteArrow = 1 
-" autocomplete after ->
-let OmniCpp_MayCompleteScope = 1 
-" autocomplete after ::
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+"let OmniCpp_NamespaceSearch = 1
+"let OmniCpp_GlobalScopeSearch = 1
+"let OmniCpp_ShowAccess = 1
+"let OmniCpp_ShowPrototypeInAbbr = 1 
+"" show function parameters
+"let OmniCpp_MayCompleteDot = 1 
+"" autocomplete after .
+"let OmniCpp_MayCompleteArrow = 1 
+"" autocomplete after ->
+"let OmniCpp_MayCompleteScope = 1 
+"" autocomplete after ::
+"let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 
 " automatically open and close the popup menu / preview window
 "au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 
 "function for ctags generation
-function CTag()
-  let path = expand(getcwd())
-  execute 'silent! ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
-  "execute 'silent! ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.vim/ctags/working/general.tag ' . '~/programming_projects/c/general/src'
+"function CTag()
+  "let path = expand(getcwd())
+  "execute 'silent! ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
+  ""execute 'silent! ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.vim/ctags/working/general.tag ' . '~/programming_projects/c/general/src'
 
-  execute 'silent! source tag'
-endfunction
+  "execute 'silent! source tag'
+"endfunction
 
-function CppTag()
-  let path = expand(getcwd())
-  execute 'silent !ctags -R --sort=yes --fields=+iaS --extra=+q --c++-kinds=+cdefgmpstuvx --language-force=c++ -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
+"function CppTag()
+  "let path = expand(getcwd())
+  "execute 'silent !ctags -R --sort=yes --fields=+iaS --extra=+q --c++-kinds=+cdefgmpstuvx --language-force=c++ -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
 
-  execute 'silent! source tag'
-endfunction
+  "execute 'silent! source tag'
+"endfunction
 
 
 "setting of delimitMate
@@ -170,11 +175,11 @@ let g:go_highlight_build_constraints = 1
 
 
 "setting of jedi-vim
-let g:jedi#force_py_version = 3
+"let g:jedi#force_py_version = 3
 
 
 " setting of tsuquyomi typescript'
-let g:tsuquyomi_disable_quickfix = 1
+"let g:tsuquyomi_disable_quickfix = 1
 
 
 "setting of syntastic
@@ -223,9 +228,9 @@ let g:formatters_python = ['my_python']
 au FileType python setl sw=2 sts=2 et
 
 
-autocmd FileType php setl ofu=phpcomplete#CompletePHP
-autocmd FileType ruby setl ofu=rubycomplete#Complete
-autocmd FileType eruby setl ofu=rubycomplete#Complete
+"autocmd FileType php setl ofu=phpcomplete#CompletePHP
+"autocmd FileType ruby setl ofu=rubycomplete#Complete
+"autocmd FileType eruby setl ofu=rubycomplete#Complete
 
 autocmd FileType html setl ofu=htmlcomplete#CompleteTags
 autocmd FileType html setl completefunc=htmlcomplete#CompleteTags
@@ -236,7 +241,7 @@ autocmd FileType xhtml setl completefunc=htmlcomplete#CompleteTags
 autocmd FileType css setl ofu=csscomplete#CompleteCSS
 autocmd FileType css setl completefunc=csscomplete#CompleteCSS
 
-"autocmd FileType c setl ofu=ccomplete#Complete
+autocmd FileType c setl ofu=ccomplete#Complete
 "autocmd FileType c setl ofu=ClangComplete
 "autocmd FileType c setl completefunc=ClangComplete
 
@@ -258,13 +263,13 @@ autocmd FileType html autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType css autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType javascript autocmd BufWritePre <buffer> execute 'Autoformat'
 
-autocmd FileType dart autocmd BufWritePre <buffer> execute 'DartFmt'
+"autocmd FileType dart autocmd BufWritePre <buffer> execute 'DartFmt'
 
-autocmd FileType c call CTag()
-autocmd FileType cpp call CppTag()
+"autocmd FileType c call CTag()
+"autocmd FileType cpp call CppTag()
 
-autocmd FileType c autocmd BufWritePost <buffer> call CTag()
-autocmd FileType cpp autocmd BufWritePost <buffer> call CppTag()
+"autocmd FileType c autocmd BufWritePost <buffer> call CTag()
+"autocmd FileType cpp autocmd BufWritePost <buffer> call CppTag()
 
 
 "display line number
