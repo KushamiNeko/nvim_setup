@@ -203,12 +203,12 @@ let g:syntastic_mode_map = {
 "let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args='--ignore=E111,E121,E114,E501,E125'
-let g:syntastic_typescript_checkers = ['tsuquyomi']
+"let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 let g:syntastic_html_checkers = ['jshint']
-let g:syntastic_css_checkers = ['jshint', 'tidy']
-let g:syntastic_javascript_checkers = ['jshint', 'tidy']
-let g:syntastic_typescript_checkers = ['tsuquyomi']
+let g:syntastic_css_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['jshint']
+"let g:syntastic_typescript_checkers = ['tsuquyomi']
 "let g:syntastic_dart_checkers = ['dartanalyzer']
 
 "let g:syntastic_quiet_messages = {'level':  'warning', 'type': 'syntax'}
