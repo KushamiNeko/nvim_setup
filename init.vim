@@ -29,7 +29,7 @@ Plugin 'SirVer/ultisnips'
 
 Plugin 'honza/vim-snippets'
 
-"Plugin 'vim-scripts/OmniCppComplete'
+Plugin 'vim-scripts/OmniCppComplete'
 
 "Plugin 'Rip-Rip/clang_complete'
 
@@ -120,38 +120,38 @@ let g:cm_complete_popup_delay=10
 
 
 "omniCppComplete
-"let OmniCpp_NamespaceSearch = 1
-"let OmniCpp_GlobalScopeSearch = 1
-"let OmniCpp_ShowAccess = 1
-"let OmniCpp_ShowPrototypeInAbbr = 1 
-"" show function parameters
-"let OmniCpp_MayCompleteDot = 1 
-"" autocomplete after .
-"let OmniCpp_MayCompleteArrow = 1 
-"" autocomplete after ->
-"let OmniCpp_MayCompleteScope = 1 
-"" autocomplete after ::
-"let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+let OmniCpp_NamespaceSearch = 1
+let OmniCpp_GlobalScopeSearch = 1
+let OmniCpp_ShowAccess = 1
+let OmniCpp_ShowPrototypeInAbbr = 1 
+" show function parameters
+let OmniCpp_MayCompleteDot = 1 
+" autocomplete after .
+let OmniCpp_MayCompleteArrow = 1 
+" autocomplete after ->
+let OmniCpp_MayCompleteScope = 1 
+" autocomplete after ::
+let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 
 " automatically open and close the popup menu / preview window
 "au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 
 "function for ctags generation
-"function CTag()
-  "let path = expand(getcwd())
-  "execute 'silent! ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
-  ""execute 'silent! ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.vim/ctags/working/general.tag ' . '~/programming_projects/c/general/src'
+function CTag()
+  let path = expand(getcwd())
+  execute 'silent! ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
+  execute 'silent! ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.config/nvim/ctags/working/general.tag ' . '~/programming_projects/c/general/src'
 
-  "execute 'silent! source tag'
-"endfunction
+  execute 'silent! source tag'
+endfunction
 
-"function CppTag()
-  "let path = expand(getcwd())
-  "execute 'silent !ctags -R --sort=yes --fields=+iaS --extra=+q --c++-kinds=+cdefgmpstuvx --language-force=c++ -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
+function CppTag()
+  let path = expand(getcwd())
+  execute 'silent !ctags -R --sort=yes --fields=+iaS --extra=+q --c++-kinds=+cdefgmpstuvx --language-force=c++ -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
 
-  "execute 'silent! source tag'
-"endfunction
+  execute 'silent! source tag'
+endfunction
 
 
 "setting of delimitMate
@@ -241,7 +241,7 @@ autocmd FileType xhtml setl completefunc=htmlcomplete#CompleteTags
 autocmd FileType css setl ofu=csscomplete#CompleteCSS
 autocmd FileType css setl completefunc=csscomplete#CompleteCSS
 
-autocmd FileType c setl ofu=ccomplete#Complete
+"autocmd FileType c setl ofu=ccomplete#Complete
 "autocmd FileType c setl ofu=ClangComplete
 "autocmd FileType c setl completefunc=ClangComplete
 
@@ -265,11 +265,11 @@ autocmd FileType javascript autocmd BufWritePre <buffer> execute 'Autoformat'
 
 "autocmd FileType dart autocmd BufWritePre <buffer> execute 'DartFmt'
 
-"autocmd FileType c call CTag()
-"autocmd FileType cpp call CppTag()
+autocmd FileType c call CTag()
+autocmd FileType cpp call CppTag()
 
-"autocmd FileType c autocmd BufWritePost <buffer> call CTag()
-"autocmd FileType cpp autocmd BufWritePost <buffer> call CppTag()
+autocmd FileType c autocmd BufWritePost <buffer> call CTag()
+autocmd FileType cpp autocmd BufWritePost <buffer> call CppTag()
 
 
 "display line number
