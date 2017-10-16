@@ -39,6 +39,8 @@ Plugin 'davidhalter/jedi-vim'
 
 Plugin 'ternjs/tern_for_vim'
 
+Plugin 'othree/html5.vim'
+
 Plugin 'othree/csscomplete.vim'
 
 "Plugin 'leafgarland/typescript-vim'
