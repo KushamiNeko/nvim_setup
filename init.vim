@@ -29,7 +29,7 @@ Plugin 'SirVer/ultisnips'
 
 Plugin 'honza/vim-snippets'
 
-Plugin 'vim-scripts/OmniCppComplete'
+"Plugin 'vim-scripts/OmniCppComplete'
 
 "Plugin 'Rip-Rip/clang_complete'
 
@@ -120,18 +120,18 @@ let g:cm_complete_popup_delay=10
 
 
 "omniCppComplete
-let OmniCpp_NamespaceSearch = 1
-let OmniCpp_GlobalScopeSearch = 1
-let OmniCpp_ShowAccess = 1
-let OmniCpp_ShowPrototypeInAbbr = 1 
-" show function parameters
-let OmniCpp_MayCompleteDot = 1 
-" autocomplete after .
-let OmniCpp_MayCompleteArrow = 1 
-" autocomplete after ->
-let OmniCpp_MayCompleteScope = 1 
-" autocomplete after ::
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+"let OmniCpp_NamespaceSearch = 1
+"let OmniCpp_GlobalScopeSearch = 1
+"let OmniCpp_ShowAccess = 1
+"let OmniCpp_ShowPrototypeInAbbr = 1 
+"" show function parameters
+"let OmniCpp_MayCompleteDot = 1 
+"" autocomplete after .
+"let OmniCpp_MayCompleteArrow = 1 
+"" autocomplete after ->
+"let OmniCpp_MayCompleteScope = 1 
+"" autocomplete after ::
+"let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 
 " automatically open and close the popup menu / preview window
 "au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
@@ -241,7 +241,7 @@ autocmd FileType xhtml setl completefunc=htmlcomplete#CompleteTags
 autocmd FileType css setl ofu=csscomplete#CompleteCSS
 autocmd FileType css setl completefunc=csscomplete#CompleteCSS
 
-"autocmd FileType c setl ofu=ccomplete#Complete
+autocmd FileType c setl ofu=ccomplete#Complete
 "autocmd FileType c setl ofu=ClangComplete
 "autocmd FileType c setl completefunc=ClangComplete
 
