@@ -1,0 +1,386 @@
+
+/usr/include/GLFW/glfw3native.h,1359
+#define _glfw3_native_h__glfw3_native_h_30,1315
+ #undef APIENTRYAPIENTRY77,3008
+  typedef void* id;id84,3197
+GLFWAPI const char* glfwGetWin32Adapter(GLFWmonitor* monitor);glfwGetWin32Adapter125,4300
+GLFWAPI const char* glfwGetWin32Monitor(GLFWmonitor* monitor);glfwGetWin32Monitor141,4787
+GLFWAPI HWND glfwGetWin32Window(GLFWwindow* window);glfwGetWin32Window156,5190
+GLFWAPI HGLRC glfwGetWGLContext(GLFWwindow* window);glfwGetWGLContext173,5628
+GLFWAPI CGDirectDisplayID glfwGetCocoaMonitor(GLFWmonitor* monitor);glfwGetCocoaMonitor190,6110
+GLFWAPI id glfwGetCocoaWindow(GLFWwindow* window);glfwGetCocoaWindow205,6526
+GLFWAPI id glfwGetNSGLContext(GLFWwindow* window);glfwGetNSGLContext222,6982
+GLFWAPI Display* glfwGetX11Display(void);glfwGetX11Display239,7400
+GLFWAPI RRCrtc glfwGetX11Adapter(GLFWmonitor* monitor);glfwGetX11Adapter254,7788
+GLFWAPI RROutput glfwGetX11Monitor(GLFWmonitor* monitor);glfwGetX11Monitor269,8194
+GLFWAPI Window glfwGetX11Window(GLFWwindow* window);glfwGetX11Window284,8596
+GLFWAPI GLXContext glfwGetGLXContext(GLFWwindow* window);glfwGetGLXContext301,9044
+GLFWAPI EGLDisplay glfwGetEGLDisplay(void);glfwGetEGLDisplay318,9485
+GLFWAPI EGLContext glfwGetEGLContext(GLFWwindow* window);glfwGetEGLContext333,9891
+GLFWAPI EGLSurface glfwGetEGLSurface(GLFWwindow* window);glfwGetEGLSurface348,10311
+
+/usr/include/GLFW/glfw3.h,22812
+#define _glfw3_h__glfw3_h_30,1308
+ #define _WIN32_WIN3277,2877
+  #define APIENTRY APIENTRY85,3104
+  #define APIENTRYAPIENTRY87,3140
+ #define WINGDIAPI WINGDIAPI94,3279
+ #define GLFW_WINGDIAPI_DEFINEDGLFW_WINGDIAPI_DEFINED95,3320
+ #define CALLBACK CALLBACK101,3461
+ #define GLFW_CALLBACK_DEFINEDGLFW_CALLBACK_DEFINED102,3489
+   #define GL_GLEXT_LEGACYGL_GLEXT_LEGACY122,4001
+ #define GLFWAPI GLFWAPI176,5489
+ #define GLFWAPI GLFWAPI179,5613
+ #define GLFWAPI GLFWAPI182,5762
+ #define GLFWAPIGLFWAPI185,5883
+#define GLFW_VERSION_MAJOR GLFW_VERSION_MAJOR200,6274
+#define GLFW_VERSION_MINOR GLFW_VERSION_MINOR207,6493
+#define GLFW_VERSION_REVISION GLFW_VERSION_REVISION214,6706
+#define GLFW_RELEASE GLFW_RELEASE225,6918
+#define GLFW_PRESS GLFW_PRESS232,7074
+#define GLFW_REPEAT GLFW_REPEAT239,7238
+#define GLFW_KEY_UNKNOWN GLFW_KEY_UNKNOWN266,8181
+#define GLFW_KEY_SPACE GLFW_KEY_SPACE269,8242
+#define GLFW_KEY_APOSTROPHE GLFW_KEY_APOSTROPHE270,8281
+#define GLFW_KEY_COMMA GLFW_KEY_COMMA271,8329
+#define GLFW_KEY_MINUS GLFW_KEY_MINUS272,8377
+#define GLFW_KEY_PERIOD GLFW_KEY_PERIOD273,8425
+#define GLFW_KEY_SLASH GLFW_KEY_SLASH274,8473
+#define GLFW_KEY_0 GLFW_KEY_0275,8521
+#define GLFW_KEY_1 GLFW_KEY_1276,8560
+#define GLFW_KEY_2 GLFW_KEY_2277,8599
+#define GLFW_KEY_3 GLFW_KEY_3278,8638
+#define GLFW_KEY_4 GLFW_KEY_4279,8677
+#define GLFW_KEY_5 GLFW_KEY_5280,8716
+#define GLFW_KEY_6 GLFW_KEY_6281,8755
+#define GLFW_KEY_7 GLFW_KEY_7282,8794
+#define GLFW_KEY_8 GLFW_KEY_8283,8833
+#define GLFW_KEY_9 GLFW_KEY_9284,8872
+#define GLFW_KEY_SEMICOLON GLFW_KEY_SEMICOLON285,8911
+#define GLFW_KEY_EQUAL GLFW_KEY_EQUAL286,8959
+#define GLFW_KEY_A GLFW_KEY_A287,9007
+#define GLFW_KEY_B GLFW_KEY_B288,9046
+#define GLFW_KEY_C GLFW_KEY_C289,9085
+#define GLFW_KEY_D GLFW_KEY_D290,9124
+#define GLFW_KEY_E GLFW_KEY_E291,9163
+#define GLFW_KEY_F GLFW_KEY_F292,9202
+#define GLFW_KEY_G GLFW_KEY_G293,9241
+#define GLFW_KEY_H GLFW_KEY_H294,9280
+#define GLFW_KEY_I GLFW_KEY_I295,9319
+#define GLFW_KEY_J GLFW_KEY_J296,9358
+#define GLFW_KEY_K GLFW_KEY_K297,9397
+#define GLFW_KEY_L GLFW_KEY_L298,9436
+#define GLFW_KEY_M GLFW_KEY_M299,9475
+#define GLFW_KEY_N GLFW_KEY_N300,9514
+#define GLFW_KEY_O GLFW_KEY_O301,9553
+#define GLFW_KEY_P GLFW_KEY_P302,9592
+#define GLFW_KEY_Q GLFW_KEY_Q303,9631
+#define GLFW_KEY_R GLFW_KEY_R304,9670
+#define GLFW_KEY_S GLFW_KEY_S305,9709
+#define GLFW_KEY_T GLFW_KEY_T306,9748
+#define GLFW_KEY_U GLFW_KEY_U307,9787
+#define GLFW_KEY_V GLFW_KEY_V308,9826
+#define GLFW_KEY_W GLFW_KEY_W309,9865
+#define GLFW_KEY_X GLFW_KEY_X310,9904
+#define GLFW_KEY_Y GLFW_KEY_Y311,9943
+#define GLFW_KEY_Z GLFW_KEY_Z312,9982
+#define GLFW_KEY_LEFT_BRACKET GLFW_KEY_LEFT_BRACKET313,10021
+#define GLFW_KEY_BACKSLASH GLFW_KEY_BACKSLASH314,10069
+#define GLFW_KEY_RIGHT_BRACKET GLFW_KEY_RIGHT_BRACKET315,10117
+#define GLFW_KEY_GRAVE_ACCENT GLFW_KEY_GRAVE_ACCENT316,10165
+#define GLFW_KEY_WORLD_1 GLFW_KEY_WORLD_1317,10213
+#define GLFW_KEY_WORLD_2 GLFW_KEY_WORLD_2318,10269
+#define GLFW_KEY_ESCAPE GLFW_KEY_ESCAPE321,10346
+#define GLFW_KEY_ENTER GLFW_KEY_ENTER322,10386
+#define GLFW_KEY_TAB GLFW_KEY_TAB323,10426
+#define GLFW_KEY_BACKSPACE GLFW_KEY_BACKSPACE324,10466
+#define GLFW_KEY_INSERT GLFW_KEY_INSERT325,10506
+#define GLFW_KEY_DELETE GLFW_KEY_DELETE326,10546
+#define GLFW_KEY_RIGHT GLFW_KEY_RIGHT327,10586
+#define GLFW_KEY_LEFT GLFW_KEY_LEFT328,10626
+#define GLFW_KEY_DOWN GLFW_KEY_DOWN329,10666
+#define GLFW_KEY_UP GLFW_KEY_UP330,10706
+#define GLFW_KEY_PAGE_UP GLFW_KEY_PAGE_UP331,10746
+#define GLFW_KEY_PAGE_DOWN GLFW_KEY_PAGE_DOWN332,10786
+#define GLFW_KEY_HOME GLFW_KEY_HOME333,10826
+#define GLFW_KEY_END GLFW_KEY_END334,10866
+#define GLFW_KEY_CAPS_LOCK GLFW_KEY_CAPS_LOCK335,10906
+#define GLFW_KEY_SCROLL_LOCK GLFW_KEY_SCROLL_LOCK336,10946
+#define GLFW_KEY_NUM_LOCK GLFW_KEY_NUM_LOCK337,10986
+#define GLFW_KEY_PRINT_SCREEN GLFW_KEY_PRINT_SCREEN338,11026
+#define GLFW_KEY_PAUSE GLFW_KEY_PAUSE339,11066
+#define GLFW_KEY_F1 GLFW_KEY_F1340,11106
+#define GLFW_KEY_F2 GLFW_KEY_F2341,11146
+#define GLFW_KEY_F3 GLFW_KEY_F3342,11186
+#define GLFW_KEY_F4 GLFW_KEY_F4343,11226
+#define GLFW_KEY_F5 GLFW_KEY_F5344,11266
+#define GLFW_KEY_F6 GLFW_KEY_F6345,11306
+#define GLFW_KEY_F7 GLFW_KEY_F7346,11346
+#define GLFW_KEY_F8 GLFW_KEY_F8347,11386
+#define GLFW_KEY_F9 GLFW_KEY_F9348,11426
+#define GLFW_KEY_F10 GLFW_KEY_F10349,11466
+#define GLFW_KEY_F11 GLFW_KEY_F11350,11506
+#define GLFW_KEY_F12 GLFW_KEY_F12351,11546
+#define GLFW_KEY_F13 GLFW_KEY_F13352,11586
+#define GLFW_KEY_F14 GLFW_KEY_F14353,11626
+#define GLFW_KEY_F15 GLFW_KEY_F15354,11666
+#define GLFW_KEY_F16 GLFW_KEY_F16355,11706
+#define GLFW_KEY_F17 GLFW_KEY_F17356,11746
+#define GLFW_KEY_F18 GLFW_KEY_F18357,11786
+#define GLFW_KEY_F19 GLFW_KEY_F19358,11826
+#define GLFW_KEY_F20 GLFW_KEY_F20359,11866
+#define GLFW_KEY_F21 GLFW_KEY_F21360,11906
+#define GLFW_KEY_F22 GLFW_KEY_F22361,11946
+#define GLFW_KEY_F23 GLFW_KEY_F23362,11986
+#define GLFW_KEY_F24 GLFW_KEY_F24363,12026
+#define GLFW_KEY_F25 GLFW_KEY_F25364,12066
+#define GLFW_KEY_KP_0 GLFW_KEY_KP_0365,12106
+#define GLFW_KEY_KP_1 GLFW_KEY_KP_1366,12146
+#define GLFW_KEY_KP_2 GLFW_KEY_KP_2367,12186
+#define GLFW_KEY_KP_3 GLFW_KEY_KP_3368,12226
+#define GLFW_KEY_KP_4 GLFW_KEY_KP_4369,12266
+#define GLFW_KEY_KP_5 GLFW_KEY_KP_5370,12306
+#define GLFW_KEY_KP_6 GLFW_KEY_KP_6371,12346
+#define GLFW_KEY_KP_7 GLFW_KEY_KP_7372,12386
+#define GLFW_KEY_KP_8 GLFW_KEY_KP_8373,12426
+#define GLFW_KEY_KP_9 GLFW_KEY_KP_9374,12466
+#define GLFW_KEY_KP_DECIMAL GLFW_KEY_KP_DECIMAL375,12506
+#define GLFW_KEY_KP_DIVIDE GLFW_KEY_KP_DIVIDE376,12546
+#define GLFW_KEY_KP_MULTIPLY GLFW_KEY_KP_MULTIPLY377,12586
+#define GLFW_KEY_KP_SUBTRACT GLFW_KEY_KP_SUBTRACT378,12626
+#define GLFW_KEY_KP_ADD GLFW_KEY_KP_ADD379,12666
+#define GLFW_KEY_KP_ENTER GLFW_KEY_KP_ENTER380,12706
+#define GLFW_KEY_KP_EQUAL GLFW_KEY_KP_EQUAL381,12746
+#define GLFW_KEY_LEFT_SHIFT GLFW_KEY_LEFT_SHIFT382,12786
+#define GLFW_KEY_LEFT_CONTROL GLFW_KEY_LEFT_CONTROL383,12826
+#define GLFW_KEY_LEFT_ALT GLFW_KEY_LEFT_ALT384,12866
+#define GLFW_KEY_LEFT_SUPER GLFW_KEY_LEFT_SUPER385,12906
+#define GLFW_KEY_RIGHT_SHIFT GLFW_KEY_RIGHT_SHIFT386,12946
+#define GLFW_KEY_RIGHT_CONTROL GLFW_KEY_RIGHT_CONTROL387,12986
+#define GLFW_KEY_RIGHT_ALT GLFW_KEY_RIGHT_ALT388,13026
+#define GLFW_KEY_RIGHT_SUPER GLFW_KEY_RIGHT_SUPER389,13066
+#define GLFW_KEY_MENU GLFW_KEY_MENU390,13106
+#define GLFW_KEY_LAST GLFW_KEY_LAST391,13146
+#define GLFW_MOD_SHIFT GLFW_MOD_SHIFT404,13415
+#define GLFW_MOD_CONTROL GLFW_MOD_CONTROL407,13530
+#define GLFW_MOD_ALT GLFW_MOD_ALT410,13641
+#define GLFW_MOD_SUPER GLFW_MOD_SUPER413,13754
+#define GLFW_MOUSE_BUTTON_1 GLFW_MOUSE_BUTTON_1423,13955
+#define GLFW_MOUSE_BUTTON_2 GLFW_MOUSE_BUTTON_2424,13993
+#define GLFW_MOUSE_BUTTON_3 GLFW_MOUSE_BUTTON_3425,14031
+#define GLFW_MOUSE_BUTTON_4 GLFW_MOUSE_BUTTON_4426,14069
+#define GLFW_MOUSE_BUTTON_5 GLFW_MOUSE_BUTTON_5427,14107
+#define GLFW_MOUSE_BUTTON_6 GLFW_MOUSE_BUTTON_6428,14145
+#define GLFW_MOUSE_BUTTON_7 GLFW_MOUSE_BUTTON_7429,14183
+#define GLFW_MOUSE_BUTTON_8 GLFW_MOUSE_BUTTON_8430,14221
+#define GLFW_MOUSE_BUTTON_LAST GLFW_MOUSE_BUTTON_LAST431,14259
+#define GLFW_MOUSE_BUTTON_LEFT GLFW_MOUSE_BUTTON_LEFT432,14315
+#define GLFW_MOUSE_BUTTON_RIGHT GLFW_MOUSE_BUTTON_RIGHT433,14371
+#define GLFW_MOUSE_BUTTON_MIDDLE GLFW_MOUSE_BUTTON_MIDDLE434,14427
+#define GLFW_JOYSTICK_1 GLFW_JOYSTICK_1443,14627
+#define GLFW_JOYSTICK_2 GLFW_JOYSTICK_2444,14665
+#define GLFW_JOYSTICK_3 GLFW_JOYSTICK_3445,14703
+#define GLFW_JOYSTICK_4 GLFW_JOYSTICK_4446,14741
+#define GLFW_JOYSTICK_5 GLFW_JOYSTICK_5447,14779
+#define GLFW_JOYSTICK_6 GLFW_JOYSTICK_6448,14817
+#define GLFW_JOYSTICK_7 GLFW_JOYSTICK_7449,14855
+#define GLFW_JOYSTICK_8 GLFW_JOYSTICK_8450,14893
+#define GLFW_JOYSTICK_9 GLFW_JOYSTICK_9451,14931
+#define GLFW_JOYSTICK_10 GLFW_JOYSTICK_10452,14969
+#define GLFW_JOYSTICK_11 GLFW_JOYSTICK_11453,15007
+#define GLFW_JOYSTICK_12 GLFW_JOYSTICK_12454,15046
+#define GLFW_JOYSTICK_13 GLFW_JOYSTICK_13455,15085
+#define GLFW_JOYSTICK_14 GLFW_JOYSTICK_14456,15124
+#define GLFW_JOYSTICK_15 GLFW_JOYSTICK_15457,15163
+#define GLFW_JOYSTICK_16 GLFW_JOYSTICK_16458,15202
+#define GLFW_JOYSTICK_LAST GLFW_JOYSTICK_LAST459,15241
+#define GLFW_NOT_INITIALIZED GLFW_NOT_INITIALIZED477,15752
+#define GLFW_NO_CURRENT_CONTEXT GLFW_NO_CURRENT_CONTEXT488,16216
+#define GLFW_INVALID_ENUM GLFW_INVALID_ENUM498,16593
+#define GLFW_INVALID_VALUE GLFW_INVALID_VALUE510,17076
+#define GLFW_OUT_OF_MEMORY GLFW_OUT_OF_MEMORY519,17357
+#define GLFW_API_UNAVAILABLE GLFW_API_UNAVAILABLE539,18213
+#define GLFW_VERSION_UNAVAILABLE GLFW_VERSION_UNAVAILABLE557,19000
+#define GLFW_PLATFORM_ERROR GLFW_PLATFORM_ERROR569,19492
+#define GLFW_FORMAT_UNAVAILABLE GLFW_FORMAT_UNAVAILABLE589,20297
+#define GLFW_FOCUSED GLFW_FOCUSED592,20355
+#define GLFW_ICONIFIED GLFW_ICONIFIED593,20402
+#define GLFW_RESIZABLE GLFW_RESIZABLE594,20449
+#define GLFW_VISIBLE GLFW_VISIBLE595,20496
+#define GLFW_DECORATED GLFW_DECORATED596,20543
+#define GLFW_AUTO_ICONIFY GLFW_AUTO_ICONIFY597,20590
+#define GLFW_FLOATING GLFW_FLOATING598,20637
+#define GLFW_RED_BITS GLFW_RED_BITS600,20685
+#define GLFW_GREEN_BITS GLFW_GREEN_BITS601,20732
+#define GLFW_BLUE_BITS GLFW_BLUE_BITS602,20779
+#define GLFW_ALPHA_BITS GLFW_ALPHA_BITS603,20826
+#define GLFW_DEPTH_BITS GLFW_DEPTH_BITS604,20873
+#define GLFW_STENCIL_BITS GLFW_STENCIL_BITS605,20920
+#define GLFW_ACCUM_RED_BITS GLFW_ACCUM_RED_BITS606,20967
+#define GLFW_ACCUM_GREEN_BITS GLFW_ACCUM_GREEN_BITS607,21014
+#define GLFW_ACCUM_BLUE_BITS GLFW_ACCUM_BLUE_BITS608,21061
+#define GLFW_ACCUM_ALPHA_BITS GLFW_ACCUM_ALPHA_BITS609,21108
+#define GLFW_AUX_BUFFERS GLFW_AUX_BUFFERS610,21155
+#define GLFW_STEREO GLFW_STEREO611,21202
+#define GLFW_SAMPLES GLFW_SAMPLES612,21249
+#define GLFW_SRGB_CAPABLE GLFW_SRGB_CAPABLE613,21296
+#define GLFW_REFRESH_RATE GLFW_REFRESH_RATE614,21343
+#define GLFW_DOUBLEBUFFER GLFW_DOUBLEBUFFER615,21390
+#define GLFW_CLIENT_API GLFW_CLIENT_API617,21438
+#define GLFW_CONTEXT_VERSION_MAJOR GLFW_CONTEXT_VERSION_MAJOR618,21485
+#define GLFW_CONTEXT_VERSION_MINOR GLFW_CONTEXT_VERSION_MINOR619,21532
+#define GLFW_CONTEXT_REVISION GLFW_CONTEXT_REVISION620,21579
+#define GLFW_CONTEXT_ROBUSTNESS GLFW_CONTEXT_ROBUSTNESS621,21626
+#define GLFW_OPENGL_FORWARD_COMPAT GLFW_OPENGL_FORWARD_COMPAT622,21673
+#define GLFW_OPENGL_DEBUG_CONTEXT GLFW_OPENGL_DEBUG_CONTEXT623,21720
+#define GLFW_OPENGL_PROFILE GLFW_OPENGL_PROFILE624,21767
+#define GLFW_CONTEXT_RELEASE_BEHAVIOR GLFW_CONTEXT_RELEASE_BEHAVIOR625,21814
+#define GLFW_OPENGL_API GLFW_OPENGL_API627,21864
+#define GLFW_OPENGL_ES_API GLFW_OPENGL_ES_API628,21911
+#define GLFW_NO_ROBUSTNESS GLFW_NO_ROBUSTNESS630,21959
+#define GLFW_NO_RESET_NOTIFICATION GLFW_NO_RESET_NOTIFICATION631,22006
+#define GLFW_LOSE_CONTEXT_ON_RESET GLFW_LOSE_CONTEXT_ON_RESET632,22053
+#define GLFW_OPENGL_ANY_PROFILE GLFW_OPENGL_ANY_PROFILE634,22101
+#define GLFW_OPENGL_CORE_PROFILE GLFW_OPENGL_CORE_PROFILE635,22148
+#define GLFW_OPENGL_COMPAT_PROFILE GLFW_OPENGL_COMPAT_PROFILE636,22195
+#define GLFW_CURSOR GLFW_CURSOR638,22243
+#define GLFW_STICKY_KEYS GLFW_STICKY_KEYS639,22290
+#define GLFW_STICKY_MOUSE_BUTTONS GLFW_STICKY_MOUSE_BUTTONS640,22337
+#define GLFW_CURSOR_NORMAL GLFW_CURSOR_NORMAL642,22385
+#define GLFW_CURSOR_HIDDEN GLFW_CURSOR_HIDDEN643,22432
+#define GLFW_CURSOR_DISABLED GLFW_CURSOR_DISABLED644,22479
+#define GLFW_ANY_RELEASE_BEHAVIOR GLFW_ANY_RELEASE_BEHAVIOR646,22527
+#define GLFW_RELEASE_BEHAVIOR_FLUSH GLFW_RELEASE_BEHAVIOR_FLUSH647,22574
+#define GLFW_RELEASE_BEHAVIOR_NONE GLFW_RELEASE_BEHAVIOR_NONE648,22621
+#define GLFW_ARROW_CURSOR GLFW_ARROW_CURSOR661,22910
+#define GLFW_IBEAM_CURSOR GLFW_IBEAM_CURSOR666,23051
+#define GLFW_CROSSHAIR_CURSOR GLFW_CROSSHAIR_CURSOR671,23162
+#define GLFW_HAND_CURSOR GLFW_HAND_CURSOR676,23263
+#define GLFW_HRESIZE_CURSOR GLFW_HRESIZE_CURSOR681,23402
+#define GLFW_VRESIZE_CURSOR GLFW_VRESIZE_CURSOR686,23537
+#define GLFW_CONNECTED GLFW_CONNECTED689,23595
+#define GLFW_DISCONNECTED GLFW_DISCONNECTED690,23642
+#define GLFW_DONT_CARE GLFW_DONT_CARE692,23690
+typedef void (*GLFWglproc)(void);GLFWglproc706,24105
+typedef struct GLFWmonitor GLFWmonitor;GLFWmonitor714,24232
+typedef struct GLFWwindow GLFWwindow;GLFWwindow722,24362
+typedef struct GLFWcursor GLFWcursor;GLFWcursor730,24490
+typedef void (* GLFWerrorfun)(int,const char*);GLFWerrorfun743,24835
+typedef void (* GLFWwindowposfun)(GLFWwindow*,int,int);GLFWwindowposfun759,25398
+typedef void (* GLFWwindowsizefun)(GLFWwindow*,int,int);GLFWwindowsizefun773,25860
+typedef void (* GLFWwindowclosefun)(GLFWwindow*);GLFWwindowclosefun785,26190
+typedef void (* GLFWwindowrefreshfun)(GLFWwindow*);GLFWwindowrefreshfun797,26530
+typedef void (* GLFWwindowfocusfun)(GLFWwindow*,int);GLFWwindowfocusfun811,26965
+typedef void (* GLFWwindowiconifyfun)(GLFWwindow*,int);GLFWwindowiconifyfun826,27418
+typedef void (* GLFWframebuffersizefun)(GLFWwindow*,int,int);GLFWframebuffersizefun841,27900
+typedef void (* GLFWmousebuttonfun)(GLFWwindow*,int,int,int);GLFWmousebuttonfun858,28469
+typedef void (* GLFWcursorposfun)(GLFWwindow*,double,double);GLFWcursorposfun872,28958
+typedef void (* GLFWcursorenterfun)(GLFWwindow*,int);GLFWcursorenterfun886,29409
+typedef void (* GLFWscrollfun)(GLFWwindow*,double,double);GLFWscrollfun900,29827
+typedef void (* GLFWkeyfun)(GLFWwindow*,int,int,int,int);GLFWkeyfun917,30448
+typedef void (* GLFWcharfun)(GLFWwindow*,unsigned int);GLFWcharfun930,30838
+typedef void (* GLFWcharmodsfun)(GLFWwindow*,unsigned int,int);GLFWcharmodsfun948,31454
+typedef void (* GLFWdropfun)(GLFWwindow*,int,const char**);GLFWdropfun962,31882
+typedef void (* GLFWmonitorfun)(GLFWmonitor*,int);GLFWmonitorfun975,32303
+typedef struct GLFWvidmodeGLFWvidmode983,32454
+    int width;width987,32552
+    int height;height990,32637
+    int redBits;redBits993,32721
+    int greenBits;greenBits996,32808
+    int blueBits;blueBits999,32896
+    int refreshRate;refreshRate1002,32974
+} GLFWvidmode;GLFWvidmode1003,32995
+typedef struct GLFWgammarampGLFWgammaramp1013,33159
+    unsigned short* red;red1017,33268
+    unsigned short* green;green1020,33373
+    unsigned short* blue;blue1023,33479
+    unsigned int size;size1026,33559
+} GLFWgammaramp;GLFWgammaramp1027,33582
+typedef struct GLFWimageGLFWimage1031,33627
+    int width;width1035,33707
+    int height;height1038,33776
+    unsigned char* pixels;pixels1041,33877
+} GLFWimage;GLFWimage1042,33904
+GLFWAPI int glfwInit(void);glfwInit1086,35604
+GLFWAPI void glfwTerminate(void);glfwTerminate1118,36636
+GLFWAPI void glfwGetVersion(int* major, int* minor, int* rev);glfwGetVersion1145,37525
+GLFWAPI const char* glfwGetVersionString(void);glfwGetVersionString1177,38493
+GLFWAPI GLFWerrorfun glfwSetErrorCallback(GLFWerrorfun cbfun);glfwSetErrorCallback1210,39656
+GLFWAPI GLFWmonitor** glfwGetMonitors(int* count);glfwGetMonitors1238,40564
+GLFWAPI GLFWmonitor* glfwGetPrimaryMonitor(void);glfwGetPrimaryMonitor1258,41111
+GLFWAPI void glfwGetMonitorPos(GLFWmonitor* monitor, int* xpos, int* ypos);glfwGetMonitorPos1281,41878
+GLFWAPI void glfwGetMonitorPhysicalSize(GLFWmonitor* monitor, int* widthMM, int* heightMM);glfwGetMonitorPhysicalSize1314,43118
+GLFWAPI const char* glfwGetMonitorName(GLFWmonitor* monitor);glfwGetMonitorName1340,44050
+GLFWAPI GLFWmonitorfun glfwSetMonitorCallback(GLFWmonitorfun cbfun);glfwSetMonitorCallback1365,44853
+GLFWAPI const GLFWvidmode* glfwGetVideoModes(GLFWmonitor* monitor, int* count);glfwGetVideoModes1398,46097
+GLFWAPI const GLFWvidmode* glfwGetVideoMode(GLFWmonitor* monitor);glfwGetVideoMode1425,47051
+GLFWAPI void glfwSetGamma(GLFWmonitor* monitor, float gamma);glfwSetGamma1445,47666
+GLFWAPI const GLFWgammaramp* glfwGetGammaRamp(GLFWmonitor* monitor);glfwGetGammaRamp1470,48485
+GLFWAPI void glfwSetGammaRamp(GLFWmonitor* monitor, const GLFWgammaramp* ramp);glfwSetGammaRamp1498,49393
+GLFWAPI void glfwDefaultWindowHints(void);glfwDefaultWindowHints1515,49833
+GLFWAPI void glfwWindowHint(int target, int hint);glfwWindowHint1537,50547
+GLFWAPI GLFWwindow* glfwCreateWindow(int width, int height, const char* title, GLFWmonitor* monitor, GLFWwindow* share);glfwCreateWindow1645,55894
+GLFWAPI void glfwDestroyWindow(GLFWwindow* window);glfwDestroyWindow1673,56824
+GLFWAPI int glfwWindowShouldClose(GLFWwindow* window);glfwWindowShouldClose1691,57297
+GLFWAPI void glfwSetWindowShouldClose(GLFWwindow* window, int value);glfwSetWindowShouldClose1711,57891
+GLFWAPI void glfwSetWindowTitle(GLFWwindow* window, const char* title);glfwSetWindowTitle1733,58449
+GLFWAPI void glfwGetWindowPos(GLFWwindow* window, int* xpos, int* ypos);glfwGetWindowPos1759,59349
+GLFWAPI void glfwSetWindowPos(GLFWwindow* window, int xpos, int ypos);glfwSetWindowPos1790,60472
+GLFWAPI void glfwGetWindowSize(GLFWwindow* window, int* width, int* height);glfwGetWindowSize1820,61508
+GLFWAPI void glfwSetWindowSize(GLFWwindow* window, int width, int height);glfwSetWindowSize1852,62571
+GLFWAPI void glfwGetFramebufferSize(GLFWwindow* window, int* width, int* height);glfwGetFramebufferSize1879,63523
+GLFWAPI void glfwGetWindowFrameSize(GLFWwindow* window, int* left, int* top, int* right, int* bottom);glfwGetWindowFrameSize1914,65013
+GLFWAPI void glfwIconifyWindow(GLFWwindow* window);glfwIconifyWindow1940,65771
+GLFWAPI void glfwRestoreWindow(GLFWwindow* window);glfwRestoreWindow1965,66472
+GLFWAPI void glfwShowWindow(GLFWwindow* window);glfwShowWindow1985,67003
+GLFWAPI void glfwHideWindow(GLFWwindow* window);glfwHideWindow2005,67507
+GLFWAPI GLFWmonitor* glfwGetWindowMonitor(GLFWwindow* window);glfwGetWindowMonitor2025,68055
+GLFWAPI int glfwGetWindowAttrib(GLFWwindow* window, int attrib);glfwGetWindowAttrib2048,68766
+GLFWAPI void glfwSetWindowUserPointer(GLFWwindow* window, void* pointer);glfwSetWindowUserPointer2069,69390
+GLFWAPI void* glfwGetWindowUserPointer(GLFWwindow* window);glfwGetWindowUserPointer2088,69949
+GLFWAPI GLFWwindowposfun glfwSetWindowPosCallback(GLFWwindow* window, GLFWwindowposfun cbfun);glfwSetWindowPosCallback2111,70767
+GLFWAPI GLFWwindowsizefun glfwSetWindowSizeCallback(GLFWwindow* window, GLFWwindowsizefun cbfun);glfwSetWindowSizeCallback2137,71691
+GLFWAPI GLFWwindowclosefun glfwSetWindowCloseCallback(GLFWwindow* window, GLFWwindowclosefun cbfun);glfwSetWindowCloseCallback2171,72923
+GLFWAPI GLFWwindowrefreshfun glfwSetWindowRefreshCallback(GLFWwindow* window, GLFWwindowrefreshfun cbfun);glfwSetWindowRefreshCallback2201,74071
+GLFWAPI GLFWwindowfocusfun glfwSetWindowFocusCallback(GLFWwindow* window, GLFWwindowfocusfun cbfun);glfwSetWindowFocusCallback2228,75114
+GLFWAPI GLFWwindowiconifyfun glfwSetWindowIconifyCallback(GLFWwindow* window, GLFWwindowiconifyfun cbfun);glfwSetWindowIconifyCallback2250,75883
+GLFWAPI GLFWframebuffersizefun glfwSetFramebufferSizeCallback(GLFWwindow* window, GLFWframebuffersizefun cbfun);glfwSetFramebufferSizeCallback2272,76688
+GLFWAPI void glfwPollEvents(void);glfwPollEvents2305,77951
+GLFWAPI void glfwWaitEvents(void);glfwWaitEvents2348,79599
+GLFWAPI void glfwPostEmptyEvent(void);glfwPostEmptyEvent2369,80182
+GLFWAPI int glfwGetInputMode(GLFWwindow* window, int mode);glfwGetInputMode2390,80793
+GLFWAPI void glfwSetInputMode(GLFWwindow* window, int mode, int value);glfwSetInputMode2436,82957
+GLFWAPI int glfwGetKey(GLFWwindow* window, int key);glfwGetKey2474,84341
+GLFWAPI int glfwGetMouseButton(GLFWwindow* window, int button);glfwGetMouseButton2503,85280
+GLFWAPI void glfwGetCursorPos(GLFWwindow* window, double* xpos, double* ypos);glfwGetCursorPos2539,86637
+GLFWAPI void glfwSetCursorPos(GLFWwindow* window, double xpos, double ypos);glfwSetCursorPos2578,88261
+GLFWAPI GLFWcursor* glfwCreateCursor(const GLFWimage* image, int xhot, int yhot);glfwCreateCursor2618,89715
+GLFWAPI GLFWcursor* glfwCreateStandardCursor(int shape);glfwCreateStandardCursor2643,90411
+GLFWAPI void glfwDestroyCursor(GLFWcursor* cursor);glfwDestroyCursor2666,90987
+GLFWAPI void glfwSetCursor(GLFWwindow* window, GLFWcursor* cursor);glfwSetCursor2691,91767
+GLFWAPI GLFWkeyfun glfwSetKeyCallback(GLFWwindow* window, GLFWkeyfun cbfun);glfwSetKeyCallback2735,93601
+GLFWAPI GLFWcharfun glfwSetCharCallback(GLFWwindow* window, GLFWcharfun cbfun);glfwSetCharCallback2774,95189
+GLFWAPI GLFWcharmodsfun glfwSetCharModsCallback(GLFWwindow* window, GLFWcharmodsfun cbfun);glfwSetCharModsCallback2806,96522
+GLFWAPI GLFWmousebuttonfun glfwSetMouseButtonCallback(GLFWwindow* window, GLFWmousebuttonfun cbfun);glfwSetMouseButtonCallback2837,97736
+GLFWAPI GLFWcursorposfun glfwSetCursorPosCallback(GLFWwindow* window, GLFWcursorposfun cbfun);glfwSetCursorPosCallback2861,98650
+GLFWAPI GLFWcursorenterfun glfwSetCursorEnterCallback(GLFWwindow* window, GLFWcursorenterfun cbfun);glfwSetCursorEnterCallback2884,99432
+GLFWAPI GLFWscrollfun glfwSetScrollCallback(GLFWwindow* window, GLFWscrollfun cbfun);glfwSetScrollCallback2910,100378
+GLFWAPI GLFWdropfun glfwSetDropCallback(GLFWwindow* window, GLFWdropfun cbfun);glfwSetDropCallback2937,101388
+GLFWAPI int glfwJoystickPresent(int joy);glfwJoystickPresent2955,101944
+GLFWAPI const float* glfwGetJoystickAxes(int joy, int* count);glfwGetJoystickAxes2981,102942
+GLFWAPI const unsigned char* glfwGetJoystickButtons(int joy, int* count);glfwGetJoystickButtons3010,104011
+GLFWAPI const char* glfwGetJoystickName(int joy);glfwGetJoystickName3036,104918
+GLFWAPI void glfwSetClipboardString(GLFWwindow* window, const char* string);glfwSetClipboardString3059,105530
+GLFWAPI const char* glfwGetClipboardString(GLFWwindow* window);glfwGetClipboardString3086,106471
+GLFWAPI double glfwGetTime(void);glfwGetTime3110,107258
+GLFWAPI void glfwSetTime(double time);glfwSetTime3133,107988
+GLFWAPI void glfwMakeContextCurrent(GLFWwindow* window);glfwMakeContextCurrent3161,108974
+GLFWAPI GLFWwindow* glfwGetCurrentContext(void);glfwGetCurrentContext3181,109522
+GLFWAPI void glfwSwapBuffers(GLFWwindow* window);glfwSwapBuffers3204,110167
+GLFWAPI void glfwSwapInterval(int interval);glfwSwapInterval3246,111988
+GLFWAPI int glfwExtensionSupported(const char* extension);glfwExtensionSupported3276,113162
+GLFWAPI GLFWglproc glfwGetProcAddress(const char* procname);glfwGetProcAddress3313,114467
+ #undef WINGDIAPIWINGDIAPI3323,114820
+ #undef GLFW_WINGDIAPI_DEFINEDGLFW_WINGDIAPI_DEFINED3324,114838
+ #undef CALLBACKCALLBACK3328,114906
+ #undef GLFW_CALLBACK_DEFINEDGLFW_CALLBACK_DEFINED3329,114923
