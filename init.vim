@@ -35,6 +35,8 @@ Plugin 'honza/vim-snippets'
 
 Plugin 'fatih/vim-go'
 
+Plugin 'vim-scripts/Ada-Bundle'
+
 Plugin 'davidhalter/jedi-vim'
 
 Plugin 'ternjs/tern_for_vim'
