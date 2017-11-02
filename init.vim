@@ -25,15 +25,13 @@ Plugin 'roxma/nvim-cm-tern'
 
 Plugin 'Shougo/neco-vim'
 
-Plugin 'SirVer/ultisnips'
+"Plugin 'SirVer/ultisnips'
 
-Plugin 'honza/vim-snippets'
+"Plugin 'honza/vim-snippets'
 
 "Plugin 'vim-scripts/OmniCppComplete'
 
 Plugin 'fatih/vim-go'
-
-Plugin 'vim-scripts/Ada-Bundle'
 
 Plugin 'davidhalter/jedi-vim'
 
@@ -42,6 +40,8 @@ Plugin 'ternjs/tern_for_vim'
 Plugin 'othree/html5.vim'
 
 Plugin 'othree/csscomplete.vim'
+
+Plugin 'vim-scripts/Ada-Bundle'
 
 "Plugin 'leafgarland/typescript-vim'
 
@@ -139,31 +139,6 @@ let g:cm_complete_popup_delay=10
 "au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 
-"function for ctags generation
-function CTag()
-  let path = expand(getcwd())
-  execute 'silent! ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
-  execute 'silent! ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.config/nvim/ctags/working/general.tag ' . '~/programming_projects/c/general/src'
-
-  execute 'silent! source tag'
-endfunction
-
-function CppTag()
-  let path = expand(getcwd())
-  execute 'silent !ctags -R --sort=yes --fields=+iaS --extra=+q --c++-kinds=+cdefgmpstuvx --language-force=c++ -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
-
-  execute 'silent! source tag'
-endfunction
-
-
-"function for ada autoformat
-function AdaFormat()
-  let path = expand('%:p')
-  execute 'silent !gnatpp ' . path . ' -of ' . path . ' -W8 -i2'
-  execute 'e'
-endfunction
-
-
 "setting of delimitMate
 let g:delimitMate_matchpairs = "(:),[:],{:}"
 let g:delimitMate_expand_cr = 1
@@ -223,7 +198,7 @@ let g:syntastic_javascript_checkers = ['jshint']
 "let g:syntastic_quiet_messages = {'level':  'warning', 'type': 'syntax'}
 
 "setting of autoformat
-let g:formatdef_my_html = '"js-beautify --html -A=force -m=1 -s=2"'
+let g:formatdef_my_html = '"js-beautify --html -A=force -m=2 -s=2"'
 let g:formatters_html = ['my_html']
 let g:formatdef_my_css = '"js-beautify --css -s=2 -N"'
 let g:formatters_css = ['my_css']
@@ -259,7 +234,8 @@ autocmd VimEnter <buffer> execute 'NERDTreeToggle'
 
 autocmd FileType c autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType cpp autocmd BufWritePre <buffer> execute 'Autoformat'
-autocmd FileType python autocmd BufWritePre <buffer> execute 'Autoformat'
+
+"autocmd FileType python autocmd BufWritePre <buffer> execute 'Autoformat'
 
 autocmd FileType xml autocmd BufWritePre <buffer> execute 'Autoformat'
 
@@ -267,8 +243,33 @@ autocmd FileType html autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType css autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType javascript autocmd BufWritePre <buffer> execute 'Autoformat'
 
+
+"function for ada autoformat
+function AdaFormat()
+  let path = expand('%:p')
+  execute 'silent !gnatpp ' . path . ' -of ' . path . ' -W8 -i2'
+  execute 'e'
+endfunction
+
 autocmd FileType ada command! Autoformat call AdaFormat()
-autocmd FileType ada autocmd! BufWritePost <buffer> execute 'Autoformat'
+
+
+"function for ctags generation
+function CTag()
+  let path = expand(getcwd())
+  execute 'silent! ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
+  execute 'silent! ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.config/nvim/ctags/working/general.tag ' . '~/programming_projects/c/general/src'
+
+  execute 'silent! source tag'
+endfunction
+
+function CppTag()
+  let path = expand(getcwd())
+  execute 'silent !ctags -R --sort=yes --fields=+iaS --extra=+q --c++-kinds=+cdefgmpstuvx --language-force=c++ -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
+
+  execute 'silent! source tag'
+endfunction
+
 
 autocmd FileType c call CTag()
 autocmd FileType cpp call CppTag()
