@@ -31,8 +31,6 @@ Plugin 'honza/vim-snippets'
 
 "Plugin 'vim-scripts/OmniCppComplete'
 
-"Plugin 'Rip-Rip/clang_complete'
-
 Plugin 'fatih/vim-go'
 
 Plugin 'vim-scripts/Ada-Bundle'
@@ -96,15 +94,15 @@ let g:cm_complete_popup_delay=10
 
 "setting for typescript with NCM
 "au User CmSetup call cm#register_source({
-      "\ 'name' : 'cm-ts',
-      "\ 'priority': 0,
-      "\ 'scoping': 1,
-      "\ 'scopes': ['typescript'],
-      "\ 'abbreviation': 'ts',
-      "\ 'word_pattern': '[a-z0-9.]+',
-      "\ 'cm_refresh_patterns':['[a-z0-9.]+'],
-      "\ 'cm_refresh': {'omnifunc': 'tsuquyomi#complete'},
-      "\ })
+"\ 'name' : 'cm-ts',
+"\ 'priority': 0,
+"\ 'scoping': 1,
+"\ 'scopes': ['typescript'],
+"\ 'abbreviation': 'ts',
+"\ 'word_pattern': '[a-z0-9.]+',
+"\ 'cm_refresh_patterns':['[a-z0-9.]+'],
+"\ 'cm_refresh': {'omnifunc': 'tsuquyomi#complete'},
+"\ })
 
 
 "start deoplete
@@ -127,13 +125,13 @@ let g:cm_complete_popup_delay=10
 "let OmniCpp_NamespaceSearch = 1
 "let OmniCpp_GlobalScopeSearch = 1
 "let OmniCpp_ShowAccess = 1
-"let OmniCpp_ShowPrototypeInAbbr = 1 
+"let OmniCpp_ShowPrototypeInAbbr = 1
 "" show function parameters
-"let OmniCpp_MayCompleteDot = 1 
+"let OmniCpp_MayCompleteDot = 1
 "" autocomplete after .
-"let OmniCpp_MayCompleteArrow = 1 
+"let OmniCpp_MayCompleteArrow = 1
 "" autocomplete after ->
-"let OmniCpp_MayCompleteScope = 1 
+"let OmniCpp_MayCompleteScope = 1
 "" autocomplete after ::
 "let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 
@@ -155,6 +153,14 @@ function CppTag()
   execute 'silent !ctags -R --sort=yes --fields=+iaS --extra=+q --c++-kinds=+cdefgmpstuvx --language-force=c++ -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
 
   execute 'silent! source tag'
+endfunction
+
+
+"function for ada autoformat
+function AdaFormat()
+  let path = expand('%:p')
+  execute 'silent !gnatpp ' . path . ' -of ' . path . ' -W8 -i2'
+  execute 'e'
 endfunction
 
 
@@ -213,7 +219,6 @@ let g:syntastic_html_checkers = ['jshint']
 let g:syntastic_css_checkers = ['jshint']
 let g:syntastic_javascript_checkers = ['jshint']
 "let g:syntastic_typescript_checkers = ['tsuquyomi']
-"let g:syntastic_dart_checkers = ['dartanalyzer']
 
 "let g:syntastic_quiet_messages = {'level':  'warning', 'type': 'syntax'}
 
@@ -229,12 +234,7 @@ let g:formatdef_my_python = '"yapf"'
 let g:formatters_python = ['my_python']
 
 "set indentation width to 2 spaces in python mode
-au FileType python setl sw=2 sts=2 et
-
-
-"autocmd FileType php setl ofu=phpcomplete#CompletePHP
-"autocmd FileType ruby setl ofu=rubycomplete#Complete
-"autocmd FileType eruby setl ofu=rubycomplete#Complete
+autocmd FileType python setl sw=2 sts=2 et
 
 autocmd FileType html setl ofu=htmlcomplete#CompleteTags
 autocmd FileType html setl completefunc=htmlcomplete#CompleteTags
@@ -267,7 +267,8 @@ autocmd FileType html autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType css autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType javascript autocmd BufWritePre <buffer> execute 'Autoformat'
 
-"autocmd FileType dart autocmd BufWritePre <buffer> execute 'DartFmt'
+autocmd FileType ada command! Autoformat call AdaFormat()
+autocmd FileType ada autocmd! BufWritePost <buffer> execute 'Autoformat'
 
 autocmd FileType c call CTag()
 autocmd FileType cpp call CppTag()
