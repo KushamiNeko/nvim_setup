@@ -25,9 +25,11 @@ Plugin 'roxma/nvim-cm-tern'
 
 Plugin 'Shougo/neco-vim'
 
-"Plugin 'SirVer/ultisnips'
+Plugin 'calebeby/ncm-css'
 
-"Plugin 'honza/vim-snippets'
+Plugin 'SirVer/ultisnips'
+
+Plugin 'honza/vim-snippets'
 
 "Plugin 'vim-scripts/OmniCppComplete'
 
