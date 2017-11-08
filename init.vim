@@ -43,7 +43,7 @@ Plugin 'othree/html5.vim'
 
 Plugin 'othree/csscomplete.vim'
 
-Plugin 'vim-scripts/Ada-Bundle'
+"Plugin 'vim-scripts/Ada-Bundle'
 
 "Plugin 'leafgarland/typescript-vim'
 
@@ -90,6 +90,10 @@ filetype plugin indent on
 "set completeopt+=noselect
 
 
+"Open NERDTree Panel
+autocmd VimEnter <buffer> execute 'NERDTreeToggle'
+
+
 "setting for ncm
 let g:cm_smart_enable=1
 let g:cm_complete_popup_delay=10
@@ -124,6 +128,12 @@ let g:cm_complete_popup_delay=10
 "let g:clang_close_preview=1
 
 
+"settings for ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+
 "omniCppComplete
 let OmniCpp_NamespaceSearch = 1
 let OmniCpp_GlobalScopeSearch = 1
@@ -148,6 +158,7 @@ let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_inside_quotes = 1
 
 
+"setting of closetag
 let g:closetag_filenames = "*.html,*.xhtml,*.xml"
 
 
@@ -200,6 +211,7 @@ let g:syntastic_javascript_checkers = ['jshint']
 
 "let g:syntastic_quiet_messages = {'level':  'warning', 'type': 'syntax'}
 
+
 "setting of autoformat
 let g:formatdef_my_html = '"js-beautify --html -A=force -m=2 -s=2"'
 let g:formatters_html = ['my_html']
@@ -211,8 +223,10 @@ let g:formatters_scss = ['my_css']
 let g:formatdef_my_python = '"yapf"'
 let g:formatters_python = ['my_python']
 
+
 "set indentation width to 2 spaces in python mode
 autocmd FileType python setl sw=2 sts=2 et
+
 
 autocmd FileType html setl ofu=htmlcomplete#CompleteTags
 autocmd FileType html setl completefunc=htmlcomplete#CompleteTags
@@ -231,10 +245,6 @@ autocmd FileType css setl completefunc=csscomplete#CompleteCSS
 "autocmd FileType cpp setl completefunc=ClangComplete
 
 
-"Open NERDTree Panel
-autocmd VimEnter <buffer> execute 'NERDTreeToggle'
-
-
 autocmd FileType c autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType cpp autocmd BufWritePre <buffer> execute 'Autoformat'
 
@@ -248,13 +258,13 @@ autocmd FileType javascript autocmd BufWritePre <buffer> execute 'Autoformat'
 
 
 "function for ada autoformat
-function AdaFormat()
-  let path = expand('%:p')
-  execute 'silent !gnatpp ' . path . ' -of ' . path . ' -W8 -i2'
-  execute 'e'
-endfunction
+"function AdaFormat()
+  "let path = expand('%:p')
+  "execute 'silent !gnatpp ' . path . ' -of ' . path . ' -W8 -i2'
+  "execute 'e'
+"endfunction
 
-autocmd FileType ada command! Autoformat call AdaFormat()
+"autocmd FileType ada command! Autoformat call AdaFormat()
 
 
 "function for ctags generation
