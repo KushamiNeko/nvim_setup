@@ -31,7 +31,7 @@ Plugin 'SirVer/ultisnips'
 
 Plugin 'honza/vim-snippets'
 
-Plugin 'vim-scripts/OmniCppComplete'
+"Plugin 'vim-scripts/OmniCppComplete'
 
 Plugin 'fatih/vim-go'
 
@@ -83,12 +83,6 @@ call vundle#end()
 filetype plugin indent on
 
 
-"setting of completion menu
-"set completeopt-=menu
-"set completeopt+=menuone
-"set completeopt-=longest
-"set completeopt+=noselect
-
 
 "Open NERDTree Panel
 autocmd VimEnter <buffer> execute 'NERDTreeToggle'
@@ -112,8 +106,21 @@ let g:cm_complete_popup_delay=10
 "\ })
 
 
+"setting for go with NCM
+"au User CmSetup call cm#register_source({
+"\ 'name' : 'cm-gocode',
+"\ 'priority': 0,
+"\ 'scoping': 1,
+"\ 'scopes': ['go'],
+"\ 'abbreviation': 'go',
+"\ 'word_pattern': '[a-z0-9.]+',
+"\ 'cm_refresh_patterns':['[a-z0-9.]+'],
+"\ 'cm_refresh': {'omnifunc': 'go#complete#Complete'},
+"\ })
+
+
 "start deoplete
-"let g:deoplete#enable_at_startup = 0
+"let g:deoplete#enable_at_startup = 1
 "let g:deoplete#disable_auto_complete=1
 "let g:deoplete#auto_complete_delay=10
 "let g:deoplete#omni_patterns = {'go': '[a-z0-9.]\{2,}', 'python': '[a-z0-9.]\{2,}', 'typescript': '[a-z0-9.]\{2,}'}
@@ -135,21 +142,28 @@ let g:UltiSnipsExpandTrigger="<tab>"
 
 
 "omniCppComplete
-let OmniCpp_NamespaceSearch = 1
-let OmniCpp_GlobalScopeSearch = 1
-let OmniCpp_ShowAccess = 1
-let OmniCpp_ShowPrototypeInAbbr = 1
-" show function parameters
-let OmniCpp_MayCompleteDot = 1
-" autocomplete after .
-let OmniCpp_MayCompleteArrow = 1
-" autocomplete after ->
-let OmniCpp_MayCompleteScope = 1
-" autocomplete after ::
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+"let OmniCpp_NamespaceSearch = 1
+"let OmniCpp_GlobalScopeSearch = 1
+"let OmniCpp_ShowAccess = 1
+"let OmniCpp_ShowPrototypeInAbbr = 1
+"" show function parameters
+"let OmniCpp_MayCompleteDot = 1
+"" autocomplete after .
+"let OmniCpp_MayCompleteArrow = 1
+"" autocomplete after ->
+"let OmniCpp_MayCompleteScope = 1
+"" autocomplete after ::
+"let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 
 " automatically open and close the popup menu / preview window
 "au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+
+
+"setting of completion menu
+"set completeopt-=menu
+"set completeopt+=menuone
+"set completeopt-=longest
+"set completeopt+=noselect
 
 
 "setting of delimitMate
@@ -237,7 +251,7 @@ autocmd FileType xhtml setl completefunc=htmlcomplete#CompleteTags
 autocmd FileType css setl ofu=csscomplete#CompleteCSS
 autocmd FileType css setl completefunc=csscomplete#CompleteCSS
 
-"autocmd FileType c setl ofu=ccomplete#Complete
+autocmd FileType c setl ofu=ccomplete#Complete
 "autocmd FileType c setl ofu=ClangComplete
 "autocmd FileType c setl completefunc=ClangComplete
 
