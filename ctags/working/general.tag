@@ -28,15 +28,8 @@ OBJ_PARSER_H	/home/onionhuang/programming_projects/c/general/src/obj_parser.h	2;
 ONE_DEG_IN_RAD	/home/onionhuang/programming_projects/c/general/src/linear_math.h	22;"	d
 ONE_RAD_IN_DEG	/home/onionhuang/programming_projects/c/general/src/linear_math.h	23;"	d
 Obj	/home/onionhuang/programming_projects/c/general/src/obj_parser.h	/^struct Obj {$/;"	s
-Obj::point_counts	/home/onionhuang/programming_projects/c/general/src/obj_parser.h	/^  int point_counts;$/;"	m	struct:Obj	access:public
-Obj::vn	/home/onionhuang/programming_projects/c/general/src/obj_parser.h	/^  float *vn;$/;"	m	struct:Obj	access:public
-Obj::vp	/home/onionhuang/programming_projects/c/general/src/obj_parser.h	/^  float *vp;$/;"	m	struct:Obj	access:public
-Obj::vt	/home/onionhuang/programming_projects/c/general/src/obj_parser.h	/^  float *vt;$/;"	m	struct:Obj	access:public
-Obj::vtan	/home/onionhuang/programming_projects/c/general/src/obj_parser.h	/^  float *vtan;$/;"	m	struct:Obj	access:public
 RETURN_NULL_ON_FAIL	/home/onionhuang/programming_projects/c/general/src/general_helper.h	43;"	d
 Representation	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^struct Representation {$/;"	s	file:
-Representation::data	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^  float *data;$/;"	m	struct:Representation	file:	access:public
-Representation::size	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^  size_t size;$/;"	m	struct:Representation	file:	access:public
 SYSTEM_PATH_SEPARATOR	/home/onionhuang/programming_projects/c/general/src/general_helper.h	12;"	d
 SYSTEM_PATH_SEPARATOR	/home/onionhuang/programming_projects/c/general/src/general_helper.h	14;"	d
 TAU	/home/onionhuang/programming_projects/c/general/src/linear_math.h	21;"	d
@@ -50,7 +43,7 @@ charJoin	/home/onionhuang/programming_projects/c/general/src/general_helper.h	/^
 charJoinTest	/home/onionhuang/programming_projects/c/general/src/general_helper_test.c	/^static void charJoinTest(void **state) {$/;"	f	file:	signature:(void **state)
 createCubeMap	/home/onionhuang/programming_projects/c/general/src/gl_helper.c	/^bool createCubeMap(const char *front, const char *back, const char *top,$/;"	f	signature:(const char *front, const char *back, const char *top, const char *bottom, const char *right, const char *left, GLuint *shaderProgram, GLenum textureSlot, GLuint *cubeTex, GLint *cubeTexLoc)
 createCubeMap	/home/onionhuang/programming_projects/c/general/src/gl_helper.h	/^bool createCubeMap(const char *front, const char *back, const char *top,$/;"	p	signature:(const char *front, const char *back, const char *top, const char *bottom, const char *right, const char *left, GLuint *shaderProgram, GLenum textureSlot, GLuint *cubeTex, GLint *cubeTexLoc)
-data	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^  float *data;$/;"	m	struct:Representation	file:	access:public
+data	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^  float *data;$/;"	m	struct:Representation	file:
 determinant	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^double determinant(mat4 m) {$/;"	f	signature:(mat4 m)
 determinant	/home/onionhuang/programming_projects/c/general/src/linear_math.h	/^double determinant(mat4 m);$/;"	p	signature:(mat4 m)
 directionToHeading	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^double directionToHeading(vec3 v) {$/;"	f	signature:(vec3 v)
@@ -75,8 +68,8 @@ fileReadContents	/home/onionhuang/programming_projects/c/general/src/general_hel
 fit01	/home/onionhuang/programming_projects/c/general/src/general_helper.c	/^double fit01(double src, double newMin, double newMax) {$/;"	f	signature:(double src, double newMin, double newMax)
 fit01	/home/onionhuang/programming_projects/c/general/src/general_helper.h	/^double fit01(double src, double newMin, double newMax);$/;"	p	signature:(double src, double newMin, double newMax)
 generateBakingBuffer	/home/onionhuang/programming_projects/c/general/src/gl_helper.c	/^GLuint generateBakingBuffer(const unsigned int renderSize) {$/;"	f	signature:(const unsigned int renderSize)
-generateGLTexture	/home/onionhuang/programming_projects/c/general/src/gl_helper.c	/^GLuint generateGLTexture() {$/;"	f	signature:()
-generateGLTexture	/home/onionhuang/programming_projects/c/general/src/gl_helper.h	/^GLuint generateGLTexture();$/;"	p	signature:()
+generateGLTexture	/home/onionhuang/programming_projects/c/general/src/gl_helper.c	/^GLuint generateGLTexture() {$/;"	f
+generateGLTexture	/home/onionhuang/programming_projects/c/general/src/gl_helper.h	/^GLuint generateGLTexture();$/;"	p
 generateShader	/home/onionhuang/programming_projects/c/general/src/gl_helper.c	/^void generateShader(const GLuint *shaderProgram, const char *shaderFile,$/;"	f	signature:(const GLuint *shaderProgram, const char *shaderFile, const GLenum shaderType)
 generateShader	/home/onionhuang/programming_projects/c/general/src/gl_helper.h	/^void generateShader(const GLuint *shader_program, const char *shader_file,$/;"	p	signature:(const GLuint *shader_program, const char *shader_file, const GLenum shader_type)
 generateTexLoc	/home/onionhuang/programming_projects/c/general/src/gl_helper.c	/^GLint generateTexLoc(GLuint *shaderProgram, const char *textureName) {$/;"	f	signature:(GLuint *shaderProgram, const char *textureName)
@@ -86,10 +79,10 @@ generateVBO	/home/onionhuang/programming_projects/c/general/src/gl_helper.h	/^GL
 getTextureSlotInt	/home/onionhuang/programming_projects/c/general/src/gl_helper.c	/^static int getTextureSlotInt(const GLenum textureSlot) {$/;"	f	file:	signature:(const GLenum textureSlot)
 headingToDirection	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^vec3 headingToDirection(double degrees) {$/;"	f	signature:(double degrees)
 headingToDirection	/home/onionhuang/programming_projects/c/general/src/linear_math.h	/^vec3 headingToDirection(double degrees);$/;"	p	signature:(double degrees)
-identityMat3	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^mat3 identityMat3() {$/;"	f	signature:()
-identityMat3	/home/onionhuang/programming_projects/c/general/src/linear_math.h	/^mat3 identityMat3();$/;"	p	signature:()
-identityMat4	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^mat4 identityMat4() {$/;"	f	signature:()
-identityMat4	/home/onionhuang/programming_projects/c/general/src/linear_math.h	/^mat4 identityMat4();$/;"	p	signature:()
+identityMat3	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^mat3 identityMat3() {$/;"	f
+identityMat3	/home/onionhuang/programming_projects/c/general/src/linear_math.h	/^mat3 identityMat3();$/;"	p
+identityMat4	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^mat4 identityMat4() {$/;"	f
+identityMat4	/home/onionhuang/programming_projects/c/general/src/linear_math.h	/^mat4 identityMat4();$/;"	p
 inverse	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^mat4 inverse(mat4 m) {$/;"	f	signature:(mat4 m)
 inverse	/home/onionhuang/programming_projects/c/general/src/linear_math.h	/^mat4 inverse(mat4 m);$/;"	p	signature:(mat4 m)
 loadCubeMapSide	/home/onionhuang/programming_projects/c/general/src/gl_helper.c	/^static bool loadCubeMapSide(GLuint *tex, GLenum sideTarget,$/;"	f	file:	signature:(GLuint *tex, GLenum sideTarget, const char *textureFile)
@@ -140,7 +133,7 @@ pathRemoveExt	/home/onionhuang/programming_projects/c/general/src/general_helper
 pathRemoveExtTest	/home/onionhuang/programming_projects/c/general/src/general_helper_test.c	/^static void pathRemoveExtTest(void **state) {$/;"	f	file:	signature:(void **state)
 perspective	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^mat4 perspective(double fovy, double aspect, double near, double far) {$/;"	f	signature:(double fovy, double aspect, double near, double far)
 perspective	/home/onionhuang/programming_projects/c/general/src/linear_math.h	/^mat4 perspective(double fovy, double aspect, double near, double far);$/;"	p	signature:(double fovy, double aspect, double near, double far)
-point_counts	/home/onionhuang/programming_projects/c/general/src/obj_parser.h	/^  int point_counts;$/;"	m	struct:Obj	access:public
+point_counts	/home/onionhuang/programming_projects/c/general/src/obj_parser.h	/^  int point_counts;$/;"	m	struct:Obj
 printMat3	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^void printMat3(mat3 m) {$/;"	f	signature:(mat3 m)
 printMat3	/home/onionhuang/programming_projects/c/general/src/linear_math.h	/^void printMat3(mat3 m);$/;"	p	signature:(mat3 m)
 printMat4	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^void printMat4(mat4 m) {$/;"	f	signature:(mat4 m)
@@ -178,7 +171,7 @@ setVBOData	/home/onionhuang/programming_projects/c/general/src/gl_helper.c	/^voi
 setVBOData	/home/onionhuang/programming_projects/c/general/src/gl_helper.h	/^void setVBOData(const GLuint *vbo, const int point_count, const int vector_size,$/;"	p	signature:(const GLuint *vbo, const int point_count, const int vector_size, const GLfloat *dataArray)
 shaderCompileCheck	/home/onionhuang/programming_projects/c/general/src/gl_helper.c	/^void shaderCompileCheck(GLuint shader) {$/;"	f	signature:(GLuint shader)
 shaderCompileCheck	/home/onionhuang/programming_projects/c/general/src/gl_helper.h	/^void shaderCompileCheck(GLuint shader);$/;"	p	signature:(GLuint shader)
-size	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^  size_t size;$/;"	m	struct:Representation	file:	access:public
+size	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^  size_t size;$/;"	m	struct:Representation	file:
 translate	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^mat4 translate(mat4 m, vec3 v) {$/;"	f	signature:(mat4 m, vec3 v)
 translate	/home/onionhuang/programming_projects/c/general/src/linear_math.h	/^mat4 translate(mat4 m, vec3 v);$/;"	p	signature:(mat4 m, vec3 v)
 transpose	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^mat4 transpose(mat4 m) {$/;"	f	signature:(mat4 m)
@@ -244,17 +237,17 @@ versorNormalize	/home/onionhuang/programming_projects/c/general/src/linear_math.
 versorSizeCheck	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^inline static int versorSizeCheck(versor ve) {$/;"	f	file:	signature:(versor ve)
 versorSlerp	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^versor versorSlerp(versor q, versor r, double t) {$/;"	f	signature:(versor q, versor r, double t)
 versorSlerp	/home/onionhuang/programming_projects/c/general/src/linear_math.h	/^versor versorSlerp(versor q, versor r, double t);$/;"	p	signature:(versor q, versor r, double t)
-vn	/home/onionhuang/programming_projects/c/general/src/obj_parser.h	/^  float *vn;$/;"	m	struct:Obj	access:public
-vp	/home/onionhuang/programming_projects/c/general/src/obj_parser.h	/^  float *vp;$/;"	m	struct:Obj	access:public
-vt	/home/onionhuang/programming_projects/c/general/src/obj_parser.h	/^  float *vt;$/;"	m	struct:Obj	access:public
-vtan	/home/onionhuang/programming_projects/c/general/src/obj_parser.h	/^  float *vtan;$/;"	m	struct:Obj	access:public
-zeroMat3	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^mat3 zeroMat3() {$/;"	f	signature:()
-zeroMat3	/home/onionhuang/programming_projects/c/general/src/linear_math.h	/^mat3 zeroMat3();$/;"	p	signature:()
-zeroMat4	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^mat4 zeroMat4() {$/;"	f	signature:()
-zeroMat4	/home/onionhuang/programming_projects/c/general/src/linear_math.h	/^mat4 zeroMat4();$/;"	p	signature:()
-zeroVec3	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^vec3 zeroVec3() {$/;"	f	signature:()
-zeroVec3	/home/onionhuang/programming_projects/c/general/src/linear_math.h	/^vec3 zeroVec3();$/;"	p	signature:()
-zeroVec4	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^vec4 zeroVec4() {$/;"	f	signature:()
-zeroVec4	/home/onionhuang/programming_projects/c/general/src/linear_math.h	/^vec4 zeroVec4();$/;"	p	signature:()
-zeroVersor	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^versor zeroVersor() {$/;"	f	signature:()
-zeroVersor	/home/onionhuang/programming_projects/c/general/src/linear_math.h	/^versor zeroVersor();$/;"	p	signature:()
+vn	/home/onionhuang/programming_projects/c/general/src/obj_parser.h	/^  float *vn;$/;"	m	struct:Obj
+vp	/home/onionhuang/programming_projects/c/general/src/obj_parser.h	/^  float *vp;$/;"	m	struct:Obj
+vt	/home/onionhuang/programming_projects/c/general/src/obj_parser.h	/^  float *vt;$/;"	m	struct:Obj
+vtan	/home/onionhuang/programming_projects/c/general/src/obj_parser.h	/^  float *vtan;$/;"	m	struct:Obj
+zeroMat3	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^mat3 zeroMat3() {$/;"	f
+zeroMat3	/home/onionhuang/programming_projects/c/general/src/linear_math.h	/^mat3 zeroMat3();$/;"	p
+zeroMat4	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^mat4 zeroMat4() {$/;"	f
+zeroMat4	/home/onionhuang/programming_projects/c/general/src/linear_math.h	/^mat4 zeroMat4();$/;"	p
+zeroVec3	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^vec3 zeroVec3() {$/;"	f
+zeroVec3	/home/onionhuang/programming_projects/c/general/src/linear_math.h	/^vec3 zeroVec3();$/;"	p
+zeroVec4	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^vec4 zeroVec4() {$/;"	f
+zeroVec4	/home/onionhuang/programming_projects/c/general/src/linear_math.h	/^vec4 zeroVec4();$/;"	p
+zeroVersor	/home/onionhuang/programming_projects/c/general/src/linear_math.c	/^versor zeroVersor() {$/;"	f
+zeroVersor	/home/onionhuang/programming_projects/c/general/src/linear_math.h	/^versor zeroVersor();$/;"	p
