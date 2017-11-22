@@ -27,9 +27,9 @@ Plugin 'Shougo/neco-vim'
 
 Plugin 'calebeby/ncm-css'
 
-Plugin 'SirVer/ultisnips'
+"Plugin 'SirVer/ultisnips'
 
-Plugin 'honza/vim-snippets'
+"Plugin 'honza/vim-snippets'
 
 "Plugin 'vim-scripts/OmniCppComplete'
 
@@ -136,7 +136,7 @@ let g:cm_complete_popup_delay=10
 
 
 "settings for ultisnips
-let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsExpandTrigger="<tab>"
 "let g:UltiSnipsJumpForwardTrigger="<c-b>"
 "let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
