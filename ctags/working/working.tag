@@ -4,9 +4,9 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-INFO_ERROR	/home/onionhuang/programming_projects/c/stock_calculator/src/main.c	24;"	d	file:
+INFO_ERROR	/home/onionhuang/programming_projects/c/stock_calculator/src/main.c	26;"	d	file:
 INFO_PATTERN	/home/onionhuang/programming_projects/c/stock_calculator/src/main.c	16;"	d	file:
-INFO_QUOTE	/home/onionhuang/programming_projects/c/stock_calculator/src/main.c	22;"	d	file:
+INFO_QUOTE	/home/onionhuang/programming_projects/c/stock_calculator/src/main.c	24;"	d	file:
 UserData	/home/onionhuang/programming_projects/c/stock_calculator/src/main.c	/^struct UserData {$/;"	s	file:
 WIDGET_MARGIN	/home/onionhuang/programming_projects/c/stock_calculator/src/main.c	14;"	d	file:
 WIDGET_SPACING	/home/onionhuang/programming_projects/c/stock_calculator/src/main.c	13;"	d	file:
