@@ -37,13 +37,11 @@ Plugin 'fatih/vim-go'
 
 Plugin 'davidhalter/jedi-vim'
 
-Plugin 'ternjs/tern_for_vim'
+"Plugin 'ternjs/tern_for_vim'
 
 Plugin 'othree/html5.vim'
 
 Plugin 'othree/csscomplete.vim'
-
-"Plugin 'vim-scripts/Ada-Bundle'
 
 "Plugin 'leafgarland/typescript-vim'
 
@@ -53,9 +51,9 @@ Plugin 'Raimondi/delimitMate'
 
 Plugin 'majutsushi/tagbar'
 
-Plugin 'Quramy/vim-js-pretty-template'
+"Plugin 'Quramy/vim-js-pretty-template'
 
-Plugin 'jason0x43/vim-js-indent'
+"Plugin 'jason0x43/vim-js-indent'
 
 Plugin 'Chiel92/vim-autoformat'
 
