@@ -37,7 +37,7 @@ Plugin 'fatih/vim-go'
 
 Plugin 'davidhalter/jedi-vim'
 
-"Plugin 'ternjs/tern_for_vim'
+Plugin 'ternjs/tern_for_vim'
 
 Plugin 'othree/html5.vim'
 
