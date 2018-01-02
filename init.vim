@@ -205,7 +205,7 @@ let g:syntastic_check_on_wq = 0
 
 let g:syntastic_mode_map = {
       \ "mode": "passive",
-      \ "active_filetypes": ["html", "css", "javascript", "typescript", "python"],
+      \ "active_filetypes": ["html", "css", "javascript", "python"],
       \ "passive_filetypes": []}
 "'passive_filetypes': ['c', 'cpp', 'go']
 
@@ -278,6 +278,16 @@ autocmd FileType javascript autocmd BufWritePre <buffer> execute 'Autoformat'
 
 "autocmd FileType ada command! Autoformat call AdaFormat()
 
+"function and key map for refresh syntax highlighting
+function SyntaxRefresh()
+  syntax sync fromstart
+endfunction
+
+command SyntaxRefresh call SyntaxRefresh()
+
+autocmd FileType html autocmd BufEnter <buffer> call SyntaxRefresh()
+autocmd FileType css autocmd BufEnter <buffer> call SyntaxRefresh()
+autocmd FileType javascript autocmd BufEnter <buffer> call SyntaxRefresh()
 
 "function for ctags generation
 function CTag()
