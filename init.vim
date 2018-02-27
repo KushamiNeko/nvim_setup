@@ -17,7 +17,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'roxma/nvim-completion-manager'
 
-Plugin 'autozimu/LanguageClient-neovim'
+"Plugin 'autozimu/LanguageClient-neovim'
 
 Plugin 'roxma/ncm-clang'
 
@@ -43,7 +43,7 @@ Plugin 'othree/html5.vim'
 
 Plugin 'othree/csscomplete.vim'
 
-"Plugin 'leafgarland/typescript-vim'
+Plugin 'leafgarland/typescript-vim'
 
 "Plugin 'Quramy/tsuquyomi'
 
@@ -93,15 +93,15 @@ let g:cm_complete_popup_delay=10
 
 "setting for typescript with NCM
 "au User CmSetup call cm#register_source({
-"\ 'name' : 'cm-ts',
-"\ 'priority': 0,
-"\ 'scoping': 1,
-"\ 'scopes': ['typescript'],
-"\ 'abbreviation': 'ts',
-"\ 'word_pattern': '[a-z0-9.]+',
-"\ 'cm_refresh_patterns':['[a-z0-9.]+'],
-"\ 'cm_refresh': {'omnifunc': 'tsuquyomi#complete'},
-"\ })
+      "\ 'name' : 'cm-ts',
+      "\ 'priority': 0,
+      "\ 'scoping': 1,
+      "\ 'scopes': ['typescript'],
+      "\ 'abbreviation': 'ts',
+      "\ 'word_pattern': '[a-z0-9.]+',
+      "\ 'cm_refresh_patterns':['[a-z0-9.]+'],
+      "\ 'cm_refresh': {'omnifunc': 'tsuquyomi#complete'},
+      "\ })
 
 
 "setting for go with NCM
@@ -219,7 +219,6 @@ let g:syntastic_python_flake8_args='--ignore=E111,E121,E114,E501,E125'
 let g:syntastic_html_checkers = ['jshint']
 let g:syntastic_css_checkers = ['jshint']
 let g:syntastic_javascript_checkers = ['jshint']
-"let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 "let g:syntastic_quiet_messages = {'level':  'warning', 'type': 'syntax'}
 
@@ -271,9 +270,9 @@ autocmd FileType javascript autocmd BufWritePre <buffer> execute 'Autoformat'
 
 "function for ada autoformat
 "function AdaFormat()
-  "let path = expand('%:p')
-  "execute 'silent !gnatpp ' . path . ' -of ' . path . ' -W8 -i2'
-  "execute 'e'
+"let path = expand('%:p')
+"execute 'silent !gnatpp ' . path . ' -of ' . path . ' -W8 -i2'
+"execute 'e'
 "endfunction
 
 "autocmd FileType ada command! Autoformat call AdaFormat()
