@@ -27,6 +27,8 @@ Plugin 'Shougo/neco-vim'
 
 Plugin 'calebeby/ncm-css'
 
+Plugin 'mhartington/nvim-typescript'
+
 "Plugin 'SirVer/ultisnips'
 
 "Plugin 'honza/vim-snippets'
@@ -43,7 +45,9 @@ Plugin 'othree/html5.vim'
 
 Plugin 'othree/csscomplete.vim'
 
-Plugin 'leafgarland/typescript-vim'
+"Plugin 'leafgarland/typescript-vim'
+
+Plugin 'HerringtonDarkholme/yats.vim'
 
 "Plugin 'Quramy/tsuquyomi'
 
@@ -93,15 +97,15 @@ let g:cm_complete_popup_delay=10
 
 "setting for typescript with NCM
 "au User CmSetup call cm#register_source({
-      "\ 'name' : 'cm-ts',
-      "\ 'priority': 0,
-      "\ 'scoping': 1,
-      "\ 'scopes': ['typescript'],
-      "\ 'abbreviation': 'ts',
-      "\ 'word_pattern': '[a-z0-9.]+',
-      "\ 'cm_refresh_patterns':['[a-z0-9.]+'],
-      "\ 'cm_refresh': {'omnifunc': 'tsuquyomi#complete'},
-      "\ })
+"\ 'name' : 'cm-ts',
+"\ 'priority': 0,
+"\ 'scoping': 1,
+"\ 'scopes': ['typescript'],
+"\ 'abbreviation': 'ts',
+"\ 'word_pattern': '[a-z0-9.]+',
+"\ 'cm_refresh_patterns':['[a-z0-9.]+'],
+"\ 'cm_refresh': {'omnifunc': 'tsuquyomi#complete'},
+"\ })
 
 
 "setting for go with NCM
@@ -190,7 +194,7 @@ let g:go_highlight_build_constraints = 1
 
 
 " setting of tsuquyomi typescript'
-"let g:tsuquyomi_disable_quickfix = 1
+let g:tsuquyomi_disable_quickfix = 1
 
 
 "setting of syntastic
