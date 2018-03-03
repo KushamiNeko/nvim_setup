@@ -269,6 +269,7 @@ autocmd FileType xml autocmd BufWritePre <buffer> execute 'Autoformat'
 
 autocmd FileType html autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType css autocmd BufWritePre <buffer> execute 'Autoformat'
+autocmd FileType scss autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType javascript autocmd BufWritePre <buffer> execute 'Autoformat'
 
 
