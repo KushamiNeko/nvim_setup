@@ -27,7 +27,7 @@ Plugin 'Shougo/neco-vim'
 
 Plugin 'calebeby/ncm-css'
 
-Plugin 'mhartington/nvim-typescript'
+"Plugin 'mhartington/nvim-typescript'
 
 "Plugin 'SirVer/ultisnips'
 
@@ -45,9 +45,11 @@ Plugin 'othree/html5.vim'
 
 Plugin 'othree/csscomplete.vim'
 
+Plugin 'groenewege/vim-less'
+
 "Plugin 'leafgarland/typescript-vim'
 
-Plugin 'HerringtonDarkholme/yats.vim'
+"Plugin 'HerringtonDarkholme/yats.vim'
 
 "Plugin 'Quramy/tsuquyomi'
 
