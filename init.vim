@@ -45,7 +45,7 @@ Plugin 'othree/html5.vim'
 
 Plugin 'othree/csscomplete.vim'
 
-Plugin 'groenewege/vim-less'
+"Plugin 'groenewege/vim-less'
 
 "Plugin 'leafgarland/typescript-vim'
 
