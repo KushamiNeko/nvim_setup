@@ -15,17 +15,34 @@ Plugin 'VundleVim/Vundle.vim'
 
 "Plugin 'Shougo/vimproc.vim'
 
-Plugin 'roxma/nvim-completion-manager'
+"Plugin 'roxma/nvim-completion-manager'
 
 "Plugin 'autozimu/LanguageClient-neovim'
 
-Plugin 'roxma/ncm-clang'
+"Plugin 'roxma/ncm-clang'
 
-Plugin 'roxma/nvim-cm-tern'
+"Plugin 'roxma/nvim-cm-tern'
 
-Plugin 'Shougo/neco-vim'
+"Plugin 'Shougo/neco-vim'
 
-Plugin 'calebeby/ncm-css'
+"Plugin 'calebeby/ncm-css'
+
+Plugin 'ncm2/ncm2'
+Plugin 'roxma/nvim-yarp'
+
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+set completeopt=noinsert,menuone,noselect
+
+Plugin 'ncm2/ncm2-bufword'
+Plugin 'ncm2/ncm2-tmux'
+Plugin 'ncm2/ncm2-path'
+Plugin 'ncm2/ncm2-cssomni'
+Plugin 'ncm2/ncm2-tern'
+Plugin 'ncm2/ncm2-jedi'
+Plugin 'ncm2/ncm2-pyclang'
+Plugin 'ncm2/ncm2-vim'
+Plugin 'ncm2/ncm2-go'
 
 "Plugin 'mhartington/nvim-typescript'
 
