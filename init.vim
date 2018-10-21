@@ -213,7 +213,7 @@ let g:go_highlight_build_constraints = 1
 
 
 " setting of tsuquyomi typescript'
-let g:tsuquyomi_disable_quickfix = 1
+"let g:tsuquyomi_disable_quickfix = 1
 
 
 "setting of syntastic
