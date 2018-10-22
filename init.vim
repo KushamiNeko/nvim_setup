@@ -241,8 +241,9 @@ let g:syntastic_mode_map = {
 "let g:syntastic_c_checkers = ['clang_check']
 "let g:syntastic_cpp_checkers = ['clang_check']
 "let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_args='--ignore=E111,E121,E114,E501,E125'
+"let g:syntastic_python_checkers = ['flake8']
+"let g:syntastic_python_flake8_args='--ignore=E111,E121,E114,E501,E125'
+let g:syntastic_python_checkers = ['mypy']
 "let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 let g:syntastic_html_checkers = ['jshint']
@@ -260,8 +261,9 @@ let g:formatters_css = ['my_css']
 let g:formatters_scss = ['my_css']
 
 "yapf style config file at ~/.config/yapf/style
-let g:formatdef_my_python = '"yapf"'
-let g:formatters_python = ['my_python']
+"let g:formatdef_my_python = '"yapf"'
+"let g:formatters_python = ['my_python']
+let g:formatter_yapf_style = 'google'
 
 
 "set indentation width to 2 spaces in python mode
@@ -288,7 +290,7 @@ autocmd FileType c setl ofu=ccomplete#Complete
 autocmd FileType c autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType cpp autocmd BufWritePre <buffer> execute 'Autoformat'
 
-"autocmd FileType python autocmd BufWritePre <buffer> execute 'Autoformat'
+autocmd FileType python autocmd BufWritePre <buffer> execute 'Autoformat'
 
 autocmd FileType xml autocmd BufWritePre <buffer> execute 'Autoformat'
 
@@ -297,15 +299,6 @@ autocmd FileType css autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType scss autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType javascript autocmd BufWritePre <buffer> execute 'Autoformat'
 
-
-"function for ada autoformat
-"function AdaFormat()
-"let path = expand('%:p')
-"execute 'silent !gnatpp ' . path . ' -of ' . path . ' -W8 -i2'
-"execute 'e'
-"endfunction
-
-"autocmd FileType ada command! Autoformat call AdaFormat()
 
 "function and key map for refresh syntax highlighting
 function SyntaxRefresh()
