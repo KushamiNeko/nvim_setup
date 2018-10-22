@@ -34,15 +34,22 @@ autocmd BufEnter * call ncm2#enable_for_buffer()
 
 set completeopt=noinsert,menuone,noselect
 
+"setting of completion menu
+"set completeopt-=menu
+"set completeopt+=menuone
+"set completeopt-=longest
+"set completeopt+=noselect
+
+
 Plugin 'ncm2/ncm2-bufword'
 Plugin 'ncm2/ncm2-tmux'
 Plugin 'ncm2/ncm2-path'
-Plugin 'ncm2/ncm2-cssomni'
-Plugin 'ncm2/ncm2-tern'
-Plugin 'ncm2/ncm2-jedi'
-Plugin 'ncm2/ncm2-pyclang'
 Plugin 'ncm2/ncm2-vim'
 Plugin 'ncm2/ncm2-go'
+Plugin 'ncm2/ncm2-jedi'
+Plugin 'ncm2/ncm2-pyclang'
+Plugin 'ncm2/ncm2-cssomni'
+Plugin 'ncm2/ncm2-tern'
 
 "Plugin 'mhartington/nvim-typescript'
 
@@ -52,15 +59,18 @@ Plugin 'ncm2/ncm2-go'
 
 "Plugin 'vim-scripts/OmniCppComplete'
 
-Plugin 'fatih/vim-go'
+"Plugin 'fatih/vim-go'
 
-Plugin 'davidhalter/jedi-vim'
+"Plugin 'davidhalter/jedi-vim'
 
 Plugin 'ternjs/tern_for_vim'
 
 Plugin 'othree/html5.vim'
 
-Plugin 'othree/csscomplete.vim'
+"Plugin 'othree/csscomplete.vim'
+
+
+"""
 
 "Plugin 'groenewege/vim-less'
 
@@ -69,6 +79,9 @@ Plugin 'othree/csscomplete.vim'
 "Plugin 'HerringtonDarkholme/yats.vim'
 
 "Plugin 'Quramy/tsuquyomi'
+
+
+"""
 
 Plugin 'Raimondi/delimitMate'
 
@@ -178,13 +191,6 @@ let g:cm_complete_popup_delay=10
 
 " automatically open and close the popup menu / preview window
 "au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-
-
-"setting of completion menu
-"set completeopt-=menu
-"set completeopt+=menuone
-"set completeopt-=longest
-"set completeopt+=noselect
 
 
 "setting of delimitMate
