@@ -42,7 +42,8 @@ set completeopt=noinsert,menuone,noselect
 
 
 Plugin 'ncm2/ncm2-bufword'
-Plugin 'ncm2/ncm2-tmux'
+"Plugin 'ncm2/ncm2-tmux'
+Plugin 'ncm2/ncm2-tagprefix'
 Plugin 'ncm2/ncm2-path'
 Plugin 'ncm2/ncm2-vim'
 Plugin 'ncm2/ncm2-go'
@@ -244,6 +245,7 @@ let g:syntastic_mode_map = {
 "let g:syntastic_python_checkers = ['flake8']
 "let g:syntastic_python_flake8_args='--ignore=E111,E121,E114,E501,E125'
 let g:syntastic_python_checkers = ['mypy']
+let g:syntastic_python_mypy_args='-s'
 "let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 let g:syntastic_html_checkers = ['jshint']
@@ -261,7 +263,7 @@ let g:formatters_css = ['my_css']
 let g:formatters_scss = ['my_css']
 
 "yapf style config file at ~/.config/yapf/style
-"let g:formatdef_my_python = '"yapf"'
+let g:formatdef_my_python = '"yapf"'
 "let g:formatters_python = ['my_python']
 let g:formatter_yapf_style = 'google'
 
