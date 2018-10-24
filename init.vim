@@ -60,7 +60,7 @@ Plugin 'ncm2/ncm2-tern'
 
 "Plugin 'vim-scripts/OmniCppComplete'
 
-"Plugin 'fatih/vim-go'
+Plugin 'fatih/vim-go'
 
 "Plugin 'davidhalter/jedi-vim'
 
