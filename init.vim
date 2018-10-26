@@ -11,6 +11,9 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
+
+"old
+
 "Plugin 'Shougo/deoplete.nvim'
 
 "Plugin 'Shougo/vimproc.vim'
@@ -27,6 +30,9 @@ Plugin 'VundleVim/Vundle.vim'
 
 "Plugin 'calebeby/ncm-css'
 
+
+"ncm2
+
 Plugin 'ncm2/ncm2'
 Plugin 'roxma/nvim-yarp'
 
@@ -41,8 +47,9 @@ set completeopt=noinsert,menuone,noselect
 "set completeopt+=noselect
 
 
+"ncm2 completion source
+
 Plugin 'ncm2/ncm2-bufword'
-"Plugin 'ncm2/ncm2-tmux'
 Plugin 'ncm2/ncm2-tagprefix'
 Plugin 'ncm2/ncm2-path'
 Plugin 'ncm2/ncm2-vim'
@@ -51,29 +58,47 @@ Plugin 'ncm2/ncm2-jedi'
 Plugin 'ncm2/ncm2-pyclang'
 Plugin 'ncm2/ncm2-cssomni'
 Plugin 'ncm2/ncm2-tern'
+"Plugin 'ncm2/ncm2-tmux'
 
-"Plugin 'mhartington/nvim-typescript'
+
+"snippets
 
 "Plugin 'SirVer/ultisnips'
 
 "Plugin 'honza/vim-snippets'
 
+
+"c++
+
 "Plugin 'vim-scripts/OmniCppComplete'
+
+
+"go
 
 Plugin 'fatih/vim-go'
 
+
+"python
+
 "Plugin 'davidhalter/jedi-vim'
 
-Plugin 'ternjs/tern_for_vim'
+"Plugin 'fisadev/vim-isort'
+
+
+"html css js
 
 Plugin 'othree/html5.vim'
 
 "Plugin 'othree/csscomplete.vim'
 
+Plugin 'ternjs/tern_for_vim'
+
 
 """
 
-"Plugin 'groenewege/vim-less'
+"typescript
+
+"Plugin 'mhartington/nvim-typescript'
 
 "Plugin 'leafgarland/typescript-vim'
 
@@ -84,15 +109,11 @@ Plugin 'othree/html5.vim'
 
 """
 
+"utilities
+
 Plugin 'Raimondi/delimitMate'
 
 Plugin 'majutsushi/tagbar'
-
-"Plugin 'Quramy/vim-js-pretty-template'
-
-"Plugin 'jason0x43/vim-js-indent'
-
-Plugin 'Chiel92/vim-autoformat'
 
 Plugin 'alvan/vim-closetag'
 
@@ -100,9 +121,23 @@ Plugin 'scrooloose/nerdtree'
 
 Plugin 'scrooloose/nerdcommenter'
 
-Plugin 'vim-syntastic/syntastic'
-
 Plugin 'tpope/vim-surround'
+
+Plugin 'Chiel92/vim-autoformat'
+
+"Plugin 'skywind3000/asyncrun.vim'
+
+"Plugin 'neomake/neomake'
+
+"""
+
+"code checker
+
+"Plugin 'vim-syntastic/syntastic'
+
+Plugin 'w0rp/ale'
+
+"""
 
 
 "colorscheme plugins
@@ -112,6 +147,7 @@ Plugin 'colepeters/spacemacs-theme.vim'
 Plugin 'tyrannicaltoucan/vim-quantum'
 
 Plugin 'jansenfuller/crayon'
+
 
 call vundle#end()
 
@@ -123,12 +159,12 @@ filetype plugin indent on
 autocmd VimEnter <buffer> execute 'NERDTreeToggle'
 
 
-"setting for ncm
+"setting of ncm
 let g:cm_smart_enable=1
 let g:cm_complete_popup_delay=10
 
 
-"setting for typescript with NCM
+"setting of typescript with NCM
 "au User CmSetup call cm#register_source({
 "\ 'name' : 'cm-ts',
 "\ 'priority': 0,
@@ -141,7 +177,7 @@ let g:cm_complete_popup_delay=10
 "\ })
 
 
-"setting for go with NCM
+"setting of go with NCM
 "au User CmSetup call cm#register_source({
 "\ 'name' : 'cm-gocode',
 "\ 'priority': 0,
@@ -154,7 +190,7 @@ let g:cm_complete_popup_delay=10
 "\ })
 
 
-"start deoplete
+"settings of deoplete
 "let g:deoplete#enable_at_startup = 1
 "let g:deoplete#disable_auto_complete=1
 "let g:deoplete#auto_complete_delay=10
@@ -170,24 +206,20 @@ let g:cm_complete_popup_delay=10
 "let g:clang_close_preview=1
 
 
-"settings for ultisnips
+"settings of ultisnips
 "let g:UltiSnipsExpandTrigger="<tab>"
 "let g:UltiSnipsJumpForwardTrigger="<c-b>"
 "let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 
-"omniCppComplete
+"setting of omniCppComplete
 "let OmniCpp_NamespaceSearch = 1
 "let OmniCpp_GlobalScopeSearch = 1
 "let OmniCpp_ShowAccess = 1
 "let OmniCpp_ShowPrototypeInAbbr = 1
-"" show function parameters
 "let OmniCpp_MayCompleteDot = 1
-"" autocomplete after .
 "let OmniCpp_MayCompleteArrow = 1
-"" autocomplete after ->
 "let OmniCpp_MayCompleteScope = 1
-"" autocomplete after ::
 "let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 
 " automatically open and close the popup menu / preview window
@@ -224,9 +256,9 @@ let g:go_highlight_build_constraints = 1
 
 
 "setting of syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -237,16 +269,18 @@ let g:syntastic_mode_map = {
       \ "mode": "passive",
       \ "active_filetypes": ["html", "css", "javascript", "python"],
       \ "passive_filetypes": []}
-"'passive_filetypes': ['c', 'cpp', 'go']
 
 "let g:syntastic_c_checkers = ['clang_check']
 "let g:syntastic_cpp_checkers = ['clang_check']
+"
 "let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+"
+"let g:syntastic_typescript_checkers = ['tsuquyomi']
+"
 "let g:syntastic_python_checkers = ['flake8']
 "let g:syntastic_python_flake8_args='--ignore=E111,E121,E114,E501,E125'
 let g:syntastic_python_checkers = ['mypy']
 let g:syntastic_python_mypy_args='-s'
-"let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 let g:syntastic_html_checkers = ['jshint']
 let g:syntastic_css_checkers = ['jshint']
