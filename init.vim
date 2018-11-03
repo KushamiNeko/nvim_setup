@@ -164,6 +164,11 @@ let g:cm_smart_enable=1
 let g:cm_complete_popup_delay=10
 
 
+"setting of pyclang
+let g:ncm2_pyclang#library_path = '/usr/lib64/libclang.so.7'
+let g:ncm2_pyclang#args_file_path = ['.clang_complete']
+
+
 "setting of typescript with NCM
 "au User CmSetup call cm#register_source({
 "\ 'name' : 'cm-ts',
@@ -237,7 +242,7 @@ let g:closetag_filenames = "*.html,*.xhtml,*.xml"
 
 
 "setting of vim-go
-let g:go_bin_path = "/home/onionhuang/programming_tools/go_tools/bin"
+let g:go_bin_path = "~/programming_tools/go_tools/bin"
 let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -348,27 +353,27 @@ autocmd FileType css autocmd BufEnter <buffer> call SyntaxRefresh()
 autocmd FileType javascript autocmd BufEnter <buffer> call SyntaxRefresh()
 
 "function for ctags generation
-function CTag()
-  let path = expand(getcwd())
-  execute 'silent !ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
-  execute 'silent !ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.config/nvim/ctags/working/general.tag ' . '~/programming_projects/c/general/src'
+"function CTag()
+  "let path = expand(getcwd())
+  "execute 'silent !ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
+  "execute 'silent !ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.config/nvim/ctags/working/general.tag ' . '~/programming_projects/c/general/src'
 
-  execute 'silent! source tag'
-endfunction
+  "execute 'silent! source tag'
+"endfunction
 
-function CppTag()
-  let path = expand(getcwd())
-  execute 'silent !ctags -R --sort=yes --fields=+iaS --extra=+q --c++-kinds=+cdefgmpstuvx --language-force=c++ -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
+"function CppTag()
+  "let path = expand(getcwd())
+  "execute 'silent !ctags -R --sort=yes --fields=+iaS --extra=+q --c++-kinds=+cdefgmpstuvx --language-force=c++ -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
 
-  execute 'silent! source tag'
-endfunction
+  "execute 'silent! source tag'
+"endfunction
 
 
-autocmd FileType c call CTag()
-autocmd FileType cpp call CppTag()
+"autocmd FileType c call CTag()
+"autocmd FileType cpp call CppTag()
 
-autocmd FileType c autocmd BufWritePost <buffer> call CTag()
-autocmd FileType cpp autocmd BufWritePost <buffer> call CppTag()
+"autocmd FileType c autocmd BufWritePost <buffer> call CTag()
+"autocmd FileType cpp autocmd BufWritePost <buffer> call CppTag()
 
 
 "display line number
