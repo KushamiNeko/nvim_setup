@@ -3,7 +3,7 @@ filetype off
 
 set rtp+=~/.config/nvim/bundle/Vundle.vim
 
-let s:editor_root=expand("~/.config/nvim")
+let s:editor_root=expand('~/.config/nvim')
 
 call vundle#rc(s:editor_root . '/bundle')
 
@@ -58,6 +58,7 @@ Plugin 'ncm2/ncm2-jedi'
 Plugin 'ncm2/ncm2-pyclang'
 Plugin 'ncm2/ncm2-cssomni'
 Plugin 'ncm2/ncm2-tern'
+
 "Plugin 'ncm2/ncm2-tmux'
 
 
@@ -212,9 +213,9 @@ let g:ncm2_pyclang#args_file_path = ['.clang_complete']
 
 
 "settings of ultisnips
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"let g:UltiSnipsExpandTrigger='<tab>'
+"let g:UltiSnipsJumpForwardTrigger='<c-b>'
+"let g:UltiSnipsJumpBackwardTrigger='<c-z>'
 
 
 "setting of omniCppComplete
@@ -225,25 +226,25 @@ let g:ncm2_pyclang#args_file_path = ['.clang_complete']
 "let OmniCpp_MayCompleteDot = 1
 "let OmniCpp_MayCompleteArrow = 1
 "let OmniCpp_MayCompleteScope = 1
-"let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+"let OmniCpp_DefaultNamespaces = ['std', '_GLIBCXX_STD']
 
 " automatically open and close the popup menu / preview window
 "au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 
 "setting of delimitMate
-let g:delimitMate_matchpairs = "(:),[:],{:}"
+let g:delimitMate_matchpairs = '(:),[:],{:}'
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_inside_quotes = 1
 
 
 "setting of closetag
-let g:closetag_filenames = "*.html,*.xhtml,*.xml"
+let g:closetag_filenames = '*.html,*.xhtml,*.xml'
 
 
 "setting of vim-go
-let g:go_bin_path = "~/programming_tools/go_tools/bin"
-let g:go_fmt_command = "goimports"
+let g:go_bin_path = '~/programming_tools/go_tools/bin'
+let g:go_fmt_command = 'goimports'
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_fields = 1
@@ -265,16 +266,6 @@ let g:go_highlight_build_constraints = 1
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_mode_map = {
-      \ "mode": "passive",
-      \ "active_filetypes": ["html", "css", "javascript", "python"],
-      \ "passive_filetypes": []}
-
 "let g:syntastic_c_checkers = ['clang_check']
 "let g:syntastic_cpp_checkers = ['clang_check']
 "
@@ -284,14 +275,26 @@ let g:syntastic_mode_map = {
 "
 "let g:syntastic_python_checkers = ['flake8']
 "let g:syntastic_python_flake8_args='--ignore=E111,E121,E114,E501,E125'
-let g:syntastic_python_checkers = ['mypy']
-let g:syntastic_python_mypy_args='-s'
-
-let g:syntastic_html_checkers = ['jshint']
-let g:syntastic_css_checkers = ['jshint']
-let g:syntastic_javascript_checkers = ['jshint']
 
 "let g:syntastic_quiet_messages = {'level':  'warning', 'type': 'syntax'}
+
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+
+"let g:syntastic_mode_map = {
+      "\ 'mode': 'passive',
+      "\ 'active_filetypes': ['html', 'css', 'javascript', 'python'],
+      "\ 'passive_filetypes': []}
+
+"let g:syntastic_python_checkers = ['mypy']
+"let g:syntastic_python_mypy_args='-s'
+
+"let g:syntastic_html_checkers = ['jshint']
+"let g:syntastic_css_checkers = ['jshint']
+"let g:syntastic_javascript_checkers = ['jshint']
 
 
 "setting of autoformat
@@ -302,8 +305,7 @@ let g:formatters_css = ['my_css']
 let g:formatters_scss = ['my_css']
 
 "yapf style config file at ~/.config/yapf/style
-let g:formatdef_my_python = '"yapf"'
-"let g:formatters_python = ['my_python']
+let g:formatters_python = ['yapf']
 let g:formatter_yapf_style = 'google'
 
 
@@ -352,6 +354,7 @@ autocmd FileType html autocmd BufEnter <buffer> call SyntaxRefresh()
 autocmd FileType css autocmd BufEnter <buffer> call SyntaxRefresh()
 autocmd FileType javascript autocmd BufEnter <buffer> call SyntaxRefresh()
 
+
 "function for ctags generation
 "function CTag()
   "let path = expand(getcwd())
@@ -397,7 +400,7 @@ set backupdir=~/programming_tools/nvim/backup
 
 
 "use true color
-if (has("termguicolors"))
+if (has('termguicolors'))
   set termguicolors
 endif
 
@@ -408,6 +411,7 @@ set background=dark
 
 "setting of color theme
 colorscheme spacemacs-theme
+
 "colorscheme quantum
 "let g:airline_theme='quantum'
 "let g:quantum_black = 1
