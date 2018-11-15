@@ -243,7 +243,7 @@ let g:closetag_filenames = '*.html,*.xhtml,*.xml'
 
 
 "setting of vim-go
-let g:go_bin_path = '~/programming_tools/go_tools/bin'
+let g:go_bin_path = expand('~/programming_tools/go_tools/bin')
 let g:go_fmt_command = 'goimports'
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
