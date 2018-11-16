@@ -126,6 +126,10 @@ Plugin 'tpope/vim-surround'
 
 Plugin 'Chiel92/vim-autoformat'
 
+Plugin 'Yggdroot/indentLine'
+
+"Plugin 'thaerkh/vim-indentguides'
+
 "Plugin 'skywind3000/asyncrun.vim'
 
 "Plugin 'neomake/neomake'
@@ -230,6 +234,20 @@ let g:ncm2_pyclang#args_file_path = ['.clang_complete']
 
 " automatically open and close the popup menu / preview window
 "au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+
+
+" settings of indentLine
+"let g:indentLine_setColors = 0
+
+"let g:indentLine_color_term = 255
+let g:indentLine_color_gui = '#7F7F7F'
+"let g:indentLine_color_tty_light = 7 " (default: 4)
+"let g:indentLine_color_dark = 1 " (default: 2)
+"let g:indentLine_bgcolor_term = 202
+"let g:indentLine_bgcolor_gui = '#FF5F00'
+
+set listchars=tab:\¦\ 
+set list
 
 
 "setting of delimitMate
