@@ -128,15 +128,13 @@ Plugin 'Chiel92/vim-autoformat'
 
 Plugin 'Yggdroot/indentLine'
 
-"Plugin 'thaerkh/vim-indentguides'
-
 "Plugin 'skywind3000/asyncrun.vim'
 
 "Plugin 'neomake/neomake'
 
 """
 
-"code checker
+"code linter
 
 "Plugin 'vim-syntastic/syntastic'
 
@@ -172,6 +170,10 @@ let g:cm_complete_popup_delay=10
 "setting of pyclang
 let g:ncm2_pyclang#library_path = '/usr/lib64/libclang.so.7'
 let g:ncm2_pyclang#args_file_path = ['.clang_complete']
+
+
+"settings of ale python
+let g:ale_linters = {'python': ['mypy', 'flake8']}
 
 
 "setting of typescript with NCM
@@ -327,8 +329,9 @@ let g:formatters_python = ['yapf']
 let g:formatter_yapf_style = 'google'
 
 
-"set indentation width to 2 spaces in python mode
-autocmd FileType python setl sw=2 sts=2 et
+"set indentation width to 2 or 4 spaces in python mode
+"autocmd FileType python setl sw=2 sts=2 et
+autocmd FileType python setl sw=4 sts=4 et
 
 
 autocmd FileType html setl ofu=htmlcomplete#CompleteTags
