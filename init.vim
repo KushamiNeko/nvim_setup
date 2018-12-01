@@ -173,7 +173,7 @@ let g:ncm2_pyclang#args_file_path = ['.clang_complete']
 
 
 "settings of ale python
-let g:ale_linters = {'python': ['mypy', 'flake8']}
+let g:ale_linters = {'python': ['mypy', 'flake8', 'pylint']}
 
 
 "setting of typescript with NCM
