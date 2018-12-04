@@ -12,25 +12,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 
-"old
-
-"Plugin 'Shougo/deoplete.nvim'
-
-"Plugin 'Shougo/vimproc.vim'
-
-"Plugin 'roxma/nvim-completion-manager'
-
-"Plugin 'autozimu/LanguageClient-neovim'
-
-"Plugin 'roxma/ncm-clang'
-
-"Plugin 'roxma/nvim-cm-tern'
-
-"Plugin 'Shougo/neco-vim'
-
-"Plugin 'calebeby/ncm-css'
-
-
 "ncm2
 
 Plugin 'ncm2/ncm2'
@@ -128,15 +109,9 @@ Plugin 'Chiel92/vim-autoformat'
 
 Plugin 'Yggdroot/indentLine'
 
-"Plugin 'skywind3000/asyncrun.vim'
-
-"Plugin 'neomake/neomake'
-
 """
 
 "code linter
-
-"Plugin 'vim-syntastic/syntastic'
 
 Plugin 'w0rp/ale'
 
@@ -176,39 +151,6 @@ let g:ncm2_pyclang#args_file_path = ['.clang_complete']
 let g:ale_linters = {'python': ['mypy', 'flake8', 'pylint']}
 
 
-"setting of typescript with NCM
-"au User CmSetup call cm#register_source({
-"\ 'name' : 'cm-ts',
-"\ 'priority': 0,
-"\ 'scoping': 1,
-"\ 'scopes': ['typescript'],
-"\ 'abbreviation': 'ts',
-"\ 'word_pattern': '[a-z0-9.]+',
-"\ 'cm_refresh_patterns':['[a-z0-9.]+'],
-"\ 'cm_refresh': {'omnifunc': 'tsuquyomi#complete'},
-"\ })
-
-
-"setting of go with NCM
-"au User CmSetup call cm#register_source({
-"\ 'name' : 'cm-gocode',
-"\ 'priority': 0,
-"\ 'scoping': 1,
-"\ 'scopes': ['go'],
-"\ 'abbreviation': 'go',
-"\ 'word_pattern': '[a-z0-9.]+',
-"\ 'cm_refresh_patterns':['[a-z0-9.]+'],
-"\ 'cm_refresh': {'omnifunc': 'go#complete#Complete'},
-"\ })
-
-
-"settings of deoplete
-"let g:deoplete#enable_at_startup = 1
-"let g:deoplete#disable_auto_complete=1
-"let g:deoplete#auto_complete_delay=10
-"let g:deoplete#omni_patterns = {'go': '[a-z0-9.]\{2,}', 'python': '[a-z0-9.]\{2,}', 'typescript': '[a-z0-9.]\{2,}'}
-
-
 "setting of clang complete
 "let g:clang_use_library=1
 "let g:clang_library_path='/usr/lib64'
@@ -218,29 +160,12 @@ let g:ale_linters = {'python': ['mypy', 'flake8', 'pylint']}
 "let g:clang_close_preview=1
 
 
-"settings of ultisnips
-"let g:UltiSnipsExpandTrigger='<tab>'
-"let g:UltiSnipsJumpForwardTrigger='<c-b>'
-"let g:UltiSnipsJumpBackwardTrigger='<c-z>'
-
-
-"setting of omniCppComplete
-"let OmniCpp_NamespaceSearch = 1
-"let OmniCpp_GlobalScopeSearch = 1
-"let OmniCpp_ShowAccess = 1
-"let OmniCpp_ShowPrototypeInAbbr = 1
-"let OmniCpp_MayCompleteDot = 1
-"let OmniCpp_MayCompleteArrow = 1
-"let OmniCpp_MayCompleteScope = 1
-"let OmniCpp_DefaultNamespaces = ['std', '_GLIBCXX_STD']
-
 " automatically open and close the popup menu / preview window
 "au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 
 " settings of indentLine
 "let g:indentLine_setColors = 0
-
 "let g:indentLine_color_term = 255
 let g:indentLine_color_gui = '#7F7F7F'
 "let g:indentLine_color_tty_light = 7 " (default: 4)
@@ -273,48 +198,8 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 
-"setting of jedi-vim
-"let g:jedi#force_py_version = 3
-
-
 " setting of tsuquyomi typescript'
 "let g:tsuquyomi_disable_quickfix = 1
-
-
-"setting of syntastic
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_c_checkers = ['clang_check']
-"let g:syntastic_cpp_checkers = ['clang_check']
-"
-"let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-"
-"let g:syntastic_typescript_checkers = ['tsuquyomi']
-"
-"let g:syntastic_python_checkers = ['flake8']
-"let g:syntastic_python_flake8_args='--ignore=E111,E121,E114,E501,E125'
-
-"let g:syntastic_quiet_messages = {'level':  'warning', 'type': 'syntax'}
-
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-
-"let g:syntastic_mode_map = {
-      "\ 'mode': 'passive',
-      "\ 'active_filetypes': ['html', 'css', 'javascript', 'python'],
-      "\ 'passive_filetypes': []}
-
-"let g:syntastic_python_checkers = ['mypy']
-"let g:syntastic_python_mypy_args='-s'
-
-"let g:syntastic_html_checkers = ['jshint']
-"let g:syntastic_css_checkers = ['jshint']
-"let g:syntastic_javascript_checkers = ['jshint']
 
 
 "setting of autoformat
