@@ -32,15 +32,21 @@ set completeopt=noinsert,menuone,noselect
 
 Plugin 'ncm2/ncm2-bufword'
 Plugin 'ncm2/ncm2-tagprefix'
+Plugin 'ncm2/ncm2-gtags'
 Plugin 'ncm2/ncm2-path'
 Plugin 'ncm2/ncm2-vim'
-Plugin 'ncm2/ncm2-go'
 Plugin 'ncm2/ncm2-jedi'
 Plugin 'ncm2/ncm2-pyclang'
+Plugin 'ncm2/ncm2-go'
 Plugin 'ncm2/ncm2-cssomni'
 Plugin 'ncm2/ncm2-tern'
 
 "Plugin 'ncm2/ncm2-tmux'
+
+
+"gtags generate
+
+Plugin 'jsfaint/gen_tags.vim'
 
 
 "snippets
@@ -149,6 +155,10 @@ let g:ncm2_pyclang#args_file_path = ['.clang_complete']
 
 "settings of ale python
 let g:ale_linters = {'python': ['mypy', 'flake8', 'pylint']}
+
+
+"settings of gtags
+let g:gen_tags#ctags_opts = ['--sort=yes', '--fields=+S', '--c-kinds=+cdefgmpstuvx', '--language-force=c']
 
 
 "setting of clang complete
