@@ -72,6 +72,9 @@ Plugin 'fatih/vim-go'
 
 "Plugin 'fisadev/vim-isort'
 
+Plugin 'nvie/vim-flake8'
+
+
 
 "html css js
 
@@ -250,7 +253,7 @@ autocmd FileType c setl ofu=ccomplete#Complete
 autocmd FileType c autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType cpp autocmd BufWritePre <buffer> execute 'Autoformat'
 
-autocmd FileType python autocmd BufWritePre <buffer> execute 'Autoformat'
+"autocmd FileType python autocmd BufWritePre <buffer> execute 'Autoformat'
 
 autocmd FileType xml autocmd BufWritePre <buffer> execute 'Autoformat'
 
@@ -273,13 +276,13 @@ autocmd FileType javascript autocmd BufEnter <buffer> call SyntaxRefresh()
 
 
 "function for ctags generation
-"function CTag()
-  "let path = expand(getcwd())
-  "execute 'silent !ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
-  "execute 'silent !ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.config/nvim/ctags/working/general.tag ' . '~/programming_projects/c/general/src'
+function CTag()
+  let path = expand(getcwd())
+  execute 'silent !ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
+  execute 'silent !ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.config/nvim/ctags/working/general.tag ' . '~/programming_projects/c/general/src'
 
-  "execute 'silent! source tag'
-"endfunction
+  execute 'silent! source tag'
+endfunction
 
 "function CppTag()
   "let path = expand(getcwd())
@@ -289,10 +292,10 @@ autocmd FileType javascript autocmd BufEnter <buffer> call SyntaxRefresh()
 "endfunction
 
 
-"autocmd FileType c call CTag()
+autocmd FileType c call CTag()
 "autocmd FileType cpp call CppTag()
 
-"autocmd FileType c autocmd BufWritePost <buffer> call CTag()
+autocmd FileType c autocmd BufWritePost <buffer> call CTag()
 "autocmd FileType cpp autocmd BufWritePost <buffer> call CppTag()
 
 
