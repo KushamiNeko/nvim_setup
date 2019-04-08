@@ -44,6 +44,11 @@ Plugin 'ncm2/ncm2-tern'
 "Plugin 'ncm2/ncm2-tmux'
 
 
+"language server protocol
+
+Plugin 'autozimu/LanguageClient-neovim'
+
+
 "gtags generate
 
 Plugin 'jsfaint/gen_tags.vim'
@@ -80,9 +85,9 @@ Plugin 'nvie/vim-flake8'
 
 Plugin 'othree/html5.vim'
 
-"Plugin 'othree/csscomplete.vim'
-
 Plugin 'ternjs/tern_for_vim'
+
+"Plugin 'othree/csscomplete.vim'
 
 
 """
@@ -96,6 +101,11 @@ Plugin 'ternjs/tern_for_vim'
 "Plugin 'HerringtonDarkholme/yats.vim'
 
 "Plugin 'Quramy/tsuquyomi'
+
+
+"dart
+
+Plugin 'dart-lang/dart-vim-plugin'
 
 
 """
@@ -164,6 +174,14 @@ let g:ale_linters = {'python': ['mypy', 'flake8', 'pylint']}
 let g:gen_tags#ctags_opts = ['--sort=yes', '--fields=+S', '--c-kinds=+cdefgmpstuvx', '--language-force=c']
 
 
+"settings of dart language server
+let g:LanguageClient_serverCommands = {
+      \'c': ['clangd'],
+      \'dart': ['dart_language_server'],
+      \'javascript': ['node', '/home/neko/programming_tools/javascript-typescript-langserver/lib/language-server-stdio'],
+      \}
+
+
 "setting of clang complete
 "let g:clang_use_library=1
 "let g:clang_library_path='/usr/lib64'
@@ -178,15 +196,15 @@ let g:gen_tags#ctags_opts = ['--sort=yes', '--fields=+S', '--c-kinds=+cdefgmpstu
 
 
 " settings of indentLine
+let g:indentLine_color_gui = '#7F7F7F'
 "let g:indentLine_setColors = 0
 "let g:indentLine_color_term = 255
-let g:indentLine_color_gui = '#7F7F7F'
 "let g:indentLine_color_tty_light = 7 " (default: 4)
 "let g:indentLine_color_dark = 1 " (default: 2)
 "let g:indentLine_bgcolor_term = 202
 "let g:indentLine_bgcolor_gui = '#FF5F00'
 
-set listchars=tab:\¦\ 
+set listchars=tab:\¦\
 set list
 
 
@@ -285,10 +303,10 @@ function CTag()
 endfunction
 
 "function CppTag()
-  "let path = expand(getcwd())
-  "execute 'silent !ctags -R --sort=yes --fields=+iaS --extra=+q --c++-kinds=+cdefgmpstuvx --language-force=c++ -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
+"let path = expand(getcwd())
+"execute 'silent !ctags -R --sort=yes --fields=+iaS --extra=+q --c++-kinds=+cdefgmpstuvx --language-force=c++ -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
 
-  "execute 'silent! source tag'
+"execute 'silent! source tag'
 "endfunction
 
 
