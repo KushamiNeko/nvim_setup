@@ -19,9 +19,8 @@ Plugin 'roxma/nvim-yarp'
 
 autocmd BufEnter * call ncm2#enable_for_buffer()
 
-set completeopt=noinsert,menuone,noselect
-
 "setting of completion menu
+set completeopt=noinsert,menuone,noselect
 "set completeopt-=menu
 "set completeopt+=menuone
 "set completeopt-=longest
@@ -32,15 +31,14 @@ set completeopt=noinsert,menuone,noselect
 
 Plugin 'ncm2/ncm2-bufword'
 Plugin 'ncm2/ncm2-tagprefix'
-Plugin 'ncm2/ncm2-gtags'
 Plugin 'ncm2/ncm2-path'
 Plugin 'ncm2/ncm2-vim'
 Plugin 'ncm2/ncm2-jedi'
-Plugin 'ncm2/ncm2-pyclang'
+Plugin 'ncm2/ncm2-pyclang' 
 Plugin 'ncm2/ncm2-go'
 Plugin 'ncm2/ncm2-cssomni'
 Plugin 'ncm2/ncm2-tern'
-
+"Plugin 'ncm2/ncm2-gtags'
 "Plugin 'ncm2/ncm2-tmux'
 
 
@@ -75,7 +73,8 @@ Plugin 'fatih/vim-go'
 
 "Plugin 'davidhalter/jedi-vim'
 
-"Plugin 'fisadev/vim-isort'
+Plugin 'fisadev/vim-isort'
+let g:vim_isort_python_version = 'python3'
 
 Plugin 'nvie/vim-flake8'
 
@@ -294,13 +293,13 @@ autocmd FileType javascript autocmd BufEnter <buffer> call SyntaxRefresh()
 
 
 "function for ctags generation
-function CTag()
-  let path = expand(getcwd())
-  execute 'silent !ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
-  execute 'silent !ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.config/nvim/ctags/working/general.tag ' . '~/programming_projects/c/general/src'
+"function CTag()
+  "let path = expand(getcwd())
+  "execute 'silent !ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
+  "execute 'silent !ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.config/nvim/ctags/working/general.tag ' . '~/programming_projects/c/general/src'
 
-  execute 'silent! source tag'
-endfunction
+  "execute 'silent! source tag'
+"endfunction
 
 "function CppTag()
 "let path = expand(getcwd())
@@ -310,10 +309,10 @@ endfunction
 "endfunction
 
 
-autocmd FileType c call CTag()
+"autocmd FileType c call CTag()
 "autocmd FileType cpp call CppTag()
 
-autocmd FileType c autocmd BufWritePost <buffer> call CTag()
+"autocmd FileType c autocmd BufWritePost <buffer> call CTag()
 "autocmd FileType cpp autocmd BufWritePost <buffer> call CppTag()
 
 
