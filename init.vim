@@ -262,7 +262,8 @@ let g:indentLine_color_gui = '#7F7F7F'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "setings of tab indentations
 "set listchars=tab:¦¦
-set listchars=tab:..
+"note that there is a space at the end of the listchars
+set listchars=tab:\¦\ 
 set list
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
