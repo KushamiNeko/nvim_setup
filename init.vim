@@ -320,7 +320,13 @@ autocmd FileType python setl sw=4 sts=4 et
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"overwrite file directly when editing dart, html, css, scss and javascript
+"files to prevent errors on dart webdev serve
 autocmd FileType dart setl nowritebackup
+autocmd FileType html setl nowritebackup
+autocmd FileType css setl nowritebackup
+autocmd FileType scss setl nowritebackup
+autocmd FileType javascript setl nowritebackup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
