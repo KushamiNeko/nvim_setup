@@ -320,6 +320,11 @@ autocmd FileType python setl sw=4 sts=4 et
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd FileType dart setl nowritebackup
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "completefunc setup
 autocmd FileType html setl ofu=htmlcomplete#CompleteTags
 autocmd FileType html setl completefunc=htmlcomplete#CompleteTags
