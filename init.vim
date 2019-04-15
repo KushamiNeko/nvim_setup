@@ -352,6 +352,7 @@ autocmd FileType cpp autocmd BufWritePre <buffer> execute 'Autoformat'
 
 "use manual python autoformat to prevent messy format
 "autocmd FileType python autocmd BufWritePre <buffer> execute 'Autoformat'
+autocmd FileType python autocmd BufWritePre <buffer> execute 'Isort'
 
 autocmd FileType xml autocmd BufWritePre <buffer> execute 'Autoformat'
 
@@ -359,6 +360,8 @@ autocmd FileType html autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType css autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType scss autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType javascript autocmd BufWritePre <buffer> execute 'Autoformat'
+
+autocmd FileType dart autocmd BufWritePre <buffer> execute 'DartFmt'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
