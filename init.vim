@@ -263,7 +263,7 @@ let g:indentLine_color_gui = '#7F7F7F'
 "setings of tab indentations
 "set listchars=tab:¦¦
 "note that there is a space at the end of the listchars
-set listchars=tab:\¦\
+set listchars=tab:\¦\ 
 set list
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -355,6 +355,7 @@ autocmd FileType cpp autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType python autocmd BufWritePre <buffer> execute 'Isort'
 
 autocmd FileType xml autocmd BufWritePre <buffer> execute 'Autoformat'
+
 autocmd FileType html autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType css autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType scss autocmd BufWritePre <buffer> execute 'Autoformat'
