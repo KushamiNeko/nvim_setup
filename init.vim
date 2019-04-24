@@ -186,7 +186,7 @@ autocmd VimEnter <buffer> execute 'NERDTreeToggle'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "setting of ncm
 let g:cm_smart_enable=1
-let g:cm_complete_popup_delay=10
+let g:cm_complete_popup_delay=5
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -223,10 +223,10 @@ let g:vim_isort_python_version = 'python3'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "settings of language server
 let g:LanguageClient_serverCommands = {
+      \'dart': ['dart_language_server'],
       \'python': ['/home/neko/.local/bin/pyls'],
       \'c': ['clangd'],
       \'cpp': ['clangd'],
-      \'dart': ['dart_language_server'],
       \'javascript': ['node', '/home/neko/programming_tools/javascript-typescript-langserver/lib/language-server-stdio'],
       \'typescript': ['node', '/home/neko/programming_tools/javascript-typescript-langserver/lib/language-server-stdio'],
       \}
@@ -236,7 +236,7 @@ let g:LanguageClient_serverCommands = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "settings of ultisnips
 " Press enter key to trigger snippet expansion
-inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+inoremap <silent> <expr> <tab> ncm2_ultisnips#expand_or("\<tab>", 'n')
 
 " c-j c-k for moving in snippet
 "let g:UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'
@@ -292,6 +292,9 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+
+"wait for the go language server
+autocmd FileType go autocmd BufEnter <buffer> execute 'LanguageClientStop'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
