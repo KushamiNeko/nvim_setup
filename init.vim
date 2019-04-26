@@ -34,16 +34,16 @@ Plugin 'ncm2/ncm2-path'
 
 Plugin 'ncm2/ncm2-vim'
 
+Plugin 'ncm2/ncm2-cssomni'
+
 "use clangd language server instead
 "Plugin 'ncm2/ncm2-pyclang'
 
 "use pyls language server instead
 "Plugin 'ncm2/ncm2-jedi'
 
-"wait for gopls language server
-Plugin 'ncm2/ncm2-go'
-
-Plugin 'ncm2/ncm2-cssomni'
+"use gopls language server instead
+"Plugin 'ncm2/ncm2-go'
 
 "use javascript typescript language serveer instead
 "Plugin 'ncm2/ncm2-tern'
@@ -51,25 +51,9 @@ Plugin 'ncm2/ncm2-cssomni'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"no use
-
-"Plugin 'ncm2/ncm2-gtags'
-
-"Plugin 'ncm2/ncm2-tmux'
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "language server protocol
 
 Plugin 'autozimu/LanguageClient-neovim'
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"gtags generate
-
-"Plugin 'jsfaint/gen_tags.vim'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -139,19 +123,9 @@ Plugin 'scrooloose/nerdtree'
 
 Plugin 'scrooloose/nerdcommenter'
 
-Plugin 'tpope/vim-surround'
-
 Plugin 'Chiel92/vim-autoformat'
 
 Plugin 'Yggdroot/indentLine'
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"code linter
-
-"use language server instead
-"Plugin 'w0rp/ale'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -191,42 +165,20 @@ let g:cm_complete_popup_delay=5
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"setting of pyclang
-"use pyls language server instead
-"let g:ncm2_pyclang#library_path = '/usr/lib64/libclang.so.7'
-"let g:ncm2_pyclang#args_file_path = ['.clang_complete']
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"settings of ale python
-"use language server instead
-"let g:ale_linters = {
-"\'python': ['mypy', 'flake8', 'pylint'],
-"\}
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "settings of isort
 let g:vim_isort_python_version = 'python3'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"settings of gtags
-"use clangd language server instead
-"let g:gen_tags#ctags_opts = ['--sort=yes', '--fields=+S', '--c-kinds=+cdefgmpstuvx', '--language-force=c']
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "settings of language server
 let g:LanguageClient_serverCommands = {
+      \'go': ['gopls'],
       \'dart': ['dart_language_server'],
       \'python': ['/home/neko/.local/bin/pyls'],
       \'c': ['clangd'],
       \'cpp': ['clangd'],
+      \'rust': ['rls'],
       \'javascript': ['node', '/home/neko/programming_tools/javascript-typescript-langserver/lib/language-server-stdio'],
       \'typescript': ['node', '/home/neko/programming_tools/javascript-typescript-langserver/lib/language-server-stdio'],
       \}
@@ -235,14 +187,14 @@ let g:LanguageClient_serverCommands = {
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "settings of ultisnips
-" Press enter key to trigger snippet expansion
+" Press tab key to trigger snippet expansion
 inoremap <silent> <expr> <tab> ncm2_ultisnips#expand_or("\<tab>", 'n')
 
 " c-j c-k for moving in snippet
-"let g:UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'
-"let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger = '<c-j>'
 let g:UltiSnipsJumpBackwardTrigger  = '<c-k>'
+"let g:UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'
+"let g:UltiSnipsExpandTrigger="<tab>"
 "let g:UltiSnipsRemoveSelectModeMappings = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -250,18 +202,11 @@ let g:UltiSnipsJumpBackwardTrigger  = '<c-k>'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " settings of indentLine
 let g:indentLine_color_gui = '#7F7F7F'
-"let g:indentLine_setColors = 0
-"let g:indentLine_color_term = 255
-"let g:indentLine_color_tty_light = 7 " (default: 4)
-"let g:indentLine_color_dark = 1 " (default: 2)
-"let g:indentLine_bgcolor_term = 202
-"let g:indentLine_bgcolor_gui = '#FF5F00'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "setings of tab indentations
-"set listchars=tab:¦¦
 "note that there is a space at the end of the listchars
 set listchars=tab:\¦\ 
 set list
@@ -292,9 +237,6 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-
-"wait for the go language server
-autocmd FileType go autocmd BufEnter <buffer> execute 'LanguageClientStop'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -310,14 +252,12 @@ let g:formatters_scss = ['my_css']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "yapf style config file at ~/.config/yapf/style
 let g:formatters_python = ['yapf']
-"let g:formatter_yapf_style = 'google'
-let g:formatter_yapf_style = 'pep8'
+let g:formatter_yapf_style = 'google'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "set indentation width to 2 or 4 spaces in python mode
-"autocmd FileType python setl sw=2 sts=2 et
 autocmd FileType python setl sw=4 sts=4 et
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -380,32 +320,6 @@ command SyntaxRefresh call SyntaxRefresh()
 autocmd FileType html autocmd BufEnter <buffer> call SyntaxRefresh()
 autocmd FileType css autocmd BufEnter <buffer> call SyntaxRefresh()
 autocmd FileType javascript autocmd BufEnter <buffer> call SyntaxRefresh()
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"function for ctags generation
-"function CTag()
-"let path = expand(getcwd())
-"execute 'silent !ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
-"execute 'silent !ctags -R --sort=yes --fields=+S --c-kinds=+cdefgmpstuvx --language-force=c -f ~/.config/nvim/ctags/working/general.tag ' . '~/programming_projects/c/general/src'
-
-"execute 'silent! source tag'
-"endfunction
-
-"function CppTag()
-"let path = expand(getcwd())
-"execute 'silent !ctags -R --sort=yes --fields=+iaS --extra=+q --c++-kinds=+cdefgmpstuvx --language-force=c++ -f ~/.config/nvim/ctags/working/working.tag ' . path . '/src'
-
-"execute 'silent! source tag'
-"endfunction
-
-
-"autocmd FileType c call CTag()
-"autocmd FileType cpp call CppTag()
-
-"autocmd FileType c autocmd BufWritePost <buffer> call CTag()
-"autocmd FileType cpp autocmd BufWritePost <buffer> call CppTag()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
