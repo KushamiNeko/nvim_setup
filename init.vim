@@ -65,6 +65,13 @@ Plugin 'fatih/vim-go'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"dart
+
+Plugin 'dart-lang/dart-vim-plugin'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "python
 
 Plugin 'fisadev/vim-isort'
@@ -89,13 +96,6 @@ Plugin 'othree/html5.vim'
 Plugin 'HerringtonDarkholme/yats.vim'
 
 "Plugin 'mhartington/nvim-typescript'
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"dart
-
-Plugin 'dart-lang/dart-vim-plugin'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -176,9 +176,9 @@ let g:LanguageClient_serverCommands = {
       \'go': ['gopls'],
       \'dart': ['dart_language_server'],
       \'python': ['/home/neko/.local/bin/pyls'],
-      \'c': ['clangd'],
+      \'c': ['ccls'],
       \'cpp': ['clangd'],
-      \'rust': ['rls'],
+      \'rust': ['rustup', 'run', 'stable', 'rls'],
       \'javascript': ['node', '/home/neko/programming_tools/javascript-typescript-langserver/lib/language-server-stdio'],
       \'typescript': ['node', '/home/neko/programming_tools/javascript-typescript-langserver/lib/language-server-stdio'],
       \}
