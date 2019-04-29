@@ -65,6 +65,13 @@ Plugin 'fatih/vim-go'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"rust
+
+Plugin 'rust-lang/rust.vim'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "dart
 
 Plugin 'dart-lang/dart-vim-plugin'
@@ -171,14 +178,20 @@ let g:vim_isort_python_version = 'python3'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"settings of rust
+let g:rustfmt_autosave = 1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "settings of language server
 let g:LanguageClient_serverCommands = {
+      \'python': ['/home/neko/.local/bin/pyls'],
+      \'rust': ['rustup', 'run', 'stable', 'rls'],
       \'go': ['gopls'],
       \'dart': ['dart_language_server'],
-      \'python': ['/home/neko/.local/bin/pyls'],
       \'c': ['ccls'],
       \'cpp': ['clangd'],
-      \'rust': ['rustup', 'run', 'stable', 'rls'],
       \'javascript': ['node', '/home/neko/programming_tools/javascript-typescript-langserver/lib/language-server-stdio'],
       \'typescript': ['node', '/home/neko/programming_tools/javascript-typescript-langserver/lib/language-server-stdio'],
       \}
