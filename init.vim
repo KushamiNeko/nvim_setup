@@ -265,7 +265,7 @@ let g:formatters_scss = ['my_css']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "yapf style config file at ~/.config/yapf/style
 let g:formatters_python = ['yapf']
-let g:formatter_yapf_style = 'google'
+let g:formatter_yapf_style = 'pep8'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
