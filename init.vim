@@ -219,10 +219,15 @@ let g:indentLine_color_gui = '#7F7F7F'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"setings of tab indentations
+"setings indent lines and tab indentations
 "note that there is a space at the end of the listchars
 set listchars=tab:\¦\ 
 set list
+
+"let g:indentLine_enabled = 0
+let g:indentLine_fileTypeExclude = ['markdown', 'json']
+autocmd FileType json set conceallevel=0
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
