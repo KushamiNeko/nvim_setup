@@ -109,11 +109,11 @@ Plugin 'HerringtonDarkholme/yats.vim'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "snippets
 
-Plugin 'ncm2/ncm2-ultisnips'
+"Plugin 'ncm2/ncm2-ultisnips'
 
-Plugin 'SirVer/ultisnips'
+"Plugin 'SirVer/ultisnips'
 
-Plugin 'honza/vim-snippets'
+"Plugin 'honza/vim-snippets'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -189,7 +189,7 @@ let g:LanguageClient_serverCommands = {
       \'python': ['/home/neko/.local/bin/pyls'],
       \'rust': ['rustup', 'run', 'stable', 'rls'],
       \'go': ['gopls'],
-      \'dart': ['dart_language_server'],
+      \'dart': ['dart', '/home/neko/programming_tools/dart-sdk/bin/snapshots/analysis_server.dart.snapshot', '--lsp'],
       \'c': ['ccls'],
       \'cpp': ['clangd'],
       \'javascript': ['node', '/home/neko/programming_tools/javascript-typescript-langserver/lib/language-server-stdio'],
