@@ -109,11 +109,11 @@ Plugin 'HerringtonDarkholme/yats.vim'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "snippets
 
-"Plugin 'ncm2/ncm2-ultisnips'
+Plugin 'ncm2/ncm2-ultisnips'
 
-"Plugin 'SirVer/ultisnips'
+Plugin 'SirVer/ultisnips'
 
-"Plugin 'honza/vim-snippets'
+Plugin 'honza/vim-snippets'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
