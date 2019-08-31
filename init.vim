@@ -34,7 +34,7 @@ Plugin 'ncm2/ncm2-path'
 
 Plugin 'ncm2/ncm2-vim'
 
-"use custom register source function 
+"use custom register source function
 "Plugin 'ncm2/ncm2-cssomni'
 
 "use clangd language server instead
@@ -202,15 +202,15 @@ let g:LanguageClient_serverCommands = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "setting of css completion register source
 call ncm2#register_source({'name' : 'css',
-            \ 'priority': 9, 
-            \ 'subscope_enable': 1,
-            \ 'scope': ['css', 'scss', 'sass', 'less'],
-            \ 'mark': 'css',
-            \ 'word_pattern': '[\w\-]+',
-            \ 'complete_pattern': ':\s*',
-            \ 'on_complete': ['ncm2#on_complete#omni',
-            \               'csscomplete#CompleteCSS'],
-            \ })
+      \ 'priority': 9,
+      \ 'subscope_enable': 1,
+      \ 'scope': ['css', 'scss', 'sass', 'less'],
+      \ 'mark': 'css',
+      \ 'word_pattern': '[\w\-]+',
+      \ 'complete_pattern': ':\s*',
+      \ 'on_complete': ['ncm2#on_complete#omni',
+      \               'csscomplete#CompleteCSS'],
+      \ })
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -244,7 +244,8 @@ set list
 "let g:indentLine_enabled = 0
 let g:indentLine_fileTypeExclude = ['markdown', 'json']
 autocmd FileType json set conceallevel=0
-let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+"let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+let g:indentLine_char_list = ['¦']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -272,6 +273,8 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:go_auto_type_info = 1
+let g:go_updatetime = 200
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
