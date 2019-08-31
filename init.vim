@@ -34,7 +34,8 @@ Plugin 'ncm2/ncm2-path'
 
 Plugin 'ncm2/ncm2-vim'
 
-Plugin 'ncm2/ncm2-cssomni'
+"use custom register source function 
+"Plugin 'ncm2/ncm2-cssomni'
 
 "use clangd language server instead
 "Plugin 'ncm2/ncm2-pyclang'
@@ -108,7 +109,7 @@ Plugin 'HerringtonDarkholme/yats.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "snippets
-
+"the best snippet engine of the three(snipmate, neosnippet)
 Plugin 'ncm2/ncm2-ultisnips'
 
 Plugin 'SirVer/ultisnips'
@@ -199,10 +200,26 @@ let g:LanguageClient_serverCommands = {
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"setting of css completion register source
+call ncm2#register_source({'name' : 'css',
+            \ 'priority': 9, 
+            \ 'subscope_enable': 1,
+            \ 'scope': ['css', 'scss', 'sass', 'less'],
+            \ 'mark': 'css',
+            \ 'word_pattern': '[\w\-]+',
+            \ 'complete_pattern': ':\s*',
+            \ 'on_complete': ['ncm2#on_complete#omni',
+            \               'csscomplete#CompleteCSS'],
+            \ })
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "settings of ultisnips
 " Press tab key to trigger snippet expansion
 inoremap <silent> <expr> <tab> ncm2_ultisnips#expand_or("\<tab>", 'n')
 
+"ultisnips
 " c-j c-k for moving in snippet
 let g:UltiSnipsJumpForwardTrigger = '<c-j>'
 let g:UltiSnipsJumpBackwardTrigger  = '<c-k>'
@@ -318,8 +335,11 @@ autocmd FileType python autocmd BufWritePre <buffer> execute 'Isort'
 autocmd FileType xml autocmd BufWritePre <buffer> execute 'Autoformat'
 
 autocmd FileType html autocmd BufWritePre <buffer> execute 'Autoformat'
+
 autocmd FileType css autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType scss autocmd BufWritePre <buffer> execute 'Autoformat'
+autocmd FileType sass autocmd BufWritePre <buffer> execute 'Autoformat'
+
 autocmd FileType javascript autocmd BufWritePre <buffer> execute 'Autoformat'
 
 autocmd FileType dart autocmd BufWritePre <buffer> execute 'DartFmt'
