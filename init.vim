@@ -187,12 +187,12 @@ let g:rustfmt_autosave = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "settings of language server
 let g:LanguageClient_serverCommands = {
-      \'python': ['/home/neko/.local/bin/pyls'],
-      \'rust': ['rustup', 'run', 'stable', 'rls'],
       \'go': ['gopls'],
       \'dart': ['dart', '/home/neko/programming_tools/dart-sdk/bin/snapshots/analysis_server.dart.snapshot', '--lsp'],
+      \'python': ['/home/neko/.local/bin/pyls'],
       \'c': ['ccls'],
       \'cpp': ['clangd'],
+      \'rust': ['rustup', 'run', 'stable', 'rls'],
       \'javascript': ['node', '/home/neko/programming_tools/javascript-typescript-langserver/lib/language-server-stdio'],
       \'typescript': ['node', '/home/neko/programming_tools/javascript-typescript-langserver/lib/language-server-stdio'],
       \}
@@ -273,8 +273,8 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-let g:go_auto_type_info = 1
-let g:go_updatetime = 200
+"let g:go_auto_type_info = 1
+"let g:go_updatetime = 200
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
