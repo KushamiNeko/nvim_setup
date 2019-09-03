@@ -143,7 +143,9 @@ Plugin 'colepeters/spacemacs-theme.vim'
 
 Plugin 'tyrannicaltoucan/vim-quantum'
 
-Plugin 'jansenfuller/crayon'
+Plugin 'sainnhe/gruvbox-material'
+
+Plugin 'sainnhe/edge'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -431,7 +433,8 @@ set background=dark
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "setting of color theme
-colorscheme spacemacs-theme
+"colorscheme spacemacs-theme
+colorscheme edge
 
 "colorscheme quantum
 "let g:airline_theme='quantum'
@@ -441,14 +444,15 @@ colorscheme spacemacs-theme
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"disabled
 "setting of gnome terminal colorscheme
-hi Normal guibg=none
-hi NonText guibg=none
+"hi Normal guibg=none
+"hi NonText guibg=none
 
 
-hi Normal ctermbg=none
-hi NonText ctermbg=none
+"hi Normal ctermbg=none
+"hi NonText ctermbg=none
 
 
-au ColorScheme * hi Normal ctermbg=none guibg=none
+"au ColorScheme * hi Normal ctermbg=none guibg=none
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
