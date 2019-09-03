@@ -22,7 +22,6 @@ Plugin 'roxma/nvim-yarp'
 
 autocmd BufEnter * call ncm2#enable_for_buffer()
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "ncm2 completion source
 
@@ -60,8 +59,8 @@ Plugin 'autozimu/LanguageClient-neovim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "go
-
-Plugin 'fatih/vim-go'
+"use gopls language server instead
+"Plugin 'fatih/vim-go'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -196,6 +195,17 @@ let g:LanguageClient_serverCommands = {
       \'javascript': ['node', '/home/neko/programming_tools/javascript-typescript-langserver/lib/language-server-stdio'],
       \'typescript': ['node', '/home/neko/programming_tools/javascript-typescript-langserver/lib/language-server-stdio'],
       \}
+
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
+let g:LanguageClient_useFloatingHover=0
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -328,12 +338,16 @@ autocmd FileType c setl ofu=ccomplete#Complete
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "autoformat setup
-autocmd FileType c autocmd BufWritePre <buffer> execute 'Autoformat'
-autocmd FileType cpp autocmd BufWritePre <buffer> execute 'Autoformat'
+autocmd FileType go autocmd BufWritePre <buffer> call LanguageClient#textDocument_formatting()
+
+autocmd FileType dart autocmd BufWritePre <buffer> execute 'DartFmt'
 
 "use manual python autoformat to prevent messy format
 "autocmd FileType python autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType python autocmd BufWritePre <buffer> execute 'Isort'
+
+autocmd FileType c autocmd BufWritePre <buffer> execute 'Autoformat'
+autocmd FileType cpp autocmd BufWritePre <buffer> execute 'Autoformat'
 
 autocmd FileType xml autocmd BufWritePre <buffer> execute 'Autoformat'
 
@@ -344,8 +358,6 @@ autocmd FileType scss autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType sass autocmd BufWritePre <buffer> execute 'Autoformat'
 
 autocmd FileType javascript autocmd BufWritePre <buffer> execute 'Autoformat'
-
-autocmd FileType dart autocmd BufWritePre <buffer> execute 'DartFmt'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -367,6 +379,12 @@ autocmd FileType javascript autocmd BufEnter <buffer> call SyntaxRefresh()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "display line number
 set nu
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"set height of preview window
+set previewheight=4
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
