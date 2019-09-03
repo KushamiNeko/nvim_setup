@@ -59,8 +59,8 @@ Plugin 'autozimu/LanguageClient-neovim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "go
-"use gopls language server instead
-"Plugin 'fatih/vim-go'
+
+Plugin 'fatih/vim-go'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -350,8 +350,6 @@ autocmd FileType c setl ofu=ccomplete#Complete
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "autoformat setup
-autocmd FileType go autocmd BufWritePre <buffer> call LanguageClient#textDocument_formatting()
-
 autocmd FileType dart autocmd BufWritePre <buffer> execute 'DartFmt'
 
 "use manual python autoformat to prevent messy format
