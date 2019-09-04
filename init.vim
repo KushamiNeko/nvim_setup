@@ -120,6 +120,8 @@ Plugin 'honza/vim-snippets'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "utilities
 
+Plugin 'Shougo/echodoc.vim'
+
 Plugin 'Raimondi/delimitMate'
 
 Plugin 'majutsushi/tagbar'
@@ -169,7 +171,7 @@ autocmd VimEnter <buffer> execute 'NERDTreeToggle'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "setting of ncm
 let g:cm_smart_enable=1
-let g:cm_complete_popup_delay=5
+let g:cm_complete_popup_delay=10
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -182,6 +184,14 @@ let g:vim_isort_python_version = 'python3'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "settings of rust
 let g:rustfmt_autosave = 1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"setting of echodoc
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'virtual'
+"set cmdheight=2
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
