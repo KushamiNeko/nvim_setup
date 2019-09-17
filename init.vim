@@ -35,8 +35,7 @@ Plugin 'ncm2/ncm2-path'
 
 Plugin 'ncm2/ncm2-vim'
 
-"use custom register source function
-"Plugin 'ncm2/ncm2-cssomni'
+Plugin 'ncm2/ncm2-cssomni'
 
 "use clangd language server instead
 "Plugin 'ncm2/ncm2-pyclang'
@@ -236,21 +235,6 @@ nnoremap <silent> <M-j> :call ClosePreview()<CR>
 function ClosePreview()
 if pumvisible() == 0|pclose|endif
 endfunction
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"setting of css completion register source
-call ncm2#register_source({'name' : 'css',
-      \ 'priority': 9,
-      \ 'subscope_enable': 1,
-      \ 'scope': ['css', 'scss', 'sass', 'less'],
-      \ 'mark': 'css',
-      \ 'word_pattern': '[\w\-]+',
-      \ 'complete_pattern': ':\s*',
-      \ 'on_complete': ['ncm2#on_complete#omni',
-      \               'csscomplete#CompleteCSS'],
-      \ })
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
