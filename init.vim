@@ -29,6 +29,8 @@ Plugin 'ncm2/ncm2-bufword'
 
 Plugin 'ncm2/ncm2-tagprefix'
 
+Plugin 'ncm2/ncm2-gtags'
+
 Plugin 'ncm2/ncm2-path'
 
 Plugin 'ncm2/ncm2-vim'
@@ -100,6 +102,7 @@ Plugin 'othree/html5.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "typescript
+
 Plugin 'HerringtonDarkholme/yats.vim'
 
 "Plugin 'mhartington/nvim-typescript'
@@ -109,6 +112,7 @@ Plugin 'HerringtonDarkholme/yats.vim'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "snippets
 "the best snippet engine of the three(snipmate, neosnippet)
+
 Plugin 'ncm2/ncm2-ultisnips'
 
 Plugin 'SirVer/ultisnips'
@@ -135,6 +139,8 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'Chiel92/vim-autoformat'
 
 Plugin 'Yggdroot/indentLine'
+
+Plugin 'jsfaint/gen_tags.vim'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -199,8 +205,8 @@ let g:echodoc#type = 'virtual'
 "settings of language server
 let g:LanguageClient_serverCommands = {
       \'go': ['gopls'],
-      \'dart': ['dart', '/home/neko/programming_tools/dart-sdk/bin/snapshots/analysis_server.dart.snapshot', '--lsp'],
       \'python': ['/home/neko/.local/bin/pyls'],
+      \'dart': ['dart', '/home/neko/programming_tools/dart-sdk/bin/snapshots/analysis_server.dart.snapshot', '--lsp'],
       \'c': ['ccls'],
       \'cpp': ['clangd'],
       \'rust': ['rustup', 'run', 'stable', 'rls'],
