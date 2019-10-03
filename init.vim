@@ -18,6 +18,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ncm2/ncm2'
 
 Plugin 'roxma/nvim-yarp'
+
+Plugin 'roxma/vim-hug-neovim-rpc'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 autocmd BufEnter * call ncm2#enable_for_buffer()
@@ -35,13 +37,17 @@ Plugin 'ncm2/ncm2-path'
 
 Plugin 'ncm2/ncm2-vim'
 
+Plugin 'ncm2/ncm2-syntax'
+
+Plugin 'Shougo/neco-syntax'
+
 Plugin 'ncm2/ncm2-cssomni'
+
+"use plain jedi instead of pyls language server
+Plugin 'ncm2/ncm2-jedi'
 
 "use clangd language server instead
 "Plugin 'ncm2/ncm2-pyclang'
-
-"use pyls language server instead
-"Plugin 'ncm2/ncm2-jedi'
 
 "use gopls language server instead
 "Plugin 'ncm2/ncm2-go'
@@ -55,6 +61,13 @@ Plugin 'ncm2/ncm2-cssomni'
 "language server protocol
 
 Plugin 'autozimu/LanguageClient-neovim'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"async linter
+
+Plugin 'dense-analysis/ale'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -181,6 +194,14 @@ let g:cm_complete_popup_delay=10
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"setting of ale
+let g:ale_linters = {'python': ['flake8', 'bandit', 'mypy']}
+
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "settings of isort
 let g:vim_isort_python_version = 'python3'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -202,15 +223,15 @@ let g:echodoc#type = 'virtual'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "settings of language server
+      "\'python': ['/home/neko/.local/bin/pyls'],
 let g:LanguageClient_serverCommands = {
       \'go': ['gopls'],
-      \'python': ['/home/neko/.local/bin/pyls'],
-      \'dart': ['dart', '/home/neko/programming_tools/dart-sdk/bin/snapshots/analysis_server.dart.snapshot', '--lsp'],
       \'c': ['ccls'],
+      \'typescript': ['node', '/home/neko/programming_tools/javascript-typescript-langserver/lib/language-server-stdio'],
+      \'javascript': ['node', '/home/neko/programming_tools/javascript-typescript-langserver/lib/language-server-stdio'],
+      \'dart': ['dart', '/home/neko/programming_tools/dart-sdk/bin/snapshots/analysis_server.dart.snapshot', '--lsp'],
       \'cpp': ['clangd'],
       \'rust': ['rustup', 'run', 'stable', 'rls'],
-      \'javascript': ['node', '/home/neko/programming_tools/javascript-typescript-langserver/lib/language-server-stdio'],
-      \'typescript': ['node', '/home/neko/programming_tools/javascript-typescript-langserver/lib/language-server-stdio'],
       \}
 
 nnoremap <silent> <M-k> :call LanguageClient#textDocument_hover()<CR>
@@ -312,9 +333,8 @@ let g:formatters_scss = ['my_css']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"yapf style config file at ~/.config/yapf/style
-let g:formatters_python = ['yapf']
-let g:formatter_yapf_style = 'pep8'
+"setting of autoformat for python
+let g:formatters_python = ['black']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
