@@ -35,11 +35,13 @@ Plugin 'ncm2/ncm2-gtags'
 
 Plugin 'ncm2/ncm2-path'
 
-Plugin 'ncm2/ncm2-vim'
+"Plugin 'ncm2/ncm2-vim'
 
-Plugin 'ncm2/ncm2-syntax'
+"Plugin 'ncm2/ncm2-syntax'
 
-Plugin 'Shougo/neco-syntax'
+"Plugin 'Shougo/neco-syntax'
+
+"ncm2 completion for programming language
 
 Plugin 'ncm2/ncm2-cssomni'
 
@@ -195,9 +197,16 @@ let g:cm_complete_popup_delay=10
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "setting of ale
-let g:ale_linters = {'python': ['flake8', 'bandit', 'mypy']}
+let g:ale_linters = {
+      \'python': ['pylint', 'flake8', 'mypy', 'bandit'], 
+      \'javascript': ['eslint'],
+      \'typescript': ['eslint']
+      \}
 
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -223,15 +232,17 @@ let g:echodoc#type = 'virtual'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "settings of language server
-      "\'python': ['/home/neko/.local/bin/pyls'],
+
+"\'python': ['/home/neko/.local/bin/pyls'],
+"\'dart': ['dart', '/home/neko/programming_tools/dart-sdk/bin/snapshots/analysis_server.dart.snapshot', '--lsp'],
+"\'rust': ['rustup', 'run', 'stable', 'rls'],
+
 let g:LanguageClient_serverCommands = {
       \'go': ['gopls'],
       \'c': ['ccls'],
-      \'typescript': ['node', '/home/neko/programming_tools/javascript-typescript-langserver/lib/language-server-stdio'],
-      \'javascript': ['node', '/home/neko/programming_tools/javascript-typescript-langserver/lib/language-server-stdio'],
-      \'dart': ['dart', '/home/neko/programming_tools/dart-sdk/bin/snapshots/analysis_server.dart.snapshot', '--lsp'],
       \'cpp': ['clangd'],
-      \'rust': ['rustup', 'run', 'stable', 'rls'],
+      \'typescript': ['typescript-language-server', '--stdio'],
+      \'javascript': ['typescript-language-server', '--stdio'],
       \}
 
 nnoremap <silent> <M-k> :call LanguageClient#textDocument_hover()<CR>
@@ -325,11 +336,18 @@ let g:go_highlight_build_constraints = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "setting of autoformat
-let g:formatdef_my_html = '"js-beautify --html -A=force -m=2 -s=2"'
-let g:formatters_html = ['my_html']
-let g:formatdef_my_css = '"js-beautify --css -s=2 -N"'
-let g:formatters_css = ['my_css']
-let g:formatters_scss = ['my_css']
+"let g:formatdef_my_html = '"js-beautify --html -A=force -m=2 -s=2"'
+"let g:formatters_html = ['my_html']
+"let g:formatdef_my_css = '"js-beautify --css -s=2 -N"'
+"let g:formatters_css = ['my_css']
+"let g:formatters_scss = ['my_css']
+
+let g:formatters_html = ['prettier']
+let g:formatters_css = ['prettier']
+let g:formatters_scss = ['prettier']
+let g:formatters_javascript = ['prettier']
+let g:formatters_typescript = ['prettier']
+let g:formatters_json = ['prettier']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -387,9 +405,11 @@ autocmd FileType html autocmd BufWritePre <buffer> execute 'Autoformat'
 
 autocmd FileType css autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType scss autocmd BufWritePre <buffer> execute 'Autoformat'
-autocmd FileType sass autocmd BufWritePre <buffer> execute 'Autoformat'
+"autocmd FileType sass autocmd BufWritePre <buffer> execute 'Autoformat'
 
+autocmd FileType typescript autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType javascript autocmd BufWritePre <buffer> execute 'Autoformat'
+autocmd FileType json autocmd BufWritePre <buffer> execute 'Autoformat'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
