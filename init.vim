@@ -45,8 +45,8 @@ Plugin 'ncm2/ncm2-path'
 
 Plugin 'ncm2/ncm2-cssomni'
 
-"use pyls language server instead
-"Plugin 'ncm2/ncm2-jedi'
+"use simple jedi and ale linters instead of pyls language server 
+Plugin 'ncm2/ncm2-jedi'
 
 "use clangd language server instead
 "Plugin 'ncm2/ncm2-pyclang'
@@ -83,14 +83,14 @@ Plugin 'fatih/vim-go'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "rust
 
-Plugin 'rust-lang/rust.vim'
+"Plugin 'rust-lang/rust.vim'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "dart
 
-Plugin 'dart-lang/dart-vim-plugin'
+"Plugin 'dart-lang/dart-vim-plugin'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -201,7 +201,7 @@ let g:ale_linters = {
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_insert_leave = 0
+"let g:ale_lint_on_insert_leave = 0
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
@@ -231,12 +231,12 @@ let g:echodoc#type = 'virtual'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "settings of language server
 
+"\'python': ['pyls'],
 "\'dart': ['dart', expand('~/programming_tools/dart-sdk/bin/snapshots/analysis_server.dart.snapshot'), '--lsp'],
 "\'rust': ['rustup', 'run', 'stable', 'rls'],
 
 let g:LanguageClient_serverCommands = {
       \'go': ['gopls'],
-      \'python': ['pyls'],
       \'c': ['ccls'],
       \'cpp': ['clangd'],
       \'typescript': ['typescript-language-server', '--stdio'],
