@@ -45,8 +45,8 @@ Plugin 'ncm2/ncm2-path'
 
 Plugin 'ncm2/ncm2-cssomni'
 
-"use plain jedi instead of pyls language server
-Plugin 'ncm2/ncm2-jedi'
+"use pyls language server instead
+"Plugin 'ncm2/ncm2-jedi'
 
 "use clangd language server instead
 "Plugin 'ncm2/ncm2-pyclang'
@@ -98,8 +98,6 @@ Plugin 'dart-lang/dart-vim-plugin'
 "python
 
 Plugin 'fisadev/vim-isort'
-
-"Plugin 'nvie/vim-flake8'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -108,9 +106,6 @@ Plugin 'fisadev/vim-isort'
 "html css js
 
 Plugin 'othree/html5.vim'
-
-"use javascript typescript language serveer instead
-"Plugin 'ternjs/tern_for_vim'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -205,6 +200,9 @@ let g:ale_linters = {
 
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -233,12 +231,12 @@ let g:echodoc#type = 'virtual'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "settings of language server
 
-"\'python': ['/home/neko/.local/bin/pyls'],
-"\'dart': ['dart', '/home/neko/programming_tools/dart-sdk/bin/snapshots/analysis_server.dart.snapshot', '--lsp'],
+"\'dart': ['dart', expand('~/programming_tools/dart-sdk/bin/snapshots/analysis_server.dart.snapshot'), '--lsp'],
 "\'rust': ['rustup', 'run', 'stable', 'rls'],
 
 let g:LanguageClient_serverCommands = {
       \'go': ['gopls'],
+      \'python': ['pyls'],
       \'c': ['ccls'],
       \'cpp': ['clangd'],
       \'typescript': ['typescript-language-server', '--stdio'],
@@ -250,6 +248,7 @@ nnoremap <silent> <M-d> :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 let g:LanguageClient_useFloatingHover=1
+let g:LanguageClient_settingsPath=expand('~/programming_tools/nvim/settings.json')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -329,19 +328,11 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-"let g:go_auto_type_info = 1
-"let g:go_updatetime = 200
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "setting of autoformat
-"let g:formatdef_my_html = '"js-beautify --html -A=force -m=2 -s=2"'
-"let g:formatters_html = ['my_html']
-"let g:formatdef_my_css = '"js-beautify --css -s=2 -N"'
-"let g:formatters_css = ['my_css']
-"let g:formatters_scss = ['my_css']
-
 let g:formatters_html = ['prettier']
 let g:formatters_css = ['prettier']
 let g:formatters_scss = ['prettier']
@@ -378,9 +369,6 @@ autocmd FileType javascript setl nowritebackup
 autocmd FileType html setl ofu=htmlcomplete#CompleteTags
 autocmd FileType html setl completefunc=htmlcomplete#CompleteTags
 
-autocmd FileType xhtml setl ofu=htmlcomplete#CompleteTags
-autocmd FileType xhtml setl completefunc=htmlcomplete#CompleteTags
-
 autocmd FileType css setl ofu=csscomplete#CompleteCSS
 autocmd FileType css setl completefunc=csscomplete#CompleteCSS
 
@@ -405,7 +393,6 @@ autocmd FileType html autocmd BufWritePre <buffer> execute 'Autoformat'
 
 autocmd FileType css autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType scss autocmd BufWritePre <buffer> execute 'Autoformat'
-"autocmd FileType sass autocmd BufWritePre <buffer> execute 'Autoformat'
 
 autocmd FileType typescript autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType javascript autocmd BufWritePre <buffer> execute 'Autoformat'
