@@ -49,7 +49,7 @@ Plugin 'ncm2/ncm2-cssomni'
 Plugin 'ncm2/ncm2-jedi'
 
 "use clangd language server instead
-"Plugin 'ncm2/ncm2-pyclang'
+Plugin 'ncm2/ncm2-pyclang'
 
 "use gopls language server instead
 "Plugin 'ncm2/ncm2-go'
@@ -248,7 +248,14 @@ nnoremap <silent> <M-d> :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 let g:LanguageClient_useFloatingHover=1
-let g:LanguageClient_settingsPath=expand('~/programming_tools/nvim/settings.json')
+"let g:LanguageClient_settingsPath=expand('~/programming_tools/nvim/settings.json')
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" setting of pyclang
+
+let g:ncm2_pyclang#library_path = '/usr/lib64/libclang.so.8'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
