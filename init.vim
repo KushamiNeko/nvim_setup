@@ -90,7 +90,7 @@ Plugin 'fatih/vim-go'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "dart
 
-"Plugin 'dart-lang/dart-vim-plugin'
+Plugin 'dart-lang/dart-vim-plugin'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -232,13 +232,13 @@ let g:echodoc#type = 'virtual'
 "settings of language server
 
 "\'python': ['pyls'],
-"\'dart': ['dart', expand('~/programming_tools/dart-sdk/bin/snapshots/analysis_server.dart.snapshot'), '--lsp'],
 "\'rust': ['rustup', 'run', 'stable', 'rls'],
 
 let g:LanguageClient_serverCommands = {
       \'go': ['gopls'],
       \'c': ['ccls'],
       \'cpp': ['clangd'],
+      \'dart': ['dart', expand('~/programming_tools/dart-sdk/bin/snapshots/analysis_server.dart.snapshot'), '--lsp'],
       \'typescript': ['typescript-language-server', '--stdio'],
       \'javascript': ['typescript-language-server', '--stdio'],
       \}
