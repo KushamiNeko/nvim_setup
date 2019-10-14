@@ -193,6 +193,8 @@ let g:cm_complete_popup_delay=10
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "setting of ale
 let g:ale_linters = {
+      \'c': ['gcc', 'clang', 'clangd', 'clang-tidy', 'clang-check'], 
+      \'cpp': ['gcc', 'clang', 'clangd', 'clang-tidy', 'clang-check'], 
       \'python': ['pylint', 'flake8', 'mypy', 'bandit'], 
       \'javascript': ['eslint'],
       \'typescript': ['eslint']
@@ -231,13 +233,13 @@ let g:echodoc#type = 'virtual'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "settings of language server
 
+"\'c': ['ccls'],
+"\'cpp': ['clangd'],
 "\'python': ['pyls'],
 "\'rust': ['rustup', 'run', 'stable', 'rls'],
 
 let g:LanguageClient_serverCommands = {
       \'go': ['gopls'],
-      \'c': ['ccls'],
-      \'cpp': ['clangd'],
       \'dart': ['dart', expand('~/programming_tools/dart-sdk/bin/snapshots/analysis_server.dart.snapshot'), '--lsp'],
       \'typescript': ['typescript-language-server', '--stdio'],
       \'javascript': ['typescript-language-server', '--stdio'],
