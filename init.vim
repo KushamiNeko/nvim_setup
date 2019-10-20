@@ -186,7 +186,7 @@ autocmd VimEnter <buffer> execute 'NERDTreeToggle'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "setting of ncm
 let g:cm_smart_enable=1
-let g:cm_complete_popup_delay=10
+let g:cm_complete_popup_delay=5
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -234,12 +234,12 @@ let g:echodoc#type = 'virtual'
 "settings of language server
 
 "\'c': ['ccls'],
-"\'cpp': ['clangd'],
 "\'python': ['pyls'],
 "\'rust': ['rustup', 'run', 'stable', 'rls'],
 
 let g:LanguageClient_serverCommands = {
       \'go': ['gopls'],
+      \'cpp': ['clangd'],
       \'dart': ['dart', expand('~/programming_tools/dart-sdk/bin/snapshots/analysis_server.dart.snapshot'), '--lsp'],
       \'typescript': ['typescript-language-server', '--stdio'],
       \'javascript': ['typescript-language-server', '--stdio'],
@@ -250,7 +250,6 @@ nnoremap <silent> <M-d> :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 let g:LanguageClient_useFloatingHover=1
-"let g:LanguageClient_settingsPath=expand('~/programming_tools/nvim/settings.json')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -387,25 +386,25 @@ autocmd FileType c setl ofu=ccomplete#Complete
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "autoformat setup
-autocmd FileType dart autocmd BufWritePre <buffer> execute 'DartFmt'
+"autocmd FileType dart autocmd BufWritePre <buffer> execute 'DartFmt'
 
 "use manual python autoformat to prevent messy format
 "autocmd FileType python autocmd BufWritePre <buffer> execute 'Autoformat'
-autocmd FileType python autocmd BufWritePre <buffer> execute 'Isort'
+"autocmd FileType python autocmd BufWritePre <buffer> execute 'Isort'
 
-autocmd FileType c autocmd BufWritePre <buffer> execute 'Autoformat'
-autocmd FileType cpp autocmd BufWritePre <buffer> execute 'Autoformat'
+"autocmd FileType c autocmd BufWritePre <buffer> execute 'Autoformat'
+"autocmd FileType cpp autocmd BufWritePre <buffer> execute 'Autoformat'
 
-autocmd FileType xml autocmd BufWritePre <buffer> execute 'Autoformat'
+"autocmd FileType xml autocmd BufWritePre <buffer> execute 'Autoformat'
 
-autocmd FileType html autocmd BufWritePre <buffer> execute 'Autoformat'
+"autocmd FileType html autocmd BufWritePre <buffer> execute 'Autoformat'
 
-autocmd FileType css autocmd BufWritePre <buffer> execute 'Autoformat'
-autocmd FileType scss autocmd BufWritePre <buffer> execute 'Autoformat'
+"autocmd FileType css autocmd BufWritePre <buffer> execute 'Autoformat'
+"autocmd FileType scss autocmd BufWritePre <buffer> execute 'Autoformat'
 
-autocmd FileType typescript autocmd BufWritePre <buffer> execute 'Autoformat'
-autocmd FileType javascript autocmd BufWritePre <buffer> execute 'Autoformat'
-autocmd FileType json autocmd BufWritePre <buffer> execute 'Autoformat'
+"autocmd FileType typescript autocmd BufWritePre <buffer> execute 'Autoformat'
+"autocmd FileType javascript autocmd BufWritePre <buffer> execute 'Autoformat'
+"autocmd FileType json autocmd BufWritePre <buffer> execute 'Autoformat'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
