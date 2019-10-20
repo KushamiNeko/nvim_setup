@@ -184,9 +184,9 @@ autocmd VimEnter <buffer> execute 'NERDTreeToggle'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"setting of ncm
-let g:cm_smart_enable=1
-let g:cm_complete_popup_delay=5
+"setting of ncm2
+let g:ncm2#complete_delay=0
+let g:ncm2#popup_delay=0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -218,7 +218,17 @@ let g:vim_isort_python_version = 'python3'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "settings of rust
-let g:rustfmt_autosave = 1
+"let g:rustfmt_autosave = 1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"settings of dart
+let dart_format_on_save = 1
+let dart_style_guide = 2
+let dart_html_in_string=v:true
+let dart_highlight_types=v:true
+let dart_corelib_highlight=v:true
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -386,7 +396,6 @@ autocmd FileType c setl ofu=ccomplete#Complete
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "autoformat setup
-"autocmd FileType dart autocmd BufWritePre <buffer> execute 'DartFmt'
 
 "use manual python autoformat to prevent messy format
 "autocmd FileType python autocmd BufWritePre <buffer> execute 'Autoformat'
@@ -395,8 +404,6 @@ autocmd FileType c setl ofu=ccomplete#Complete
 "autocmd FileType c autocmd BufWritePre <buffer> execute 'Autoformat'
 "autocmd FileType cpp autocmd BufWritePre <buffer> execute 'Autoformat'
 
-"autocmd FileType xml autocmd BufWritePre <buffer> execute 'Autoformat'
-
 "autocmd FileType html autocmd BufWritePre <buffer> execute 'Autoformat'
 
 "autocmd FileType css autocmd BufWritePre <buffer> execute 'Autoformat'
@@ -404,6 +411,7 @@ autocmd FileType c setl ofu=ccomplete#Complete
 
 "autocmd FileType typescript autocmd BufWritePre <buffer> execute 'Autoformat'
 "autocmd FileType javascript autocmd BufWritePre <buffer> execute 'Autoformat'
+
 "autocmd FileType json autocmd BufWritePre <buffer> execute 'Autoformat'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
