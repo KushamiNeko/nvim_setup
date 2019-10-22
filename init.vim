@@ -48,7 +48,7 @@ Plugin 'ncm2/ncm2-cssomni'
 "use simple jedi and ale linters instead of pyls language server 
 Plugin 'ncm2/ncm2-jedi'
 
-"use clangd language server instead
+"use libclang for c and clangd language server for cpp
 Plugin 'ncm2/ncm2-pyclang'
 
 "use gopls language server instead
@@ -63,6 +63,14 @@ Plugin 'ncm2/ncm2-pyclang'
 "language server protocol
 
 Plugin 'autozimu/LanguageClient-neovim'
+
+"Plugin 'ycm-core/YouCompleteMe'
+
+"Plugin 'ncm2/ncm2-vim-lsp'
+
+"Plugin 'prabirshrestha/async.vim'
+
+"Plugin 'prabirshrestha/vim-lsp'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -187,6 +195,8 @@ autocmd VimEnter <buffer> execute 'NERDTreeToggle'
 "setting of ncm2
 let g:ncm2#complete_delay=0
 let g:ncm2#popup_delay=0
+
+let g:ncm2_pyclang#library_path = '/usr/lib64/libclang.so.8'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -202,7 +212,7 @@ let g:ale_linters = {
 
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
-let g:ale_lint_on_text_changed = 'never'
+"let g:ale_lint_on_text_changed = 'never'
 "let g:ale_lint_on_insert_leave = 0
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
@@ -260,13 +270,55 @@ nnoremap <silent> <M-d> :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 let g:LanguageClient_useFloatingHover=1
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"if executable('ccls')
+   "au User lsp_setup call lsp#register_server({
+      "\ 'name': 'ccls',
+      "\ 'cmd': {server_info->['ccls']},
+      "\ 'whitelist': ['c'],
+      "\ })
+"endif
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" setting of pyclang
+"if executable('clangd')
+    "au User lsp_setup call lsp#register_server({
+        "\ 'name': 'clangd',
+        "\ 'cmd': {server_info->['clangd', '-background-index']},
+        "\ 'whitelist': ['cpp', 'objc', 'objcpp'],
+        "\ })
+"endif
 
-let g:ncm2_pyclang#library_path = '/usr/lib64/libclang.so.8'
+"if executable('dart')
+    "au User lsp_setup call lsp#register_server({
+        "\ 'name': 'dart',
+        "\ 'cmd': {server_info->[
+          "\'dart', 
+          "\expand('~/programming_tools/dart-sdk/bin/snapshots/analysis_server.dart.snapshot'), 
+          "\'--lsp', 
+          "\'--completion-model', 
+          "\expand('~/programming_tools/dart-sdk/model/lexeme'),
+        "\]},
+        "\ 'initialization_options': {},
+        "\ 'whitelist': ['dart'],
+        "\ })
+"endif
+
+"if executable('gopls')
+    "au User lsp_setup call lsp#register_server({
+        "\ 'name': 'gopls',
+        "\ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
+        "\ 'whitelist': ['go'],
+        "\ })
+    "autocmd BufWritePre *.go LspDocumentFormatSync
+"endif
+
+"if executable('typescript-language-server')
+    "au User lsp_setup call lsp#register_server({
+        "\ 'name': 'ts',
+        "\ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+        "\ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+        "\ 'whitelist': ['typescript', 'typescript.tsx'],
+        "\ })
+"endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
