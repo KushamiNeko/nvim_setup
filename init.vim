@@ -49,7 +49,7 @@ Plugin 'ncm2/ncm2-cssomni'
 Plugin 'ncm2/ncm2-jedi'
 
 "use libclang for c and clangd language server for cpp
-Plugin 'ncm2/ncm2-pyclang'
+"Plugin 'ncm2/ncm2-pyclang'
 
 "use gopls language server instead
 "Plugin 'ncm2/ncm2-go'
@@ -63,14 +63,6 @@ Plugin 'ncm2/ncm2-pyclang'
 "language server protocol
 
 Plugin 'autozimu/LanguageClient-neovim'
-
-"Plugin 'ycm-core/YouCompleteMe'
-
-"Plugin 'ncm2/ncm2-vim-lsp'
-
-"Plugin 'prabirshrestha/async.vim'
-
-"Plugin 'prabirshrestha/vim-lsp'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -91,7 +83,7 @@ Plugin 'fatih/vim-go'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "rust
 
-"Plugin 'rust-lang/rust.vim'
+Plugin 'rust-lang/rust.vim'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -174,9 +166,11 @@ Plugin 'sainnhe/edge'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call vundle#end()
 
 filetype plugin indent on
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -253,16 +247,16 @@ let g:echodoc#type = 'virtual'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "settings of language server
 
-"\'c': ['ccls'],
 "\'python': ['pyls'],
-"\'rust': ['rustup', 'run', 'stable', 'rls'],
 
 let g:LanguageClient_serverCommands = {
       \'go': ['gopls'],
-      \'cpp': ['clangd'],
+      \'c': ['ccls'],
+      \'cpp': ['ccls'],
       \'dart': ['dart', expand('~/programming_tools/dart-sdk/bin/snapshots/analysis_server.dart.snapshot'), '--lsp'],
       \'typescript': ['typescript-language-server', '--stdio'],
       \'javascript': ['typescript-language-server', '--stdio'],
+      \'rust': ['rustup', 'run', 'stable', 'rls'],
       \}
 
 nnoremap <silent> <M-k> :call LanguageClient#textDocument_hover()<CR>
@@ -270,55 +264,6 @@ nnoremap <silent> <M-d> :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 let g:LanguageClient_useFloatingHover=1
-
-"if executable('ccls')
-   "au User lsp_setup call lsp#register_server({
-      "\ 'name': 'ccls',
-      "\ 'cmd': {server_info->['ccls']},
-      "\ 'whitelist': ['c'],
-      "\ })
-"endif
-
-"if executable('clangd')
-    "au User lsp_setup call lsp#register_server({
-        "\ 'name': 'clangd',
-        "\ 'cmd': {server_info->['clangd', '-background-index']},
-        "\ 'whitelist': ['cpp', 'objc', 'objcpp'],
-        "\ })
-"endif
-
-"if executable('dart')
-    "au User lsp_setup call lsp#register_server({
-        "\ 'name': 'dart',
-        "\ 'cmd': {server_info->[
-          "\'dart', 
-          "\expand('~/programming_tools/dart-sdk/bin/snapshots/analysis_server.dart.snapshot'), 
-          "\'--lsp', 
-          "\'--completion-model', 
-          "\expand('~/programming_tools/dart-sdk/model/lexeme'),
-        "\]},
-        "\ 'initialization_options': {},
-        "\ 'whitelist': ['dart'],
-        "\ })
-"endif
-
-"if executable('gopls')
-    "au User lsp_setup call lsp#register_server({
-        "\ 'name': 'gopls',
-        "\ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
-        "\ 'whitelist': ['go'],
-        "\ })
-    "autocmd BufWritePre *.go LspDocumentFormatSync
-"endif
-
-"if executable('typescript-language-server')
-    "au User lsp_setup call lsp#register_server({
-        "\ 'name': 'ts',
-        "\ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-        "\ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-        "\ 'whitelist': ['typescript', 'typescript.tsx'],
-        "\ })
-"endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
