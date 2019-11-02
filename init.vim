@@ -49,7 +49,7 @@ Plugin 'ncm2/ncm2-cssomni'
 Plugin 'ncm2/ncm2-jedi'
 
 "use libclang for c and clangd language server for cpp
-"Plugin 'ncm2/ncm2-pyclang'
+Plugin 'ncm2/ncm2-pyclang'
 
 "use gopls language server instead
 "Plugin 'ncm2/ncm2-go'
@@ -62,7 +62,13 @@ Plugin 'ncm2/ncm2-jedi'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "language server protocol
 
-Plugin 'autozimu/LanguageClient-neovim'
+"Plugin 'autozimu/LanguageClient-neovim'
+
+Plugin 'prabirshrestha/async.vim'
+
+Plugin 'prabirshrestha/vim-lsp'
+
+Plugin 'ncm2/ncm2-vim-lsp'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -200,8 +206,9 @@ let g:ale_linters = {
       \'c': ['gcc', 'clang', 'clangd', 'clang-tidy', 'clang-check'], 
       \'cpp': ['gcc', 'clang', 'clangd', 'clang-tidy', 'clang-check'], 
       \'python': ['pylint', 'flake8', 'mypy', 'bandit'], 
-      \'javascript': ['eslint'],
-      \'typescript': ['eslint']
+      \'go': [''],
+      \'javascript': [''],
+      \'typescript': ['']
       \}
 
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
@@ -248,22 +255,71 @@ let g:echodoc#type = 'virtual'
 "settings of language server
 
 "\'python': ['pyls'],
+"let g:LanguageClient_serverCommands = {
+      "\'go': ['gopls'],
+      "\'c': ['ccls'],
+      "\'cpp': ['ccls'],
+      "\'dart': ['dart', expand('~/programming_tools/dart-sdk/bin/snapshots/analysis_server.dart.snapshot'), '--lsp'],
+      "\'typescript': ['typescript-language-server', '--stdio'],
+      "\'javascript': ['typescript-language-server', '--stdio'],
+      "\'rust': ['rustup', 'run', 'stable', 'rls'],
+      "\}
 
-let g:LanguageClient_serverCommands = {
-      \'go': ['gopls'],
-      \'c': ['ccls'],
-      \'cpp': ['ccls'],
-      \'dart': ['dart', expand('~/programming_tools/dart-sdk/bin/snapshots/analysis_server.dart.snapshot'), '--lsp'],
-      \'typescript': ['typescript-language-server', '--stdio'],
-      \'javascript': ['typescript-language-server', '--stdio'],
-      \'rust': ['rustup', 'run', 'stable', 'rls'],
-      \}
+"nnoremap <silent> <M-k> :call LanguageClient#textDocument_hover()<CR>
+"nnoremap <silent> <M-d> :call LanguageClient#textDocument_definition()<CR>
+"nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
-nnoremap <silent> <M-k> :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> <M-d> :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+"let g:LanguageClient_useFloatingHover=1
 
-let g:LanguageClient_useFloatingHover=1
+nnoremap <silent> <M-k> :LspHover<CR>
+nnoremap <silent> <M-d> :LspPeekDefinition<CR>
+nnoremap <silent> <F2> :LspRename<CR>
+
+if executable('gopls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'gopls',
+        \ 'cmd': {server_info->['gopls']},
+        \ 'whitelist': ['go'],
+        \ })
+    "autocmd BufWritePre *.go LspDocumentFormatSync
+endif
+
+"\ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
+"if executable('ccls')
+   "au User lsp_setup call lsp#register_server({
+      "\ 'name': 'ccls',
+      "\ 'cmd': {server_info->['ccls']},
+      "\ 'initialization_options': {},
+      "\ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
+      "\ })
+"endif
+
+"if executable('clangd')
+    "au User lsp_setup call lsp#register_server({
+        "\ 'name': 'clangd',
+        "\ 'cmd': {server_info->['clangd', '-background-index']},
+        "\ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+        "\ })
+"endif
+
+autocmd FileType dart autocmd BufEnter * call ncm2#override_source('dart', {'complete_length': 20})
+
+if executable('dart')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'dart',
+        \ 'cmd': {server_info->['dart', expand('~/programming_tools/dart-sdk/bin/snapshots/analysis_server.dart.snapshot'), '--lsp']},
+        \ 'whitelist': ['dart'],
+        \ })
+endif
+
+"if executable('typescript-language-server')
+  "au User lsp_setup call lsp#register_server({
+    "\ 'name': 'ts',
+    "\ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+    "\ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+    "\ 'whitelist': ['typescript', 'typescript.tsx'],
+    "\ })
+"endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
