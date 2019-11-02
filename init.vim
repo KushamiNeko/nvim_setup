@@ -271,9 +271,14 @@ let g:echodoc#type = 'virtual'
 
 "let g:LanguageClient_useFloatingHover=1
 
-nnoremap <silent> <M-k> :LspHover<CR>
-nnoremap <silent> <M-d> :LspPeekDefinition<CR>
-nnoremap <silent> <F2> :LspRename<CR>
+nmap <silent> <M-k> <plug>(lsp-hover)
+nmap <silent> <M-a> <plug>(lsp-code-action)
+nmap <silent> <M-d> <plug>(lsp-peek-definition)
+nmap <silent> <M-s> <plug>(lsp-signature-help)
+nmap <silent> <M-c> <plug>(lsp-preview-close)
+nmap <silent> <F2> <plug>(lsp-rename)
+nmap <silent> <M-n> <plug>(lsp-next-error)
+nmap <silent> <M-p> <plug>(lsp-previous-error)
 
 if executable('gopls')
     au User lsp_setup call lsp#register_server({
@@ -312,31 +317,31 @@ if executable('dart')
         \ })
 endif
 
-"if executable('typescript-language-server')
-  "au User lsp_setup call lsp#register_server({
-    "\ 'name': 'ts',
-    "\ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-    "\ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-    "\ 'whitelist': ['typescript', 'typescript.tsx'],
-    "\ })
-"endif
+if executable('typescript-language-server')
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'ts',
+    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+    \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+    \ 'whitelist': ['typescript', 'typescript.tsx'],
+    \ })
+endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "set height of preview window
-set previewheight=9
+set previewheight=10
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "setting for closing the preview window
 "autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-nnoremap <silent> <M-j> :call ClosePreview()<CR>
+"nnoremap <silent> <M-j> :call ClosePreview()<CR>
 
-function ClosePreview()
-if pumvisible() == 0|pclose|endif
-endfunction
+"function ClosePreview()
+"if pumvisible() == 0|pclose|endif
+"endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
