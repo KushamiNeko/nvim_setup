@@ -35,21 +35,25 @@ Plugin 'ncm2/ncm2-gtags'
 
 Plugin 'ncm2/ncm2-path'
 
-"Plugin 'ncm2/ncm2-vim'
+Plugin 'ncm2/ncm2-vim'
+
+Plugin 'Shougo/neco-vim'
 
 "Plugin 'ncm2/ncm2-syntax'
 
 "Plugin 'Shougo/neco-syntax'
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "ncm2 completion for programming language
 
 Plugin 'ncm2/ncm2-cssomni'
 
 "use simple jedi and ale linters instead of pyls language server 
-Plugin 'ncm2/ncm2-jedi'
+"Plugin 'ncm2/ncm2-jedi'
 
 "use libclang for c and clangd language server for cpp
-Plugin 'ncm2/ncm2-pyclang'
+"Plugin 'ncm2/ncm2-pyclang'
 
 "use gopls language server instead
 "Plugin 'ncm2/ncm2-go'
@@ -75,7 +79,7 @@ Plugin 'ncm2/ncm2-vim-lsp'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "async linter
 
-Plugin 'dense-analysis/ale'
+"Plugin 'dense-analysis/ale'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -202,22 +206,24 @@ let g:ncm2_pyclang#library_path = '/usr/lib64/libclang.so.8'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "setting of ale
-let g:ale_linters = {
-      \'c': ['gcc', 'clang', 'clangd', 'clang-tidy', 'clang-check'], 
-      \'cpp': ['gcc', 'clang', 'clangd', 'clang-tidy', 'clang-check'], 
-      \'python': ['pylint', 'flake8', 'mypy', 'bandit'], 
-      \'go': [''],
-      \'javascript': [''],
-      \'typescript': ['']
-      \}
+"\'c': ['gcc', 'clang', 'clangd', 'clang-tidy', 'clang-check'], 
+"\'cpp': ['gcc', 'clang', 'clangd', 'clang-tidy', 'clang-check'], 
+"let g:ale_linters = {
+      "\'c': [''], 
+      "\'cpp': [''], 
+      "\'python': ['pylint', 'flake8', 'mypy', 'bandit'], 
+      "\'go': [''],
+      "\'javascript': [''],
+      "\'typescript': ['']
+      "\}
 
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+"let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 "let g:ale_lint_on_text_changed = 'never'
 "let g:ale_lint_on_insert_leave = 0
 
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+"nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+"nmap <silent> <C-j> <Plug>(ale_next_wrap)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -290,14 +296,14 @@ if executable('gopls')
 endif
 
 "\ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
-"if executable('ccls')
-   "au User lsp_setup call lsp#register_server({
-      "\ 'name': 'ccls',
-      "\ 'cmd': {server_info->['ccls']},
-      "\ 'initialization_options': {},
-      "\ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
-      "\ })
-"endif
+if executable('ccls')
+   au User lsp_setup call lsp#register_server({
+      \ 'name': 'ccls',
+      \ 'cmd': {server_info->['ccls']},
+      \ 'initialization_options': {},
+      \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
+      \ })
+endif
 
 "if executable('clangd')
     "au User lsp_setup call lsp#register_server({
@@ -324,6 +330,19 @@ if executable('typescript-language-server')
     \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
     \ 'whitelist': ['typescript', 'typescript.tsx'],
     \ })
+endif
+
+if executable('pyls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ 'workspace_config': {
+            \'pyls': {
+              \'configurationSources': ['flake8'],
+            \},
+          \}
+        \})
 endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -536,6 +555,7 @@ set background=dark
 "setting of color theme
 "colorscheme spacemacs-theme
 colorscheme edge
+"colorscheme gruvbox-material
 
 "colorscheme quantum
 "let g:airline_theme='quantum'
