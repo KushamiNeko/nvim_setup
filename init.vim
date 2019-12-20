@@ -86,14 +86,14 @@ Plugin 'ncm2/ncm2-vim-lsp'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "go
 
-Plugin 'fatih/vim-go'
+"Plugin 'fatih/vim-go'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "rust
 
-Plugin 'rust-lang/rust.vim'
+"Plugin 'rust-lang/rust.vim'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -282,7 +282,7 @@ nmap <silent> <M-a> <plug>(lsp-code-action)
 nmap <silent> <M-d> <plug>(lsp-peek-definition)
 nmap <silent> <M-s> <plug>(lsp-signature-help)
 nmap <silent> <M-c> <plug>(lsp-preview-close)
-nmap <silent> <F2> <plug>(lsp-rename)
+nmap <silent> <M-r> <plug>(lsp-rename)
 nmap <silent> <M-n> <plug>(lsp-next-error)
 nmap <silent> <M-p> <plug>(lsp-previous-error)
 
@@ -291,8 +291,17 @@ if executable('gopls')
         \ 'name': 'gopls',
         \ 'cmd': {server_info->['gopls']},
         \ 'whitelist': ['go'],
+        \ 'workspace_config': {
+            \'gopls': {
+              \'usePlaceholders': v:true,
+              \'hoverKind': 'FullDocumentation',
+              \'staticcheck': v:true,
+            \},
+          \}
         \ })
     "autocmd BufWritePre *.go LspDocumentFormatSync
+    autocmd FileType go autocmd BufWritePre <buffer> execute 'Autoformat'
+    autocmd FileType go setlocal omnifunc=lsp#complete
 endif
 
 "\ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
@@ -342,7 +351,7 @@ if executable('pyls')
               \'configurationSources': ['flake8'],
             \},
           \}
-        \})
+        \ })
 endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -441,6 +450,11 @@ let g:formatters_json = ['prettier']
 let g:formatters_python = ['black']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"setting of autoformat for go
+let g:formatters_go = ['goimports']
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "set indentation width to 2 or 4 spaces in python mode
@@ -476,20 +490,20 @@ autocmd FileType c setl ofu=ccomplete#Complete
 
 "use manual python autoformat to prevent messy format
 "autocmd FileType python autocmd BufWritePre <buffer> execute 'Autoformat'
-"autocmd FileType python autocmd BufWritePre <buffer> execute 'Isort'
+autocmd FileType python autocmd BufWritePre <buffer> execute 'Isort'
 
-"autocmd FileType c autocmd BufWritePre <buffer> execute 'Autoformat'
-"autocmd FileType cpp autocmd BufWritePre <buffer> execute 'Autoformat'
+autocmd FileType c autocmd BufWritePre <buffer> execute 'Autoformat'
+autocmd FileType cpp autocmd BufWritePre <buffer> execute 'Autoformat'
 
-"autocmd FileType html autocmd BufWritePre <buffer> execute 'Autoformat'
+autocmd FileType html autocmd BufWritePre <buffer> execute 'Autoformat'
 
-"autocmd FileType css autocmd BufWritePre <buffer> execute 'Autoformat'
-"autocmd FileType scss autocmd BufWritePre <buffer> execute 'Autoformat'
+autocmd FileType css autocmd BufWritePre <buffer> execute 'Autoformat'
+autocmd FileType scss autocmd BufWritePre <buffer> execute 'Autoformat'
 
-"autocmd FileType typescript autocmd BufWritePre <buffer> execute 'Autoformat'
-"autocmd FileType javascript autocmd BufWritePre <buffer> execute 'Autoformat'
+autocmd FileType typescript autocmd BufWritePre <buffer> execute 'Autoformat'
+autocmd FileType javascript autocmd BufWritePre <buffer> execute 'Autoformat'
 
-"autocmd FileType json autocmd BufWritePre <buffer> execute 'Autoformat'
+autocmd FileType json autocmd BufWritePre <buffer> execute 'Autoformat'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
