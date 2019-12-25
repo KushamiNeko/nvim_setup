@@ -286,6 +286,9 @@ nmap <silent> <M-r> <plug>(lsp-rename)
 nmap <silent> <M-n> <plug>(lsp-next-error)
 nmap <silent> <M-p> <plug>(lsp-previous-error)
 
+
+"\'hoverKind': 'FullDocumentation',
+
 if executable('gopls')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'gopls',
@@ -294,7 +297,6 @@ if executable('gopls')
         \ 'workspace_config': {
             \'gopls': {
               \'usePlaceholders': v:true,
-              \'hoverKind': 'FullDocumentation',
               \'staticcheck': v:true,
             \},
           \}
@@ -495,15 +497,15 @@ autocmd FileType python autocmd BufWritePre <buffer> execute 'Isort'
 autocmd FileType c autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType cpp autocmd BufWritePre <buffer> execute 'Autoformat'
 
-autocmd FileType html autocmd BufWritePre <buffer> execute 'Autoformat'
+"autocmd FileType html autocmd BufWritePre <buffer> execute 'Autoformat'
 
-autocmd FileType css autocmd BufWritePre <buffer> execute 'Autoformat'
-autocmd FileType scss autocmd BufWritePre <buffer> execute 'Autoformat'
+"autocmd FileType css autocmd BufWritePre <buffer> execute 'Autoformat'
+"autocmd FileType scss autocmd BufWritePre <buffer> execute 'Autoformat'
 
-autocmd FileType typescript autocmd BufWritePre <buffer> execute 'Autoformat'
-autocmd FileType javascript autocmd BufWritePre <buffer> execute 'Autoformat'
+"autocmd FileType typescript autocmd BufWritePre <buffer> execute 'Autoformat'
+"autocmd FileType javascript autocmd BufWritePre <buffer> execute 'Autoformat'
 
-autocmd FileType json autocmd BufWritePre <buffer> execute 'Autoformat'
+"autocmd FileType json autocmd BufWritePre <buffer> execute 'Autoformat'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
