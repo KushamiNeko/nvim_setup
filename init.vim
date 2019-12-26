@@ -211,8 +211,8 @@ let g:ncm2_pyclang#library_path = '/usr/lib64/libclang.so.8'
 "let g:ale_linters = {
       "\'c': [''], 
       "\'cpp': [''], 
-      "\'python': ['pylint', 'flake8', 'mypy', 'bandit'], 
-      "\'go': [''],
+      "\'python': ['flake8', 'mypy', 'bandit'], 
+      "\'go': ['staticcheck', 'golangci-lint', 'golint', 'errcheck'],
       "\'javascript': [''],
       "\'typescript': ['']
       "\}
