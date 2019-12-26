@@ -86,7 +86,7 @@ Plugin 'ncm2/ncm2-vim-lsp'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "go
 
-Plugin 'fatih/vim-go'
+"Plugin 'fatih/vim-go'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -302,8 +302,8 @@ if executable('gopls')
           \}
         \ })
     "autocmd BufWritePre *.go LspDocumentFormatSync
-    "autocmd FileType go autocmd BufWritePre <buffer> execute 'Autoformat'
-    "autocmd FileType go setlocal omnifunc=lsp#complete
+    autocmd FileType go autocmd BufWritePre <buffer> execute 'Autoformat'
+    autocmd FileType go setlocal omnifunc=lsp#complete
 endif
 
 "\ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
