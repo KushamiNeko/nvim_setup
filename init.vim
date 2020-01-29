@@ -87,6 +87,8 @@ Plugin 'ncm2/ncm2-vim-lsp'
 "go
 
 "Plugin 'fatih/vim-go'
+
+Plugin 'sebdah/vim-delve'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -108,6 +110,8 @@ Plugin 'dart-lang/dart-vim-plugin'
 "python
 
 Plugin 'fisadev/vim-isort'
+
+Plugin 'sakhnik/nvim-gdb'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -209,22 +213,23 @@ let g:ncm2_pyclang#library_path = '/usr/lib64/libclang.so.8'
 "\'c': ['gcc', 'clang', 'clangd', 'clang-tidy', 'clang-check'], 
 "\'cpp': ['gcc', 'clang', 'clangd', 'clang-tidy', 'clang-check'], 
 "\'go': ['staticcheck', 'golangci-lint', 'golint', 'errcheck'],
-let g:ale_linters = {
-      \'c': [''], 
-      \'cpp': [''], 
-      \'python': ['flake8', 'mypy', 'bandit'], 
-      \'go': [''],
-      \'javascript': [''],
-      \'typescript': ['']
-      \}
 
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+"let g:ale_linters = {
+      "\'c': [''], 
+      "\'cpp': [''], 
+      "\'python': ['flake8', 'mypy', 'bandit'], 
+      "\'go': [''],
+      "\'javascript': [''],
+      "\'typescript': ['']
+      "\}
 
-let g:ale_lint_on_text_changed = 'never'
+"let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+"let g:ale_lint_on_text_changed = 'never'
 "let g:ale_lint_on_insert_leave = 0
 
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+"nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+"nmap <silent> <C-j> <Plug>(ale_next_wrap)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
