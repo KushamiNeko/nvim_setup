@@ -112,6 +112,8 @@ Plugin 'dart-lang/dart-vim-plugin'
 Plugin 'fisadev/vim-isort'
 
 Plugin 'sakhnik/nvim-gdb'
+
+Plugin 'jpalardy/vim-slime'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -230,6 +232,13 @@ let g:ncm2_pyclang#library_path = '/usr/lib64/libclang.so.8'
 
 "nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 "nmap <silent> <C-j> <Plug>(ale_next_wrap)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" settings of vim-slime
+let g:slime_target = "tmux"
+let g:slime_python_ipython = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
