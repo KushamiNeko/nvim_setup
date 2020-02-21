@@ -236,6 +236,39 @@ let g:ncm2_pyclang#library_path = '/usr/lib64/libclang.so.8'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"simulate ipython cell
+function! ExecuteCell(move, begining)
+  let cl = line('.')
+  let cc = col('.')
+
+  let pattern = '^#\s*%%\s*$'
+
+  let sl = search(pattern, 'cbn')
+
+  if a:move
+    let el = search(pattern)
+  else
+    let el = search(pattern, 'n')
+  endif
+
+  "echo sl 
+  "echo el 
+
+  if a:begining
+    call slime#send_range(0, el)
+  else
+    call slime#send_range(sl, el)
+  endif
+
+endfunction
+
+nmap <silent> <Leader>e :call ExecuteCell(v:false, v:false)<CR>
+nmap <silent> <Leader>r :call ExecuteCell(v:true, v:false)<CR>
+nmap <silent> <Leader>a :call ExecuteCell(v:false, v:true)<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " settings of vim-slime
 let g:slime_target = "tmux"
 let g:slime_python_ipython = 1
