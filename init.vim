@@ -241,7 +241,8 @@ function! ExecuteCell(move, begining)
   let cl = line('.')
   let cc = col('.')
 
-  let pattern = '^#\s*%%\s*$'
+  "let pattern = '^#\s*%%\s*$'
+  let pattern = '^#\{30,\}$'
 
   let sl = search(pattern, 'cbn')
 
@@ -419,7 +420,7 @@ if executable('typescript-language-server')
     \ 'name': 'ts',
     \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
     \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-    \ 'whitelist': ['typescript', 'typescript.tsx'],
+    \ 'whitelist': ['javascript', 'typescript', 'typescript.tsx'],
     \ })
 endif
 
@@ -572,7 +573,7 @@ autocmd FileType c setl ofu=ccomplete#Complete
 
 "use manual python autoformat to prevent messy format
 "autocmd FileType python autocmd BufWritePre <buffer> execute 'Autoformat'
-autocmd FileType python autocmd BufWritePre <buffer> execute 'Isort'
+"autocmd FileType python autocmd BufWritePre <buffer> execute 'Isort'
 
 autocmd FileType c autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType cpp autocmd BufWritePre <buffer> execute 'Autoformat'
