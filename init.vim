@@ -79,7 +79,7 @@ Plugin 'ncm2/ncm2-vim-lsp'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "async linter
 
-"Plugin 'dense-analysis/ale'
+Plugin 'dense-analysis/ale'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -111,9 +111,9 @@ Plugin 'dart-lang/dart-vim-plugin'
 
 Plugin 'fisadev/vim-isort'
 
-Plugin 'sakhnik/nvim-gdb'
-
 Plugin 'jpalardy/vim-slime'
+
+Plugin 'sakhnik/nvim-gdb'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -142,7 +142,7 @@ Plugin 'ncm2/ncm2-ultisnips'
 
 Plugin 'SirVer/ultisnips'
 
-Plugin 'honza/vim-snippets'
+"Plugin 'honza/vim-snippets'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -216,16 +216,16 @@ let g:ncm2_pyclang#library_path = '/usr/lib64/libclang.so.8'
 "\'cpp': ['gcc', 'clang', 'clangd', 'clang-tidy', 'clang-check'], 
 "\'go': ['staticcheck', 'golangci-lint', 'golint', 'errcheck'],
 
-"let g:ale_linters = {
-      "\'c': [''], 
-      "\'cpp': [''], 
-      "\'python': ['flake8', 'mypy', 'bandit'], 
-      "\'go': [''],
-      "\'javascript': [''],
-      "\'typescript': ['']
-      "\}
+let g:ale_linters = {
+      \'c': [''], 
+      \'cpp': [''], 
+      \'python': ['flake8', 'mypy', 'bandit'], 
+      \'go': [''],
+      \'javascript': [''],
+      \'typescript': ['']
+      \}
 
-"let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 "let g:ale_lint_on_text_changed = 'never'
 "let g:ale_lint_on_insert_leave = 0
