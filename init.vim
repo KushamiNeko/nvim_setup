@@ -49,16 +49,16 @@ Plugin 'Shougo/neco-vim'
 
 Plugin 'ncm2/ncm2-cssomni'
 
-"use simple jedi and ale linters instead of pyls language server 
+"use python language server
 "Plugin 'ncm2/ncm2-jedi'
 
-"use libclang for c and clangd language server for cpp
+"use ccls for c and clangd language server for cpp
 "Plugin 'ncm2/ncm2-pyclang'
 
-"use gopls language server instead
+"use gopls language server 
 "Plugin 'ncm2/ncm2-go'
 
-"use javascript typescript language serveer instead
+"use typescript language serveer 
 "Plugin 'ncm2/ncm2-tern'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -72,6 +72,8 @@ Plugin 'prabirshrestha/async.vim'
 
 Plugin 'prabirshrestha/vim-lsp'
 
+Plugin 'mattn/vim-lsp-settings'
+
 Plugin 'ncm2/ncm2-vim-lsp'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -79,7 +81,7 @@ Plugin 'ncm2/ncm2-vim-lsp'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "async linter
 
-Plugin 'dense-analysis/ale'
+"Plugin 'dense-analysis/ale'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -136,13 +138,10 @@ Plugin 'HerringtonDarkholme/yats.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "snippets
-"the best snippet engine of the three(snipmate, neosnippet)
 
 Plugin 'ncm2/ncm2-ultisnips'
 
 Plugin 'SirVer/ultisnips'
-
-"Plugin 'honza/vim-snippets'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -341,23 +340,6 @@ let g:echodoc#type = 'virtual'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "settings of language server
 
-"\'python': ['pyls'],
-"let g:LanguageClient_serverCommands = {
-      "\'go': ['gopls'],
-      "\'c': ['ccls'],
-      "\'cpp': ['ccls'],
-      "\'dart': ['dart', expand('~/programming_tools/dart-sdk/bin/snapshots/analysis_server.dart.snapshot'), '--lsp'],
-      "\'typescript': ['typescript-language-server', '--stdio'],
-      "\'javascript': ['typescript-language-server', '--stdio'],
-      "\'rust': ['rustup', 'run', 'stable', 'rls'],
-      "\}
-
-"nnoremap <silent> <M-k> :call LanguageClient#textDocument_hover()<CR>
-"nnoremap <silent> <M-d> :call LanguageClient#textDocument_definition()<CR>
-"nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-
-"let g:LanguageClient_useFloatingHover=1
-
 nmap <silent> <M-k> <plug>(lsp-hover)
 nmap <silent> <M-a> <plug>(lsp-code-action)
 nmap <silent> <M-d> <plug>(lsp-peek-definition)
@@ -367,75 +349,31 @@ nmap <silent> <M-r> <plug>(lsp-rename)
 nmap <silent> <M-n> <plug>(lsp-next-error)
 nmap <silent> <M-p> <plug>(lsp-previous-error)
 
+let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_diagnostics_echo_delay = 100
 
-"\'hoverKind': 'FullDocumentation',
+let g:lsp_settings = {
+\  'pyls': {
+    \'workspace_config': {
+      \'configurationSources': ['flake8'],
+      \"plugins": {
+        \"pyls_mypy": {
+          \"enabled": v:true,
+          \"live_mode": v:false
+        \}
+      \}
+    \}
+  \},
+  \'gopls': {
+    \'workspace_config': {
+      \'usePlaceholders': v:true,
+      \'staticcheck': v:true
+    \}
+  \},
+\}
 
-if executable('gopls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'gopls',
-        \ 'cmd': {server_info->['gopls']},
-        \ 'whitelist': ['go'],
-        \ 'workspace_config': {
-            \'gopls': {
-              \'usePlaceholders': v:true,
-              \'staticcheck': v:true,
-            \},
-          \}
-        \ })
-    "autocmd BufWritePre *.go LspDocumentFormatSync
-    autocmd FileType go autocmd BufWritePre <buffer> execute 'Autoformat'
-    autocmd FileType go setlocal omnifunc=lsp#complete
-endif
-
-"\ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
-if executable('ccls')
-   au User lsp_setup call lsp#register_server({
-      \ 'name': 'ccls',
-      \ 'cmd': {server_info->['ccls']},
-      \ 'initialization_options': {},
-      \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
-      \ })
-endif
-
-"if executable('clangd')
-    "au User lsp_setup call lsp#register_server({
-        "\ 'name': 'clangd',
-        "\ 'cmd': {server_info->['clangd', '-background-index']},
-        "\ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
-        "\ })
-"endif
-
-autocmd FileType dart autocmd BufEnter * call ncm2#override_source('dart', {'complete_length': 20})
-
-if executable('dart')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'dart',
-        \ 'cmd': {server_info->['dart', expand('~/programming_tools/dart-sdk/bin/snapshots/analysis_server.dart.snapshot'), '--lsp']},
-        \ 'whitelist': ['dart'],
-        \ })
-endif
-
-if executable('typescript-language-server')
-  au User lsp_setup call lsp#register_server({
-    \ 'name': 'ts',
-    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-    \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-    \ 'whitelist': ['javascript', 'typescript', 'typescript.tsx'],
-    \ })
-endif
-
-if executable('pyls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ 'workspace_config': {
-            \'pyls': {
-              \'configurationSources': ['flake8'],
-            \},
-          \}
-        \ })
-endif
+autocmd FileType go autocmd BufWritePre <buffer> execute 'Autoformat'
+autocmd FileType go setlocal omnifunc=lsp#complete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -446,28 +384,12 @@ set previewheight=10
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"setting for closing the preview window
-"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-"nnoremap <silent> <M-j> :call ClosePreview()<CR>
-
-"function ClosePreview()
-"if pumvisible() == 0|pclose|endif
-"endfunction
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "settings of ultisnips
 " Press tab key to trigger snippet expansion
 inoremap <silent> <expr> <tab> ncm2_ultisnips#expand_or("\<tab>", 'n')
 
-"ultisnips
-" c-j c-k for moving in snippet
 let g:UltiSnipsJumpForwardTrigger = '<c-j>'
 let g:UltiSnipsJumpBackwardTrigger  = '<c-k>'
-"let g:UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsRemoveSelectModeMappings = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -483,7 +405,6 @@ let g:indentLine_color_gui = '#7F7F7F'
 set listchars=tab:\¦\ 
 set list
 
-"let g:indentLine_enabled = 0
 let g:indentLine_fileTypeExclude = ['markdown', 'json']
 autocmd FileType json set conceallevel=0
 "let g:indentLine_char_list = ['|', '¦', '┆', '┊']
