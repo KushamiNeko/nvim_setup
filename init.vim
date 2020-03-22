@@ -128,13 +128,15 @@ Plugin 'othree/html5.vim'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"typescript
+"javascript typescript
+
+Plugin 'pangloss/vim-javascript'
 
 Plugin 'HerringtonDarkholme/yats.vim'
 
-"Plugin 'mhartington/nvim-typescript'
-
 Plugin 'MaxMEllon/vim-jsx-pretty'
+
+"Plugin 'mhartington/nvim-typescript'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
