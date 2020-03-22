@@ -133,6 +133,8 @@ Plugin 'othree/html5.vim'
 Plugin 'HerringtonDarkholme/yats.vim'
 
 "Plugin 'mhartington/nvim-typescript'
+
+Plugin 'MaxMEllon/vim-jsx-pretty'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -422,7 +424,7 @@ let g:delimitMate_expand_inside_quotes = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "setting of closetag
-let g:closetag_filenames = '*.html,*.xhtml,*.xml'
+let g:closetag_filenames = '*.html,*.xhtml,*.xml,*.js,*.jsx,*.tsx'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -441,11 +443,15 @@ let g:go_highlight_build_constraints = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "setting of autoformat
+let g:formatters_xml = ['prettier']
 let g:formatters_html = ['prettier']
+let g:formatters_xhtml = ['prettier']
 let g:formatters_css = ['prettier']
 let g:formatters_scss = ['prettier']
 let g:formatters_javascript = ['prettier']
 let g:formatters_typescript = ['prettier']
+let g:formatters_javascriptreact = ['prettier']
+let g:formatters_typescriptreact = ['prettier']
 let g:formatters_json = ['prettier']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -474,6 +480,9 @@ autocmd FileType html setl nowritebackup
 autocmd FileType css setl nowritebackup
 autocmd FileType scss setl nowritebackup
 autocmd FileType javascript setl nowritebackup
+autocmd FileType typescript setl nowritebackup
+autocmd FileType javascriptreact setl nowritebackup
+autocmd FileType typescriptreact setl nowritebackup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -481,6 +490,9 @@ autocmd FileType javascript setl nowritebackup
 "completefunc setup
 autocmd FileType html setl ofu=htmlcomplete#CompleteTags
 autocmd FileType html setl completefunc=htmlcomplete#CompleteTags
+
+autocmd FileType javascriptreact setl ofu=htmlcomplete#CompleteTags
+autocmd FileType typescriptreact setl ofu=htmlcomplete#CompleteTags
 
 autocmd FileType css setl ofu=csscomplete#CompleteCSS
 autocmd FileType css setl completefunc=csscomplete#CompleteCSS
