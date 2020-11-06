@@ -81,7 +81,7 @@ Plugin 'ncm2/ncm2-vim-lsp'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "async linter
 
-"Plugin 'dense-analysis/ale'
+Plugin 'dense-analysis/ale'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -104,7 +104,7 @@ Plugin 'sebdah/vim-delve'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "dart
 
-Plugin 'dart-lang/dart-vim-plugin'
+"Plugin 'dart-lang/dart-vim-plugin'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -113,8 +113,14 @@ Plugin 'dart-lang/dart-vim-plugin'
 
 Plugin 'fisadev/vim-isort'
 
-Plugin 'jpalardy/vim-slime'
+"Plugin 'jpalardy/vim-slime'
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"debugger
+"
 Plugin 'sakhnik/nvim-gdb'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -151,6 +157,8 @@ Plugin 'SirVer/ultisnips'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "utilities
+
+Plugin 'kien/ctrlp.vim'
 
 Plugin 'Shougo/echodoc.vim'
 
@@ -218,11 +226,13 @@ let g:ncm2_pyclang#library_path = '/usr/lib64/libclang.so.8'
 "\'c': ['gcc', 'clang', 'clangd', 'clang-tidy', 'clang-check'], 
 "\'cpp': ['gcc', 'clang', 'clangd', 'clang-tidy', 'clang-check'], 
 "\'go': ['staticcheck', 'golangci-lint', 'golint', 'errcheck'],
+"\'python': ['flake8', 'mypy', 'pylint', 'pyright', 'bandit'], 
 
 let g:ale_linters = {
       \'c': [''], 
       \'cpp': [''], 
-      \'python': ['flake8', 'mypy', 'bandit'], 
+      \'java': [''], 
+      \'python': ['flake8', 'mypy'], 
       \'go': [''],
       \'javascript': [''],
       \'typescript': ['']
