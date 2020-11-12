@@ -88,7 +88,7 @@ Plugin 'dense-analysis/ale'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "go
 
-"Plugin 'fatih/vim-go'
+Plugin 'fatih/vim-go'
 
 Plugin 'sebdah/vim-delve'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -232,7 +232,7 @@ let g:ale_linters = {
       \'c': [''], 
       \'cpp': [''], 
       \'java': [''], 
-      \'python': ['flake8', 'mypy'], 
+      \'python': ['flake8', 'mypy', 'pyright'], 
       \'go': [''],
       \'javascript': [''],
       \'typescript': ['']
@@ -243,49 +243,49 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 "let g:ale_lint_on_text_changed = 'never'
 "let g:ale_lint_on_insert_leave = 0
 
-"nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-"nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "simulate ipython cell
-function! ExecuteCell(move, begining)
-  let cl = line('.')
-  let cc = col('.')
-
-  "let pattern = '^#\s*%%\s*$'
-  let pattern = '^#\{30,\}$'
-
-  let sl = search(pattern, 'cbn')
-
-  if a:move
-    let el = search(pattern)
-  else
-    let el = search(pattern, 'n')
-  endif
-
-  "echo sl 
-  "echo el 
-
-  if a:begining
-    call slime#send_range(0, el)
-  else
-    call slime#send_range(sl, el)
-  endif
-
-endfunction
-
-nmap <silent> <Leader>e :call ExecuteCell(v:false, v:false)<CR>
-nmap <silent> <Leader>r :call ExecuteCell(v:true, v:false)<CR>
-nmap <silent> <Leader>a :call ExecuteCell(v:false, v:true)<CR>
+"function! ExecuteCell(move, begining)
+"  let cl = line('.')
+"  let cc = col('.')
+"
+"  "let pattern = '^#\s*%%\s*$'
+"  let pattern = '^#\{30,\}$'
+"
+"  let sl = search(pattern, 'cbn')
+"
+"  if a:move
+"    let el = search(pattern)
+"  else
+"    let el = search(pattern, 'n')
+"  endif
+"
+"  "echo sl 
+"  "echo el 
+"
+"  if a:begining
+"    call slime#send_range(0, el)
+"  else
+"    call slime#send_range(sl, el)
+"  endif
+"
+"endfunction
+"
+"nmap <silent> <Leader>e :call ExecuteCell(v:false, v:false)<CR>
+"nmap <silent> <Leader>r :call ExecuteCell(v:true, v:false)<CR>
+"nmap <silent> <Leader>a :call ExecuteCell(v:false, v:true)<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " settings of vim-slime
-let g:slime_target = "tmux"
-let g:slime_python_ipython = 1
+"let g:slime_target = 'tmux'
+"let g:slime_python_ipython = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -335,11 +335,11 @@ let g:vim_isort_python_version = 'python3'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "settings of dart
-let dart_format_on_save = 1
-let dart_style_guide = 2
-let dart_html_in_string=v:true
-let dart_highlight_types=v:true
-let dart_corelib_highlight=v:true
+"let dart_format_on_save = 1
+"let dart_style_guide = 2
+"let dart_html_in_string=v:true
+"let dart_highlight_types=v:true
+"let dart_corelib_highlight=v:true
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
