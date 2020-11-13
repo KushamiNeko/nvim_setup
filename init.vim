@@ -164,7 +164,9 @@ Plugin 'Shougo/echodoc.vim'
 
 Plugin 'Raimondi/delimitMate'
 
-Plugin 'majutsushi/tagbar'
+"Plugin 'majutsushi/tagbar'
+
+Plugin 'preservim/tagbar'
 
 Plugin 'alvan/vim-closetag'
 
@@ -177,6 +179,20 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'Yggdroot/indentLine'
 
 Plugin 'jsfaint/gen_tags.vim'
+
+Plugin 'airblade/vim-gitgutter'
+
+Plugin 'mileszs/ack.vim'
+
+Plugin 'tpope/vim-surround'
+
+Plugin 'mg979/vim-visual-multi'
+
+Plugin 'itchyny/lightline.vim'
+
+"Plugin 'junegunn/fzf.vim'
+
+Plugin 'mattn/emmet-vim'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
