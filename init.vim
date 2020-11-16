@@ -188,7 +188,7 @@ Plugin 'tpope/vim-surround'
 
 Plugin 'mg979/vim-visual-multi'
 
-Plugin 'itchyny/lightline.vim'
+"Plugin 'itchyny/lightline.vim'
 
 "Plugin 'junegunn/fzf.vim'
 
