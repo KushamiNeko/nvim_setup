@@ -120,29 +120,24 @@ Plugin 'fisadev/vim-isort'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "debugger
-"
+
 Plugin 'sakhnik/nvim-gdb'
+
+"Plugin 'vim-vdebug/vdebug'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"html css js
+"html css js ts
 
 Plugin 'othree/html5.vim'
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"javascript typescript
 
 Plugin 'pangloss/vim-javascript'
 
 Plugin 'HerringtonDarkholme/yats.vim'
 
 Plugin 'MaxMEllon/vim-jsx-pretty'
-
-"Plugin 'mhartington/nvim-typescript'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -158,13 +153,9 @@ Plugin 'SirVer/ultisnips'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "utilities
 
-Plugin 'kien/ctrlp.vim'
-
 Plugin 'Shougo/echodoc.vim'
 
 Plugin 'Raimondi/delimitMate'
-
-"Plugin 'majutsushi/tagbar'
 
 Plugin 'preservim/tagbar'
 
@@ -176,9 +167,7 @@ Plugin 'scrooloose/nerdcommenter'
 
 Plugin 'Chiel92/vim-autoformat'
 
-Plugin 'Yggdroot/indentLine'
-
-Plugin 'jsfaint/gen_tags.vim'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 Plugin 'airblade/vim-gitgutter'
 
@@ -188,11 +177,13 @@ Plugin 'tpope/vim-surround'
 
 Plugin 'mg979/vim-visual-multi'
 
-"Plugin 'itchyny/lightline.vim'
+Plugin 'junegunn/fzf.vim'
 
-"Plugin 'junegunn/fzf.vim'
+Plugin 'itchyny/lightline.vim'
 
 Plugin 'mattn/emmet-vim'
+
+"Plugin 'kien/ctrlp.vim'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -302,6 +293,15 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " settings of vim-slime
 "let g:slime_target = 'tmux'
 "let g:slime_python_ipython = 1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" settings of lightline
+let g:lightline = {
+  \ 'colorscheme': 'one',
+\ }
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -425,7 +425,9 @@ let g:UltiSnipsJumpBackwardTrigger  = '<c-k>'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " settings of indentLine
-let g:indentLine_color_gui = '#7F7F7F'
+"let g:indentLine_color_gui = '#7F7F7F'
+let g:indent_guides_enable_on_vim_startup = 1
+"let g:indent_guides_guide_size = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
