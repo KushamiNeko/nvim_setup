@@ -167,7 +167,9 @@ Plugin 'scrooloose/nerdcommenter'
 
 Plugin 'Chiel92/vim-autoformat'
 
-Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'Yggdroot/indentLine'
+
+"Plugin 'nathanaelkane/vim-indent-guides'
 
 Plugin 'airblade/vim-gitgutter'
 
@@ -308,31 +310,31 @@ let g:lightline = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " settings of Tagbar
 let g:tagbar_type_go = {
-	\ 'ctagstype' : 'go',
-	\ 'kinds'     : [
-		\ 'p:package',
-		\ 'i:imports:1',
-		\ 'c:constants',
-		\ 'v:variables',
-		\ 't:types',
-		\ 'n:interfaces',
-		\ 'w:fields',
-		\ 'e:embedded',
-		\ 'm:methods',
-		\ 'r:constructor',
-		\ 'f:functions'
-	\ ],
-	\ 'sro' : '.',
-	\ 'kind2scope' : {
-		\ 't' : 'ctype',
-		\ 'n' : 'ntype'
-	\ },
-	\ 'scope2kind' : {
-		\ 'ctype' : 't',
-		\ 'ntype' : 'n'
-	\ },
-	\ 'ctagsbin'  : 'gotags',
-	\ 'ctagsargs' : '-sort -silent'
+  \ 'ctagstype' : 'go',
+  \ 'kinds'     : [
+    \ 'p:package',
+    \ 'i:imports:1',
+    \ 'c:constants',
+    \ 'v:variables',
+    \ 't:types',
+    \ 'n:interfaces',
+    \ 'w:fields',
+    \ 'e:embedded',
+    \ 'm:methods',
+    \ 'r:constructor',
+    \ 'f:functions'
+  \ ],
+  \ 'sro' : '.',
+  \ 'kind2scope' : {
+    \ 't' : 'ctype',
+    \ 'n' : 'ntype'
+  \ },
+  \ 'scope2kind' : {
+    \ 'ctype' : 't',
+    \ 'ntype' : 'n'
+  \ },
+  \ 'ctagsbin'  : 'gotags',
+  \ 'ctagsargs' : '-sort -silent'
 \ }
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -425,9 +427,13 @@ let g:UltiSnipsJumpBackwardTrigger  = '<c-k>'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " settings of indentLine
-"let g:indentLine_color_gui = '#7F7F7F'
-let g:indent_guides_enable_on_vim_startup = 1
+let g:indentLine_color_gui = '#7F7F7F'
+
+"let g:indent_guides_enable_on_vim_startup = 1
 "let g:indent_guides_guide_size = 1
+"let g:indent_guides_color_change_percent = 15
+"let g:indent_guides_tab_guides = 0
+"let g:indent_guides_start_level= 2
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -436,11 +442,13 @@ let g:indent_guides_enable_on_vim_startup = 1
 "note that there is a space at the end of the listchars
 set listchars=tab:\¦\ 
 set list
+autocmd FileType go hi Whitespace guifg=#7F7F7F
 
 let g:indentLine_fileTypeExclude = ['markdown', 'json']
 autocmd FileType json set conceallevel=0
-"let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
 let g:indentLine_char_list = ['¦']
+"let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
