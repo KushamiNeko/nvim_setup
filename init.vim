@@ -404,7 +404,7 @@ let g:lsp_settings = {
   \},
 \}
 
-autocmd FileType go autocmd BufWritePre <buffer> execute 'Autoformat'
+"autocmd FileType go autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType go setlocal omnifunc=lsp#complete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -426,19 +426,9 @@ let g:UltiSnipsJumpBackwardTrigger  = '<c-k>'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" settings of indentLine
+" settings of indentLine and tab indent
 let g:indentLine_color_gui = '#7F7F7F'
 
-"let g:indent_guides_enable_on_vim_startup = 1
-"let g:indent_guides_guide_size = 1
-"let g:indent_guides_color_change_percent = 15
-"let g:indent_guides_tab_guides = 0
-"let g:indent_guides_start_level= 2
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"setings indent lines and tab indentations
 "note that there is a space at the end of the listchars
 set listchars=tab:\¦\ 
 set list
@@ -447,8 +437,9 @@ autocmd FileType go hi Whitespace guifg=#7F7F7F
 let g:indentLine_fileTypeExclude = ['markdown', 'json']
 autocmd FileType json set conceallevel=0
 
-let g:indentLine_char_list = ['¦']
 "let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+let g:indentLine_char_list = ['¦']
+let g:indentLine_showFirstIndentLevel = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
