@@ -175,7 +175,7 @@ Plugin 'airblade/vim-gitgutter'
 
 Plugin 'mileszs/ack.vim'
 
-Plugin 'tpope/vim-surround'
+"Plugin 'tpope/vim-surround'
 
 Plugin 'mg979/vim-visual-multi'
 
@@ -255,7 +255,6 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "simulate ipython cell
@@ -406,6 +405,8 @@ let g:lsp_settings = {
 
 "autocmd FileType go autocmd BufWritePre <buffer> execute 'Autoformat'
 autocmd FileType go setlocal omnifunc=lsp#complete
+
+autocmd FileType java autocmd BufWritePre <buffer> execute 'LspDocumentFormatSync'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -472,7 +473,7 @@ let g:go_highlight_build_constraints = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "setting of autoformat
-let g:formatters_xml = ['prettier']
+"let g:formatters_xml = ['prettier']
 let g:formatters_html = ['prettier']
 let g:formatters_xhtml = ['prettier']
 let g:formatters_css = ['prettier']
