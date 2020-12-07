@@ -79,6 +79,23 @@ Plugin 'ncm2/ncm2-vim-lsp'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"snippets
+
+Plugin 'ncm2/ncm2-ultisnips'
+
+Plugin 'SirVer/ultisnips'
+
+Plugin 'honza/vim-snippets'
+
+Plugin 'ncm2/ncm2-neosnippet'
+
+Plugin 'Shougo/neosnippet.vim'
+
+Plugin 'Shougo/neosnippet-snippets'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "async linter
 
 Plugin 'dense-analysis/ale'
@@ -138,15 +155,6 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'HerringtonDarkholme/yats.vim'
 
 Plugin 'MaxMEllon/vim-jsx-pretty'
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"snippets
-
-Plugin 'ncm2/ncm2-ultisnips'
-
-Plugin 'SirVer/ultisnips'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -407,6 +415,7 @@ let g:lsp_settings = {
 autocmd FileType go setlocal omnifunc=lsp#complete
 
 autocmd FileType java autocmd BufWritePre <buffer> execute 'LspDocumentFormatSync'
+autocmd FileType xml autocmd BufWritePre <buffer> execute 'LspDocumentFormatSync'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -446,7 +455,8 @@ let g:indentLine_showFirstIndentLevel = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "setting of delimitMate
-let g:delimitMate_matchpairs = '(:),[:],{:}'
+"let g:delimitMate_matchpairs = '(:),[:],{:}'
+let g:delimitMate_matchpairs = '[:],{:}'
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_inside_quotes = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
