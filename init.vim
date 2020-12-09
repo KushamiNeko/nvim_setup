@@ -249,7 +249,7 @@ let g:ale_linters = {
       \'c': [''], 
       \'cpp': [''], 
       \'java': [''], 
-      \'python': ['flake8', 'mypy', 'pyright'], 
+      \'python': ['flake8', 'mypy'], 
       \'go': [''],
       \'javascript': [''],
       \'typescript': ['']
