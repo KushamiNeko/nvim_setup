@@ -155,6 +155,10 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'HerringtonDarkholme/yats.vim'
 
 Plugin 'MaxMEllon/vim-jsx-pretty'
+
+"Plugin 'styled-components/vim-styled-components'
+
+"Plugin 'hail2u/vim-css3-syntax'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
