@@ -112,6 +112,13 @@ Plugin 'sebdah/vim-delve'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"java
+
+Plugin 'uiiaoo/java-syntax.vim'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "rust
 
 "Plugin 'rust-lang/rust.vim'
@@ -250,14 +257,15 @@ let g:ncm2_pyclang#library_path = '/usr/lib64/libclang.so.8'
 "\'python': ['flake8', 'mypy', 'pylint', 'pyright', 'bandit'], 
 
 let g:ale_linters = {
-      \'c': [''], 
-      \'cpp': [''], 
-      \'java': [''], 
       \'python': ['flake8', 'mypy'], 
-      \'go': [''],
-      \'javascript': [''],
-      \'typescript': ['']
       \}
+
+"\'c': [''], 
+"\'cpp': [''], 
+"\'java': [''], 
+"\'go': [''],
+"\'javascript': [''],
+"\'typescript': ['']
 
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
@@ -459,8 +467,8 @@ let g:indentLine_showFirstIndentLevel = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "setting of delimitMate
-"let g:delimitMate_matchpairs = '(:),[:],{:}'
-let g:delimitMate_matchpairs = '[:],{:}'
+let g:delimitMate_matchpairs = '(:),[:],{:}'
+"let g:delimitMate_matchpairs = '[:],{:}'
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_inside_quotes = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
